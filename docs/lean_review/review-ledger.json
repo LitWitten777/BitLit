@@ -1,0 +1,1827 @@
+{
+  "scope": "Source-level classification, not build certification. Full and targeted coverage explicitly distinguished. All other files pending, never classified from lexical metrics.",
+  "records": [
+    {
+      "review_id": "R01",
+      "path": "Sovereign/Combinatorics/TowerDegreeLimitLaw.lean",
+      "source_sha256": "96e3fa559c02065c75ab409f886bd2cc3bdf13aba0c87282a527b463e334ebf8",
+      "classification": "substantive",
+      "novelty_status": "source-specific mathematical novelty candidate; not established",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          429
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "censusMoment_poly",
+          "line": 200
+        },
+        {
+          "name": "tendsto_censusMoment_div_pow",
+          "line": 97
+        },
+        {
+          "name": "limitMoment_reflection",
+          "line": 342
+        },
+        {
+          "name": "limitMoment_eq_interp",
+          "line": 393
+        }
+      ],
+      "actual_content": "All-order exact polynomial degree k+2, vanishing subleading coefficient for k≥1, positive limiting moments, variance 7/60, all-order reflection and interpolation computation. Constants in LimitingDegreeDistribution are connected to real limits here.",
+      "limits": "Underlying combinatorial definitions and imported recurrence proofs are separate obligations; source inspection is not compilation. Classical polynomial/asymptotic tools are known.",
+      "strengthening_or_use": "Prioritize mathematical comparison of the precise census theorem; preserve the all-order theorem rather than proposing it anew.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R02",
+      "path": "Sovereign/Combinatorics/TowerDegreeLimitMeasure.lean",
+      "source_sha256": "5141265e5a07a5ffe0bd580874cd881630aecf6bc3041acd58ad9446c199b1d6",
+      "classification": "substantive",
+      "novelty_status": "source-specific mathematical novelty candidate; not established",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          529
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "censusT_wing_decomposition",
+          "line": 62
+        },
+        {
+          "name": "tendsto_census_integral",
+          "line": 380
+        },
+        {
+          "name": "censusLimitMeasure_moment",
+          "line": 515
+        },
+        {
+          "name": "censusLimitMeasure_isProbability",
+          "line": 522
+        }
+      ],
+      "actual_content": "Explicit limiting measure on [0,1], summable dyadic wings, Riemann-sum proof of convergence against continuous test functions, all moments and probability normalization.",
+      "limits": "This is a theorem about the defined degree census, not a distribution of cognition or physical states. Imported combinatorial provenance still needs build-level checking.",
+      "strengthening_or_use": "Use as the existing limit-measure backbone. Compare finite census data with the stated measure, without treating a numerical match as a new proof.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R03",
+      "path": "Sovereign/Combinatorics/TowerDegreeLimitDensity.lean",
+      "source_sha256": "6437503cf572d3dc627370e37513e078f70380703cc29b006770072606d05ce9",
+      "classification": "substantive",
+      "novelty_status": "source-specific mathematical novelty candidate; not established",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          182
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "tendsto_census_average",
+          "line": 31
+        },
+        {
+          "name": "censusLimitMeasure_eq_withDensity",
+          "line": 56
+        },
+        {
+          "name": "censusLimitDensity_shell",
+          "line": 118
+        },
+        {
+          "name": "censusLimitDensity_unbounded",
+          "line": 171
+        }
+      ],
+      "actual_content": "Normalized empirical weak convergence, explicit absolutely continuous density, reflection symmetry, central plateau 21/32 and unbounded endpoint shells.",
+      "limits": "Degree-census normalization and graph conventions must match when transported to another graph API. No evidence that the density characterizes consciousness.",
+      "strengthening_or_use": "High-priority research result: isolate exact statement and compare with prior Cayley–Dickson combinatorics. Do not replace with a guessed IFS.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R04",
+      "path": "Sovereign/Combinatorics/TowerDegreeIFSCorrection.lean",
+      "source_sha256": "d3f47baea583a46d259b947e990df684b5d64d70c19da04533ab0d901ac18bf2",
+      "classification": "substantive negative result",
+      "novelty_status": "specific correction; external novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          237
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "censusT_succ_normalized",
+          "line": 96
+        },
+        {
+          "name": "planIFS_uniform_invariant",
+          "line": 134
+        },
+        {
+          "name": "planIFS_moments",
+          "line": 201
+        },
+        {
+          "name": "census_limit_not_planIFS",
+          "line": 230
+        }
+      ],
+      "actual_content": "Derives the actual normalized census recurrence and disproves the proposed half-scale IFS as its limit model: invariant second moment 1/3 conflicts with census 11/30.",
+      "limits": "This rules out the specified IFS, not every self-similar description or every toroidal representation.",
+      "strengthening_or_use": "Retain this as a mandatory regression/falsification test for future geometric models.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R05",
+      "path": "Sovereign/Combinatorics/TowerSectorChristol.lean",
+      "source_sha256": "071830ee01f49661130c931296e8fe4fd3cd58dcb5961fc9fb0380edd4251c91",
+      "classification": "substantive",
+      "novelty_status": "known lacunary-series mathematics plus source-specific census connection candidate",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          224
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "topSector_eq_one_iff",
+          "line": 45
+        },
+        {
+          "name": "topSectorSeries_algebraic",
+          "line": 150
+        },
+        {
+          "name": "topSectorSeries_not_rational",
+          "line": 190
+        }
+      ],
+      "actual_content": "Links census mod 24 to all-one binary indices 2^n−1, proves xF²+F+x=0 over ZMod 2 and nonrationality by a gap argument.",
+      "limits": "Algebraicity of this characteristic-2 lacunary series is standard; the census identification is the possible contribution.",
+      "strengthening_or_use": "Extract the explicit automaton/census correspondence and compare with existing automatic-sequence literature.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R06",
+      "path": "Sovereign/Meta/StateOfThoughtG2Quotient.lean",
+      "source_sha256": "9c49d2947db8d16fd5b394c2f76e871d2d46cefff920dfc94ebdb8d284abf72d",
+      "classification": "substantive known-mathematics formalization",
+      "novelty_status": "geometric identification already in literature; formalization novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          218
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "isCompact_matSet",
+          "line": 87
+        },
+        {
+          "name": "quotientHomeomorphImOrthPair",
+          "line": 125
+        },
+        {
+          "name": "stiefelV27HomeomorphG2Quotient",
+          "line": 206
+        }
+      ],
+      "actual_content": "Actual compactness and orbit-space topology: a quotient homeomorphism, an orthonormal-pair/Stiefel homeomorphism and composition to G₂/Stab.",
+      "limits": "Not just a dimension count. Stabilizer identification is imported; this pass does not reprove or compile that dependency.",
+      "strengthening_or_use": "Reuse this existing topology as the geometric interface; compare conventions with Reggiani and Moreno.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R07",
+      "path": "Sovereign/Meta/StateOfThoughtG2Frames.lean",
+      "source_sha256": "e597e5acc1a823a457ff24011bfdcc7bb4b24541ca42083a6ad541d08705bca8",
+      "classification": "substantive known-mathematics formalization",
+      "novelty_status": "known G₂ geometry; formalization contribution possible",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          193
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "eq_of_basis",
+          "line": 48
+        },
+        {
+          "name": "homeomorphBasicTriples",
+          "line": 98
+        },
+        {
+          "name": "unitZeroDivisorsHomeomorphG2Quotient",
+          "line": 110
+        },
+        {
+          "name": "exists_diagAct_eq",
+          "line": 176
+        }
+      ],
+      "actual_content": "G₂ rigidity from e1,e2,e4, a basic-triple homeomorphism, unit-zero-divisor quotient and transitive diagonal action.",
+      "limits": "These results do not show that arbitrary encoders or Hadamard descriptors are equivariant.",
+      "strengthening_or_use": "Use actual action and quotient maps, not a numerical 11-dimensional proxy, in representation experiments.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R08",
+      "path": "Sovereign/Meta/StateOfThoughtG2Symmetry.lean",
+      "source_sha256": "1382ee6105a86a66559b2684cf0bb41097c7507180aeee10f14d5a7c90cf1b6f",
+      "classification": "substantive known-mathematics formalization",
+      "novelty_status": "known algebraic symmetry; formalization novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          197
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "map_one",
+          "line": 118
+        },
+        {
+          "name": "map_re",
+          "line": 144
+        },
+        {
+          "name": "diagAct_mul",
+          "line": 160
+        },
+        {
+          "name": "diagAct_zeroDivisor_iff",
+          "line": 188
+        }
+      ],
+      "actual_content": "Orthogonal octonion automorphisms preserve 1, real part and conjugation; diagonal action preserves sedenion multiplication and the zero-divisor locus.",
+      "limits": "No general equivariance theorem for the complete organism encoding follows.",
+      "strengthening_or_use": "Test or prove equivariance of the actual encoder before treating G₂ symmetry as a functional advantage.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R09",
+      "path": "Sovereign/Geometry/StiefelCubature.lean",
+      "source_sha256": "bed7a0a99c6596d212e83b8632b8d3749e74472760a9b32e5c0753f7e35c65cf",
+      "classification": "substantive finite structural certificate",
+      "novelty_status": "specific projected-operator identity is a novelty candidate; 168 count itself is known",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          160
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "harmonic_gram",
+          "line": 114
+        },
+        {
+          "name": "projected_adjacency",
+          "line": 124
+        },
+        {
+          "name": "projected_eigenvectors",
+          "line": 135
+        },
+        {
+          "name": "projected_trace",
+          "line": 148
+        }
+      ],
+      "actual_content": "Constructs a 168×21 integer evaluation matrix using u,v and a Fano cross-product table; proves MᵀM=24I and MᵀAM=diag(0×14,−192×7).",
+      "limits": "Finite tight-frame and compressed-operator identities are genuine. The definitions use list matrices and a Fano table; continuous invariant-measure integration, Laplace–Beltrami eigenfunction identification and AM=MB are not established by these statements. native_decide is used for adjacency.",
+      "strengthening_or_use": "First check existing geometry dependencies for continuous harmonic identification and cross-product convention. Then formulate any remaining commuting-diagram/invariant-subspace theorem; do not claim the finite certificate is missing.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R10",
+      "path": "Sovereign/Algebra/CrossHalfComponents.lean",
+      "source_sha256": "995c42c12bc41492c71247481337d66cfbf85637225112499769bcb8645027cb",
+      "classification": "substantive",
+      "novelty_status": "known finite zero-divisor structures; exact universal formal theorem novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          225
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "vec_mul_eq_zero_iff",
+          "line": 56
+        },
+        {
+          "name": "isCrossZD_iff",
+          "line": 87
+        },
+        {
+          "name": "crossZD_card",
+          "line": 119
+        },
+        {
+          "name": "crossSector_card",
+          "line": 129
+        },
+        {
+          "name": "reachable_mem",
+          "line": 214
+        }
+      ],
+      "actual_content": "Actual tower multiplication is linked to the XOR/parity edge law, admissible labels, universal count (D−2)(D−4), sector size 2(D−4), and charge preservation under paths.",
+      "limits": "This file gives path confinement, not by itself the converse connectivity theorem. Counts concern signed cross-half labels, not all real zero divisors or a projective quotient.",
+      "strengthening_or_use": "Reuse the multiplication-to-graph provenance and existing connectivity modules. Never infer a continuum zero-divisor count from this finite set.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R11",
+      "path": "Sovereign/Algebra/CrossHalfPoincare.lean",
+      "source_sha256": "8357a490a4cae2454f5e87f67a02a3b6b293cd8bf82e607acdf0579420a63c74",
+      "classification": "substantive targeted result",
+      "novelty_status": "specific bound/formalization novelty unchecked",
+      "coverage": "targeted source review: endpoint proofs; routing body pending",
+      "line_ranges": [
+        [
+          389,
+          470
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "component_degree_pos",
+          "line": 396
+        },
+        {
+          "name": "component_normSpectralGap_ge",
+          "line": 405
+        },
+        {
+          "name": "component_normSpectralGap_ge_cos",
+          "line": 441
+        },
+        {
+          "name": "component_expander_mixing",
+          "line": 459
+        }
+      ],
+      "actual_content": "For N≥7 (D=2^(N+1)≥256), existing code proves component normalized-gap lower bound 1/[24(D−4)], a cosine bound and mixing inequality.",
+      "limits": "Reviewed endpoint proof bodies, not the full 230-line routing case analysis. The lower bound decays with D; positivity does not establish a dimension-independent expander family or a two-sided absolute spectral gap.",
+      "strengthening_or_use": "Reuse rather than rediscover. Audit normalization, bipartiteness and normMixingParam before turning this into a strong routing-performance claim.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R12",
+      "path": "Sovereign/Organism/Core.lean",
+      "source_sha256": "520060a7892f2903cff4052267dcfe48fb51c866d766f1e747d5eba565c78f85",
+      "classification": "substantive executable-model invariants",
+      "novelty_status": "engineering synthesis; mathematical novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          395
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "tick_optimal",
+          "line": 213
+        },
+        {
+          "name": "run_init_safe",
+          "line": 253
+        },
+        {
+          "name": "tick_product_ne_zero",
+          "line": 268
+        },
+        {
+          "name": "run_wellFounded",
+          "line": 356
+        },
+        {
+          "name": "run_noCycle",
+          "line": 360
+        },
+        {
+          "name": "tick_memory_le",
+          "line": 381
+        }
+      ],
+      "actual_content": "Rational quaternion inputs, memory, sedenion descriptors, nonzero-product guard, candidate argmin, curvature/oscillation penalty, well-founded premise graph and stopping-state behavior.",
+      "limits": "Optimality is over the supplied safe candidate list. Memory bound does not bound the append-only log/derivation. No semantic reasoning-quality or consciousness theorem; this module does not prove arbitrary trajectories eventually halt.",
+      "strengthening_or_use": "Keep as one operational kernel; benchmark against matched vector/associative baselines while preserving proof and event provenance.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R13",
+      "path": "Sovereign/Organism/Cycles.lean",
+      "source_sha256": "c544245ac26cc73ac255082ed4c40450a33de75ccc04d9689401dbb062b6c29b",
+      "classification": "substantive corrective interface",
+      "novelty_status": "specific design correction; external novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          75
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "return_curvature_zero",
+          "line": 44
+        },
+        {
+          "name": "oscillation_detected",
+          "line": 66
+        },
+        {
+          "name": "loopPenalty_fixed",
+          "line": 71
+        }
+      ],
+      "actual_content": "Proves the associator is blind to A→B→A returns; adds an oscillation penalty while excluding fixed points. Explicitly distinguishes directed premise cycles from undirected H¹.",
+      "limits": "Period-2 penalty is not a complete trajectory-period detector. General premise-cycle exclusion is supplied by the separate Derivation module.",
+      "strengthening_or_use": "Reuse the existing directed dependency check; do not reject valid reasoning diamonds merely because their undirected graph has a cycle.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R14",
+      "path": "Formal/Agents/Organism.lean",
+      "source_sha256": "e3618ab51150932128b64bb3d2e7f6b7dc2b37eea5970094b0499c130eda6add",
+      "classification": "substantive control-system formalization",
+      "novelty_status": "engineering synthesis; mathematical novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          503
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "run_conserves",
+          "line": 316
+        },
+        {
+          "name": "run_sound",
+          "line": 320
+        },
+        {
+          "name": "run_topo",
+          "line": 328
+        },
+        {
+          "name": "run_batch",
+          "line": 332
+        },
+        {
+          "name": "run_halts",
+          "line": 390
+        },
+        {
+          "name": "run_complete",
+          "line": 469
+        }
+      ],
+      "actual_content": "Generate/verify scheduler, dependency order and batch constraints, conservation, explicit finite halting bound and conditional completion; Gray-code phase correspondence.",
+      "limits": "run_sound records acceptance by the supplied Boolean verifier, not semantic truth without a verifier-soundness contract. Completion assumes every input obligation is accepted at every time, well-founded dependencies and sufficient capacity/window. Gray/merkaba is a phase encoding, not a consciousness mechanism.",
+      "strengthening_or_use": "Potential orchestration layer above Core: validate runtime refinement and the actual external verifier interface; do not build a replacement scheduler before checking this one.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R15",
+      "path": "Sovereign/InvariantRepair/Engine.lean",
+      "source_sha256": "44254b63730c4c45289bbf318bd6f25b1260fd412c198c747438314ed8100036",
+      "classification": "substantive verified algorithm",
+      "novelty_status": "engineering/formalization contribution; novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          398
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "kernel_sound",
+          "line": 72
+        },
+        {
+          "name": "admitted_sound",
+          "line": 194
+        },
+        {
+          "name": "synth_stuck",
+          "line": 305
+        },
+        {
+          "name": "synthCalls_le",
+          "line": 337
+        },
+        {
+          "name": "repair_sound",
+          "line": 375
+        }
+      ],
+      "actual_content": "Sound custom rule kernel for finite transition systems; relative-inductive strata, synthesis from a library, stuckness and certificate-size/check-count bounds.",
+      "limits": "Custom object-language kernel, not the Lean elaborator. A quadratic number of abstract checks is not a polynomial wall-clock/bit-complexity guarantee; each check can inspect the finite state space. Search quality depends on library/embedding.",
+      "strengthening_or_use": "Use as the admission/synthesis component, measure checker cost and success on fixed benchmark tasks; inspect existing abduction and repair libraries before new work.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R16",
+      "path": "Sovereign/ClosedLoop/Main.lean",
+      "source_sha256": "b78727d76a38cb8b929eca524687910d0570c378bce9be4fbd68195afaeabd3e",
+      "classification": "substantive assembled model theorem",
+      "novelty_status": "engineering synthesis; novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          92
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "synthesized_H1_zero",
+          "line": 37
+        },
+        {
+          "name": "closed_loop_main",
+          "line": 50
+        },
+        {
+          "name": "allocation_main",
+          "line": 79
+        }
+      ],
+      "actual_content": "Packages finite-state invariant safety, monotone strata, special certificate-tree noncircularity, conditional fairness/completeness, Kelly allocation and regret guarantees.",
+      "limits": "H¹=0 concerns the constructed certGraph, not arbitrary reasoning DAGs. Soundness is for the specified finite loop. Allocation guarantees assume the defined payoff/wealth model, not arbitrary hardware or real-world ruin.",
+      "strengthening_or_use": "Compose existing certified interfaces into an integration test; explicitly map the custom verifier to runtime behavior.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R17",
+      "path": "Sovereign/Meta/CertifiedUpgrade.lean",
+      "source_sha256": "a57a31f43c94ec2481f0b97266519d13848302f139425d403a9a396d0a7d891d",
+      "classification": "substantive interface and preservation theory",
+      "novelty_status": "known program-correctness pattern; application novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          211
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "upgrade_of_pass",
+          "line": 68
+        },
+        {
+          "name": "Chain.upgrade",
+          "line": 135
+        },
+        {
+          "name": "run_certified_monotone",
+          "line": 203
+        },
+        {
+          "name": "trivial_not_certified_monotone",
+          "line": 207
+        }
+      ],
+      "actual_content": "Faithful engines and obligations, shrinking/preserving passes, composable upgrade chains, cost and nonregression contracts, rejection of a trivial unfaithful engine.",
+      "limits": "Specified propositional language and cost model; no general intelligence-growth theorem.",
+      "strengthening_or_use": "Reuse the certified boundary rather than assuming geometric contraction makes an upgrade correct.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R18",
+      "path": "Sovereign/Meta/UpgradeEngine/SelfImprovement.lean",
+      "source_sha256": "3492906f5c32e32fab39f65195009b868407a8ec3c7c4d50547381538edb332a",
+      "classification": "substantive control-system formalization",
+      "novelty_status": "engineering synthesis with concrete strict example",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          240
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "round_rejected",
+          "line": 88
+        },
+        {
+          "name": "round_unhealthy",
+          "line": 97
+        },
+        {
+          "name": "selfImprove_powerLE",
+          "line": 153
+        },
+        {
+          "name": "selfImprove_no_regression",
+          "line": 165
+        },
+        {
+          "name": "lra_selfImprove_example",
+          "line": 223
+        }
+      ],
+      "actual_content": "Certificate admission, health checks, rollback and quarantine, monotone modeled refutation power, plus a strict skeleton→linear-arithmetic example.",
+      "limits": "Monotonicity is defined engine power; health is a supplied check. Most next-engine functions are abstract; noncomputable certificate generation is not a deployed improvement algorithm.",
+      "strengthening_or_use": "Reuse this policy as the update controller and verify runtime refinement/benchmark scope; preserve separate objective and resource controls.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R19",
+      "path": "Sovereign/NeuroBridge/Proposer.lean",
+      "source_sha256": "ccc368db77c8d0750f3348c2587581ca702f1a58e1311d5a7cf78a40b8e285a5",
+      "classification": "substantive model with overbroad compilation language",
+      "novelty_status": "engineering interface; novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          300
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "dH_origin_pos",
+          "line": 122
+        },
+        {
+          "name": "beam_kelly_optimal",
+          "line": 194
+        },
+        {
+          "name": "accepted_sound",
+          "line": 247
+        },
+        {
+          "name": "accepted_valid",
+          "line": 263
+        },
+        {
+          "name": "hole_not_accepted",
+          "line": 293
+        }
+      ],
+      "actual_content": "Untrusted candidate paths, depth-based hyperbolic position, horizon pruning, beam order, strict object-language checking and semantic soundness conditional on valid library.",
+      "limits": "The phrase “compiles unconditionally” refers to Sovereign.Repair.strict on PTree RRule, not arbitrary Lean source passing the actual Lean compiler. Radius ranking here is exactly depth ranking; noncomputable definitions need executable counterparts.",
+      "strengthening_or_use": "Compare depth-only beam to geometry-aware alternatives and verify actual compiler adapters. Never promote this theorem to universal Lean-code acceptance.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R20",
+      "path": "Sovereign/Refutation/Loop.lean",
+      "source_sha256": "c4ed707acc28d9adbe3a8002b6949aebe24496514a8883d36f8cd5968ae1fa8d",
+      "classification": "substantive verified algorithm",
+      "novelty_status": "known certificate architecture; synthesis novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          299
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "negation",
+          "line": 55
+        },
+        {
+          "name": "run_prefix",
+          "line": 197
+        },
+        {
+          "name": "certOf_stable",
+          "line": 219
+        },
+        {
+          "name": "refuted_not_valid",
+          "line": 265
+        },
+        {
+          "name": "refuted_of_search",
+          "line": 293
+        }
+      ],
+      "actual_content": "Untrusted conjectures/search, checked witness certificates, append-only immutable refutation log, no duplicate candidates and validity preservation.",
+      "limits": "Completeness only when a proposed candidate receives a genuine counterexample from search; not a complete solver of all false statements.",
+      "strengthening_or_use": "Use this existing negative-evidence ledger as the system’s falsification core, including model-family rejection and preserved counterexamples.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R21",
+      "path": "Sovereign/Swarm/Convergence.lean",
+      "source_sha256": "be45cc9668e709ae5fa3f197fb648078b111ff60e988e6534e689bf518a51332",
+      "classification": "substantive conditional probabilistic model",
+      "novelty_status": "known geometric-tail/BFT patterns; synthesis novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          217
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "rejection_tail",
+          "line": 127
+        },
+        {
+          "name": "rejected_ae",
+          "line": 140
+        },
+        {
+          "name": "convergence",
+          "line": 189
+        }
+      ],
+      "actual_content": "Pathwise nonacceptance of ungrounded claims under verifier/BFT conditions; geometric tail and almost-sure permanent rejection with positive iid probe probability; immutable receipts.",
+      "limits": "The iid positive-probability success mechanism and refutation synthesizer are model assumptions. Not a theorem that arbitrary multi-agent reasoning converges to truth.",
+      "strengthening_or_use": "Retain safety contracts; estimate or challenge the probe assumptions with correlated, nonstationary and adversarial benchmark cases.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R22",
+      "path": "Sovereign/Reconstruction/UniversalFunctor.lean",
+      "source_sha256": "cedbe8825bf8dd6e3718b6cd7c39d9cd1dd80946966c41833d0e07c4cf301ced",
+      "classification": "substantive reconstruction formalization",
+      "novelty_status": "known interpolation and category patterns; synthesis novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          271
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "reconstruction_bound_sharp",
+          "line": 132
+        },
+        {
+          "name": "certFunctor_faithful",
+          "line": 190
+        },
+        {
+          "name": "universal_reconstruction_sharp",
+          "line": 208
+        }
+      ],
+      "actual_content": "Actual category/functor, faithful morphism encoding and Hessian-bounded multilinear interpolation error δ²·hessNorm/2 on an infinite exact lattice.",
+      "limits": "FieldSolution includes a proof of CoupledFieldEquations as input; it does not infer PDE laws from sensor data. Faithfulness retains morphism shift; it does not prove globally unique physical reality from finite noisy measurements.",
+      "strengthening_or_use": "Useful reconstruction baseline. Check existing sensor/reconstruction modules before proposing finite-noise extensions, and separate sampling error from model-selection error.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R23",
+      "path": "Sovereign/Pipeline/Cavity/Attractor.lean",
+      "source_sha256": "17425ea1304dffada77b676a192d1e6cc1a679cf81568240d2adde40b4e537cd",
+      "classification": "substantive conditional physical-model theorem",
+      "novelty_status": "known topological stability tools; integrated application novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          268
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "windingNumber_modeField_eq",
+          "line": 76
+        },
+        {
+          "name": "windingNumber_modeField_const",
+          "line": 87
+        },
+        {
+          "name": "charge_locked",
+          "line": 191
+        },
+        {
+          "name": "trap_locked",
+          "line": 245
+        }
+      ],
+      "actual_content": "Modal-field perturbation bounds preserve winding under nonvanishing margins; attractor tubes lock acoustic/optical charges and calibrated potential barriers imply a local minimum.",
+      "limits": "Requires mode shapes, uniform nonzero margins and TrapCalibration’s continuity/Lipschitz/barrier assumptions. U is a supplied potential, not a derivation of a full acoustic experiment.",
+      "strengthening_or_use": "A concrete geometry-to-measurement candidate: measure mode/calibration margins first, then test robustness. No consciousness inference from winding stability.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R24",
+      "path": "Sovereign/Autonomous/HardwareLoop.lean",
+      "source_sha256": "4d091ac591323fd12a69ad6945af65c9a6352b6c20abc61897e4f59bd59bb2f1",
+      "classification": "substantive mixed integration model",
+      "novelty_status": "known extractor/control tools; integrated application novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          265
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "harvest_statDist_le",
+          "line": 83
+        },
+        {
+          "name": "thermal_harvester",
+          "line": 131
+        },
+        {
+          "name": "discreteWinding_quadPhasor",
+          "line": 168
+        },
+        {
+          "name": "decoder_invariants",
+          "line": 223
+        }
+      ],
+      "actual_content": "i.i.d digitized-noise entropy/extraction bounds including joint seed/output distance; encoder winding, steering and lattice-pointer invariants.",
+      "limits": "Assumptions about noise and hardware are not measured here. The all-functions universal-hash family is not an efficient extractor by itself. Symplectic form is on the ambient pair space, not an assertion that the 11D Stiefel manifold is symplectic.",
+      "strengthening_or_use": "Reuse proof-model interfaces, then audit actual entropy source, extraction efficiency and actuator refinement.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R25",
+      "path": "Sovereign/Meta/StateOfThoughtSedenion.lean",
+      "source_sha256": "3abc01a3e7bc8867723f2a744d5ad165e65f771a2908973614f5c2845ae516c7",
+      "classification": "substantive algebra and diagnostic identities",
+      "novelty_status": "known scalar-product algebra plus concrete descriptor witnesses",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          170
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "sedenion_score_eq_inner",
+          "line": 26
+        },
+        {
+          "name": "descriptor_zero_divisor",
+          "line": 101
+        },
+        {
+          "name": "descriptor_associator_ne_zero",
+          "line": 153
+        }
+      ],
+      "actual_content": "Score is the ordinary 16D dot product; explicit descriptor zero divisors with nonzero annihilator and a nonzero associator witness.",
+      "limits": "Renaming a dot-product score as sedenionic does not add representational power. Distinctive behavior must use multiplication, associator or guard.",
+      "strengthening_or_use": "Ablate these actual operations separately from vector scoring and compare matched dimensionality and compute.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R26",
+      "path": "Sovereign/Meta/StateOfThoughtCurvature.lean",
+      "source_sha256": "f4e8780a15416a84ef376a9beb24e1dab56ea933a372db6019c3c0f7493988d0",
+      "classification": "substantive algebra with interpretive caveats",
+      "novelty_status": "mostly known flexibility/norm mathematics; application novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          328
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "assoc_four_flexible",
+          "line": 30
+        },
+        {
+          "name": "ricci_eq",
+          "line": 171
+        },
+        {
+          "name": "nsq_mul_le_two_mul",
+          "line": 190
+        },
+        {
+          "name": "deductive_chain_curvature_vanishes",
+          "line": 276
+        },
+        {
+          "name": "quaternionic_curvature_vanishes",
+          "line": 314
+        }
+      ],
+      "actual_content": "Flexibility, zero real associator, norm-defect identity, quantitative bounds and associative special-family vanishing.",
+      "limits": "IsDeductiveChain is defined as lying in a common span{1,u}; it is not the predicate of logical validity. Ricci here is a defined norm-defect scalar, not automatically a Riemannian Ricci tensor.",
+      "strengthening_or_use": "Treat associator as a candidate statistic; validate against proof failures/cycle classes and the documented period-2 blind spot.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R27",
+      "path": "Sovereign/Geometry/HigherCohomologyVanishing.lean",
+      "source_sha256": "0be6ac288a7353f897d61b399880ce7e0f339bc0ddd697edd2d0b3caf0873696",
+      "classification": "substantive restricted cochain identities",
+      "novelty_status": "standard cohomological mechanism; exact formalization novelty unchecked",
+      "coverage": "source definitions and proofs reviewed; header triaged",
+      "line_ranges": [
+        [
+          30,
+          163
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "delta_cup21",
+          "line": 90
+        },
+        {
+          "name": "cup31_assoc_eq_delta",
+          "line": 99
+        },
+        {
+          "name": "delta_cup12",
+          "line": 110
+        },
+        {
+          "name": "cup13_assoc_eq_delta",
+          "line": 119
+        }
+      ],
+      "actual_content": "Explicit Boolean cochain differentials and cup products construct primitives for the specified products involving the associator coboundary.",
+      "limits": "Does not prove every H⁴ class vanishes. Small Boolean case proofs can still be meaningful structural algebra.",
+      "strengthening_or_use": "Reuse exact cocycle/coboundary statements and identify the complex/action actually used by any downstream model.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R28",
+      "path": "Sovereign/Quantum/ToricCodeHGP.lean",
+      "source_sha256": "ea3bdd2b3d9e58363695b5dece45566d74dcb03ff9de6b7f8833cc6cf12e73c9",
+      "classification": "substantive known-mathematics formalization",
+      "novelty_status": "known toric/surface-code parameters; formalization contribution possible",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          310
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "toricCode_params",
+          "line": 141
+        },
+        {
+          "name": "toricCode_correctable",
+          "line": 164
+        },
+        {
+          "name": "surfaceCode_params",
+          "line": 234
+        },
+        {
+          "name": "toricCode_ldpc",
+          "line": 276
+        }
+      ],
+      "actual_content": "Actual cyclic/open check matrices, kernel dimensions, rank, exact toric [[2L²,2,L]] and planar [[(n+1)²+n²,1,n+1]] parameters, correctability and LDPC bounds through HGP theorems.",
+      "limits": "Does not give an experimental quantum device or tie the placeholder associator subsystem to this construction. Imported general-distance proofs not fully reviewed here.",
+      "strengthening_or_use": "Reuse this existing code-construction library when strengthening subsystem claims; do not say the corpus lacks actual stabilizer/distance constructions.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R29",
+      "path": "Formal/GateReachability.lean",
+      "source_sha256": "ceb87f4dd033bf38febcd3c8a1573d25a1626951882aa4259448061c4596b3a5",
+      "classification": "substantive negative/design result",
+      "novelty_status": "known group-action tools; project-specific obstruction",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          153
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "exists_gate_act_eq_iff",
+          "line": 82
+        },
+        {
+          "name": "not_exists_gate_eq_flipBit",
+          "line": 125
+        },
+        {
+          "name": "shift_conj",
+          "line": 146
+        }
+      ],
+      "actual_content": "Exact gate orbits iff Hamming weights agree; no gate realizes a single bit flip; conjugacy loses individual winding information in the abelian shift component.",
+      "limits": "Restricts this gate set only. Does not refute hypercube addressing, all torus models, or arbitrary enriched gate sets.",
+      "strengthening_or_use": "Existing mandatory design constraint: enrich the primitives only if the task requires those moves, and benchmark against simpler addressing.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R30",
+      "path": "Formal/ToricTranslation.lean",
+      "source_sha256": "ecc6353bdc958b2975efb6c8d8de91a5f39b50b2e0ef97cfc27b8f58321d10a0",
+      "classification": "substantive negative/design result",
+      "novelty_status": "known toric-code topology; explicit integration value",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          245
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "transL_mem_stabSpan",
+          "line": 78
+        },
+        {
+          "name": "transL_logical_sub_mem",
+          "line": 209
+        },
+        {
+          "name": "transL_sub_mem_of_commutes",
+          "line": 240
+        }
+      ],
+      "actual_content": "Translations preserve stabilizers and change every commuting Pauli logical operator only by a stabilizer; logical action is identity.",
+      "limits": "Protection against these translations is not logical controllability or full error correction. Does not establish a braiding implementation.",
+      "strengthening_or_use": "Existing finding: translation alone cannot manipulate protected memory. Inspect other existing gate/braid code before selecting an additional logical-control mechanism.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R31",
+      "path": "Sovereign/Meta/MillenniumImpactAudit.lean",
+      "source_sha256": "6e09b5c1d83b7c9544efa1e9b8b5b70c2ab7a6fcf6832f66ba16c8f9fa030d0e",
+      "classification": "substantive audit and mixed mathematics",
+      "novelty_status": "known spectral inequalities; no Clay-problem novelty",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          287
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "implication_from_theorem_iff",
+          "line": 94
+        },
+        {
+          "name": "annihilation_bipartite",
+          "line": 151
+        },
+        {
+          "name": "annihilation_gap_is_extremal",
+          "line": 221
+        },
+        {
+          "name": "stiefel_spectral_gap",
+          "line": 246
+        }
+      ],
+      "actual_content": "Honest audit separating established finite identities from open-problem reductions; finite bipartite adjacency/eigenvalue facts; inequality for an explicit Stiefel eigenvalue formula.",
+      "limits": "The numeric formula is not itself an identified Laplace–Beltrami spectrum. The theorem (p→q)↔q given p is logic, not a reduction solving q.",
+      "strengthening_or_use": "Preserve this source’s own scope corrections; trace analytic operator identification before making continuum spectral claims.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R32",
+      "path": "Sovereign/Meta/UniversalGenesisTypeTheory.lean",
+      "source_sha256": "f560488e7db2fefc9acea8057f4080825c239440d4e470faf473fefa306b229b",
+      "classification": "definitional scaffold",
+      "novelty_status": "no established mathematical or physical novelty",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          58
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "biological_physical_4frame_coincidence",
+          "line": 38
+        },
+        {
+          "name": "discrete_2frame_count",
+          "line": 46
+        },
+        {
+          "name": "genesis_algebraic_dimension",
+          "line": 54
+        }
+      ],
+      "actual_content": "Rank labels, arithmetic Stiefel dimension formula and equality of quantities each defined to be four; 168 is assigned as a constant.",
+      "limits": "No constructed manifold, DNA mechanism, spacetime derivation or causal connection follows. Actual G₂/Stiefel topology and finite cubature exist elsewhere.",
+      "strengthening_or_use": "Keep as hypothesis metadata, not evidence. Replace a coincidence claim only with a typed bridge to an independently defined observable or mechanism.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R33",
+      "path": "Sovereign/Meta/TowerOrganism.lean",
+      "source_sha256": "6ca92409df8934206fa047881ea5da88671f1b2ba1ec0a865766f1860b23a6cc",
+      "classification": "mixed: genuine scalar bound and named proxies",
+      "novelty_status": "elementary dynamics; no established geometric/cognitive novelty",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          149
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "surgery_magSq_contract",
+          "line": 25
+        },
+        {
+          "name": "no_surgery_in_box",
+          "line": 37
+        },
+        {
+          "name": "universal_tower_zd_triangular",
+          "line": 69
+        },
+        {
+          "name": "tower_sheaf_flat_d16_postsurgery",
+          "line": 144
+        }
+      ],
+      "actual_content": "Three-scalar surgery proves contraction ≤0.64 and invariant-box behavior; other counts are assigned polynomial/table functions and sheaf-flatness is a threshold predicate.",
+      "limits": "No zero-divisor-set cardinality or sheaf-cohomology interpretation is proved by those proxies here.",
+      "strengthening_or_use": "Retain scalar controller if useful; connect counts to actual CrossHalfComponents and flatness to an actual sheaf object only after checking existing consensus/sheaf modules.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R34",
+      "path": "Sovereign/Geometry/ToroidalEmbedding.lean",
+      "source_sha256": "b2a0e80b9598c9686940343f8c1ed2400a7d57842fc81b68465c68eb72c06dfe",
+      "classification": "definitional/arithmetic scaffold",
+      "novelty_status": "no established embedding theorem",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          102
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "d16_betti_one_eq",
+          "line": 45
+        },
+        {
+          "name": "d32_betti_one_eq",
+          "line": 59
+        },
+        {
+          "name": "periodLatticeRank",
+          "line": 69
+        },
+        {
+          "name": "op040_toroidal_embedding_checks",
+          "line": 92
+        }
+      ],
+      "actual_content": "Computes E−V+1 from assigned V,E, names that value torus dimension and defines period lattice rank as the same number.",
+      "limits": "No graph Jacobian, lattice, homeomorphism or embedding is constructed. D32 E=336 is not interchangeable with E=168 in the earlier charge17 representative graph.",
+      "strengthening_or_use": "Specify signed/projective and directed/undirected conventions; locate actual graph/cycle-space and Jacobian modules before proposing a new embedding.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R35",
+      "path": "Sovereign/Geometry/ToroidalBettiHierarchy.lean",
+      "source_sha256": "4cbc038ea78ce4b5447d57251406865943deec7885dddf2cfdc21ef007bae677",
+      "classification": "arithmetic model with unproved structural provenance",
+      "novelty_status": "no established tower-graph stabilization theorem",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          125
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "betti_one_topology_eq",
+          "line": 30
+        },
+        {
+          "name": "certified_hierarchy_all_levels",
+          "line": 52
+        },
+        {
+          "name": "toroidal_betti_strictly_increasing",
+          "line": 63
+        }
+      ],
+      "actual_content": "Universal arithmetic growth for V=2^n−4 and assigned regular degree31, with E=31V/2.",
+      "limits": "Quantification over n does not prove that actual tower graphs have stabilized degree31 or the stated topology.",
+      "strengthening_or_use": "Check actual TowerSector regularity/census and graph sizes first; the assigned degree must be derived for a specified graph family, not assumed.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R36",
+      "path": "Sovereign/Graph/GeodesicFlowObstruction.lean",
+      "source_sha256": "698ccb4bb23b106990e1ee29e1d94291894e453b1e4d468a810fca485e9d3171",
+      "classification": "proxy scaffold",
+      "novelty_status": "no established dynamical-systems novelty",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          148
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "HasAnosovProperty",
+          "line": 87
+        },
+        {
+          "name": "IsGloballyErgodic",
+          "line": 128
+        }
+      ],
+      "actual_content": "Uses finite constants and predicates defined by k=0 and c=1 under Anosov/ergodicity names.",
+      "limits": "No flow, invariant measure, tangent splitting or Lyapunov exponent is constructed. Numeric component counts do not settle these dynamical properties.",
+      "strengthening_or_use": "Turn this into explicit hypothesis metadata unless an actual flow/model and bridge theorem can be located or supplied.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R37",
+      "path": "Sovereign/Meta/TopologicalEntropyBarrier.lean",
+      "source_sha256": "587f9767945ea09f94a3c3e222ad98d1d997bd4251587d0515ce74083f5d5541",
+      "classification": "mixed numerical inequalities and unsupported probabilistic interpretation",
+      "novelty_status": "known entropy inequalities; no demonstrated consciousness/discovery barrier",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          209
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "real_log2_3_lt_eight_fifths",
+          "line": 102
+        },
+        {
+          "name": "persistent_entropy_at_one_fourth_gt_eighty_hundredths",
+          "line": 112
+        },
+        {
+          "name": "branching_rate_lt_one_eighth",
+          "line": 131
+        }
+      ],
+      "actual_content": "Actual log/entropy numerical inequalities coexist with assigned branching probability0.12 and powers of it.",
+      "limits": "Branching probability is not derived from a stochastic process/entropy theorem. Cluster degree6 is not established as internal independent-cluster degree. No necessity/sufficiency theorem about consciousness.",
+      "strengthening_or_use": "Require an explicit stochastic transition model and independently measured event rates before using a claimed survival bound.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R38",
+      "path": "Sovereign/Meta/SymbolicOrganismFunctor.lean",
+      "source_sha256": "e1305adfc045811bba6adacdc72708bc62cd264fbaebb97add76e9fbca859a25",
+      "classification": "elementary scaffold with suggestive names",
+      "novelty_status": "no established categorical novelty",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          79
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "zero_divisor_annihilation_soundness",
+          "line": 26
+        },
+        {
+          "name": "phi_surgery_curvature_contraction",
+          "line": 35
+        },
+        {
+          "name": "symbolic_organism_functor_soundness",
+          "line": 71
+        }
+      ],
+      "actual_content": "Restates an assumed product-norm zero equation, proves scalar contraction and packages parity plus a supplied residual bound.",
+      "limits": "No categorical object/morphism map or functor law is established by the named final theorem.",
+      "strengthening_or_use": "Reuse genuine functor/reconstruction/organism interfaces; state a non-tautological transport contract rather than reusing a label.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R39",
+      "path": "Sovereign/Algebra/LANABicategoryAssociator.lean",
+      "source_sha256": "c90818e834efb2f5d0bf191774be87d4f86dd34178616db5941b816c4f979ec2",
+      "classification": "mixed scalar model and genuine imported cocycle identity",
+      "novelty_status": "no established IUT/LANA resolution",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          287
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "fig7_associator_2cell_closure",
+          "line": 163
+        },
+        {
+          "name": "mac_lane_pentagon_dilation_coherence",
+          "line": 216
+        },
+        {
+          "name": "sedenion_mac_lane_3cocycle_coherence",
+          "line": 231
+        }
+      ],
+      "actual_content": "Positive scalar dilation arrows and discrepancy-bounded cells; scalar contraction; genuine imported Cayley–Dickson phase pentagon re-export.",
+      "limits": "HodgeTheater is id/name/base volume. Only dilation associativity is shown, with no full bicategory horizontal/vertical cell laws here. Associator norm2 is assigned. No bridge to actual arithmetic Hodge theaters/IUT compatibility.",
+      "strengthening_or_use": "Keep the actual TowerCocycle result; classify the scalar bicategory analogy as a model until structural maps and cell laws are provided.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R40",
+      "path": "Sovereign/Analysis/DoubleHomologyChladniDuality.lean",
+      "source_sha256": "3417b4c3ee3af1f1e8de9a2a19fe1a3996b9cb26d1428fc8b335d288bdfffb67",
+      "classification": "definitional scaffold",
+      "novelty_status": "no established duality theorem",
+      "coverage": "source definitions and proofs reviewed; header triaged",
+      "line_ranges": [
+        [
+          25,
+          88
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "duality_flat_is_regular",
+          "line": 48
+        },
+        {
+          "name": "duality_d4_equivariance",
+          "line": 70
+        },
+        {
+          "name": "double_homology_chladni_duality_checks",
+          "line": 80
+        }
+      ],
+      "actual_content": "Assigned nodal/cycle counts and conditional String-valued fiber types; equivariance statement reduces to f d=f d.",
+      "limits": "No duality functor, nodal-domain correspondence or homology calculation for measured fields in this file.",
+      "strengthening_or_use": "Compare with the actual Pipeline/Cavity modal/winding development before defining a measurable topology correspondence.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R41",
+      "path": "Sovereign/Algebra/HopfLift.lean",
+      "source_sha256": "5d03c0af4af004532b3a44a4765ec5865764c930acad456d696f9ec5650d6804",
+      "classification": "conditional scaffold",
+      "novelty_status": "known Hopf facts; no new bundle construction",
+      "coverage": "source definitions and proofs reviewed; header triaged",
+      "line_ranges": [
+        [
+          15,
+          118
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "hopf_section_obstruction",
+          "line": 41
+        },
+        {
+          "name": "hopf_fiber_linking_invariant",
+          "line": 110
+        }
+      ],
+      "actual_content": "Section obstruction follows from an assumed section-iff-c1zero condition and c1=1; other arithmetic/analytic implications.",
+      "limits": "Does not construct the bundle, clutching map, Chern class or linking integral.",
+      "strengthening_or_use": "Use actual bundle/cohomology definitions if already present; prove the input obstruction theorem for that object rather than counting its consequences as a new discovery.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R42",
+      "path": "Sovereign/Quantum/AssociatorSubsystemCode.lean",
+      "source_sha256": "586b8466e0511711b4e666431d6c5805ba81dbeda2cab68046b4adf439dea481",
+      "classification": "parameter scaffold",
+      "novelty_status": "no demonstrated new subsystem-code family",
+      "coverage": "source definitions and proofs reviewed; header triaged",
+      "line_ranges": [
+        [
+          45,
+          195
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "subsystem_space_decomposition",
+          "line": 68
+        },
+        {
+          "name": "subsystem_gauge_nonabelian",
+          "line": 80
+        },
+        {
+          "name": "subsystem_distance_ge_two",
+          "line": 99
+        }
+      ],
+      "actual_content": "Assigns n=L²,k=1,r=(L−1)²,s=2(L−1),d=L and proves arithmetic consistency/inequalities.",
+      "limits": "Gauge-nonabelian means r≥1 here; there is no constructed gauge group or minimum-distance proof in this module. Genuine stabilizer/HGP code constructions exist elsewhere.",
+      "strengthening_or_use": "First reuse/check the existing quantum and Formal toric machinery. A meaningful associator subsystem claim needs actual gauge generators, center, logical quotient and distance linkage.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R43",
+      "path": "Sovereign/Graph/SpectralFieldStabilization.lean",
+      "source_sha256": "aa52c15d5d48f3d514216c00ae5f21d6419e31e259828cb2d5952901545efaa3",
+      "classification": "arithmetic facts with missing spectral provenance",
+      "novelty_status": "no established field-stabilization theorem",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          109
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "fiftyseven_not_square",
+          "line": 42
+        },
+        {
+          "name": "d64_d128_strictly_irrational",
+          "line": 90
+        },
+        {
+          "name": "op026_spectral_field_stabilization",
+          "line": 102
+        }
+      ],
+      "actual_content": "Assigned quadratic coefficients and discriminants; actual integer nonsquare proofs and arithmetic comparisons.",
+      "limits": "No matrix characteristic-polynomial derivation, splitting-field equivalence or all-level stabilization follows from these statements.",
+      "strengthening_or_use": "Compare with actual graph matrix/certificate modules before claiming the bridge is globally absent; prove the structural charpoly→field statement for a named graph.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R44",
+      "path": "Sovereign/NumberTheory/SpectralFieldStabilization.lean",
+      "source_sha256": "589c5139c733533e5c450fb804fe20aec7adf62e46cb8816f03a584e29d49418",
+      "classification": "arithmetic/conditional scaffold",
+      "novelty_status": "no established number-field tower theorem",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          92
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "d64_discriminant_eq",
+          "line": 39
+        },
+        {
+          "name": "radical_57_generates_d64",
+          "line": 62
+        },
+        {
+          "name": "op038_spectral_field_stabilization_checks",
+          "line": 82
+        }
+      ],
+      "actual_content": "Computes two discriminants and factorization; implications for rational s satisfying s²=57.",
+      "limits": "The rational-s hypothesis is unsatisfiable; it is not a construction of Q(√57). Header all-level spectral stabilization is not a Lean theorem in this file.",
+      "strengthening_or_use": "Use an actual quadratic extension or algebraic root, then derive graph spectral fields with explicit embeddings. Retain arithmetic facts only as helpers.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R45",
+      "path": "Sovereign/Graph/ZeroDivisorFanoTopology.lean",
+      "source_sha256": "e6aea7b9515061029b889a6b4ecd3e180f4bca044503ca7ca180b72ff6dd963a",
+      "classification": "mixed finite incidence and assigned spectral data",
+      "novelty_status": "known Fano structure; no established graph isomorphism here",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          129
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "charPoly_factored",
+          "line": 42
+        },
+        {
+          "name": "fano_degree_regularity",
+          "line": 113
+        },
+        {
+          "name": "fano_collinear_pairs_disjoint",
+          "line": 125
+        }
+      ],
+      "actual_content": "Polynomial factorization and supplied trace/count data; explicit Fano-line incidence checks.",
+      "limits": "No constructed zero-divisor graph→Fano graph isomorphism or charpoly provenance in this module.",
+      "strengthening_or_use": "Reuse actual AnnihilationGraphDefs/cubature/certificates; identify the correct finite object and prove an incidence-preserving map.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R46",
+      "path": "four time frequency shift/RequestProject/MainStatement(1).lean",
+      "source_sha256": "142042cab9fa0889f59bedef4126488d224755834ce803171902aa654697664c",
+      "classification": "unconditional headline unproved",
+      "novelty_status": "novelty of proposed HRT theorem not established",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          66
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "critical_mixed_orbit_HRT_L2",
+          "line": 53
+        }
+      ],
+      "actual_content": "Faithful nontrivial mixed-arithmetic four-point HRT statement, with an executable sorry in its proof body.",
+      "limits": "The old header’s missing-infrastructure list is not a current inventory: later Zak modules supply substantial infrastructure.",
+      "strengthening_or_use": "Do not use headline as certified. Review actual assembled conditional endpoint and existing negative/corrected interfaces.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R47",
+      "path": "four time frequency shift/RequestProject/HRT/FinalInterfaceDischarge(1).lean",
+      "source_sha256": "a3a0c50d904b3c992222a8a6bd015002b1155dee999dfe1360181d77f217f74f",
+      "classification": "conditional interface consolidation; partly superseded documentation",
+      "novelty_status": "not a new unconditional analytic theorem",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          74
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "StandardRoucheRootCountStability",
+          "line": 51
+        },
+        {
+          "name": "standardReturnMultiplierRootDataMinimal_of_rouche",
+          "line": 61
+        }
+      ],
+      "actual_content": "Names a root-count residual and transports it into minimal root data under explicit assumptions.",
+      "limits": "The header’s star-discrepancy≤1 recommendation is later rejected/corrected in ConditionalDossierCertification. “No sorry” here means conditional statements, not completion.",
+      "strengthening_or_use": "Follow the corrected centered-grid/witness assembly; keep the older discrepancy proposal visibly superseded.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R48",
+      "path": "four time frequency shift/RequestProject/HRT/QuasiperiodicZakSideDischarge(1).lean",
+      "source_sha256": "0fea664550763313f8fce1b31de105ec155d7e1b54724aaf35a25df1ad8706a9",
+      "classification": "substantive conditional analytic reduction",
+      "novelty_status": "known measure transport techniques; assembly novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          321
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "ae_iterated_of_ae_square_of_periodic",
+          "line": 57
+        },
+        {
+          "name": "StandardActualZakQuasiRepresentativeEquationAE_of_operatorFormulas",
+          "line": 185
+        }
+      ],
+      "actual_content": "Actual null-set transport from the fundamental square and integer-translation invariance; reduces the Zak representative equation to two target-operator formulas.",
+      "limits": "Its operator hypotheses are discharged in CanonicalOperatorFormulas; treating them as still globally missing would be wrong. Other analytic/reduction hypotheses remain in endpoints.",
+      "strengthening_or_use": "Reuse the existing reduction and canonical-model discharge; investigate only the true remaining assembly inputs.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R49",
+      "path": "four time frequency shift/RequestProject/HRT/CanonicalOperatorFormulas(1).lean",
+      "source_sha256": "b263b2b9b7e972d3080eae36744f9cc1509b97819fe01d8add0c882d2eea0769",
+      "classification": "substantive analytic interface discharge",
+      "novelty_status": "formalization/integration; external novelty unchecked",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          210
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "StandardTargetLatticeOperatorFormulaQuasiAE_proved",
+          "line": 41
+        },
+        {
+          "name": "StandardTargetRogueOperatorFormulaQuasiAE_proved",
+          "line": 53
+        },
+        {
+          "name": "StandardActualZakQuasiRepresentativeEquationAE_canonical",
+          "line": 103
+        }
+      ],
+      "actual_content": "Supplies both canonical target-operator formulas and the corrected Zak-side equation without Zak-side hypotheses, then instantiates contradiction endpoints.",
+      "limits": "Does not remove the DK, root/amplitude/resonance assumptions from final endpoints; imported canonical Zak construction not fully reviewed here.",
+      "strengthening_or_use": "Existing achievement to preserve. Do not propose rebuilding Zak covariance before examining these definitions and their dependencies.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R50",
+      "path": "four time frequency shift/RequestProject/HRT/ConditionalDossierCertification(1).lean",
+      "source_sha256": "05cab055dd05498731448cc8e101bdd01c3c83f863c75b3f0b39d1c1d195228c",
+      "classification": "honest conditional theorem; substantial residual packaged in witness",
+      "novelty_status": "unconditional HRT novelty/proof unresolved",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          161
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "critical_mixed_orbit_HRT_L2_certified_from_standard_inputs",
+          "line": 125
+        }
+      ],
+      "actual_content": "Same c=0 conclusion under explicit standard-input hypotheses; actual proof consumes three-point HRT and hAffine, whose return witness already bundles analytic residuals.",
+      "limits": "hAffine is stronger than bare metaplectic covariance: it produces the return witness carrying root/DK/resonance content. Three listed granular inputs are not separately consumed. No-sorry conditional assembly does not establish the unconditional headline.",
+      "strengthening_or_use": "Review the witness-producing reduction as a mathematical theorem, not merely interface plumbing. Treat centered-grid corrections as existing falsification history.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R51",
+      "path": "hankel/output-final_aristotle/New Folder/SovereignAutonomousDiscoveries.lean",
+      "source_sha256": "f572a3bc359622b9bcf03ddacbb1ab336babf534639a6b5b6dac94df509a058a",
+      "classification": "axiom-heavy variant and repackaging",
+      "novelty_status": "no established autonomous mathematical discovery",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          140
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "sedenion_associator_zd_vanishing",
+          "line": 39
+        },
+        {
+          "name": "e8_root_inner_product_spectrum",
+          "line": 64
+        },
+        {
+          "name": "poincare_geodesic_dist_self",
+          "line": 99
+        },
+        {
+          "name": "kelly_pruning_invariant",
+          "line": 120
+        }
+      ],
+      "actual_content": "16 explicit axioms introduce objects and desired laws; headline results mostly re-export those laws or a supplied structure property.",
+      "limits": "Zero sorry is not axiom-free. This file’s role in an active build is not established; do not impute its axioms to different concrete implementations.",
+      "strengthening_or_use": "Quarantine discovery claims pending import/dependency audit; prefer existing concrete StateOfThought and Autonomous developments.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    },
+    {
+      "review_id": "R52",
+      "path": "hankel/output-final_aristotle/new2/PoincareHyperbolic.lean",
+      "source_sha256": "fb8ace00cec7b0e50a608e092cb7215fab3fd10ac35458f3d0d6d64645bf37d4",
+      "classification": "axiomatic Float surrogate variant",
+      "novelty_status": "no established metric/curvature theorem",
+      "coverage": "full file source review",
+      "line_ranges": [
+        [
+          1,
+          135
+        ]
+      ],
+      "evidence": [
+        {
+          "name": "euclideanDistSq",
+          "line": 44
+        },
+        {
+          "name": "geodesicDist_self",
+          "line": 56
+        },
+        {
+          "name": "kelly_prunes_absorbing_ruin",
+          "line": 103
+        }
+      ],
+      "actual_content": "8 explicit axioms; coordinates and norm_sq are independent; euclideanDistSq is a norm-only surrogate; metric/Kelly properties use assumed Float laws.",
+      "limits": "Not a genuine Poincare metric proof. Actual real-geometry modules exist elsewhere and remain separate. Active import status is not established here.",
+      "strengthening_or_use": "Do not reuse this surrogate as evidence. Review concrete Hyperbolic/PoincareMetric and Autonomous/PoincareBall before any replacement work.",
+      "build_status": "not compiled in this audit; no axiom dependency query executed"
+    }
+  ],
+  "triage_only": [
+    [
+      "Sovereign/InvariantRepair/Geodesic.lean",
+      "Statements/comments suggest triangle-defect telescoping; proof-semantic benefit remains to be checked."
+    ],
+    [
+      "Formal/Agents/Delegation.lean",
+      "Existing bounded compatible-wave scheduler; inspect proof bodies and runtime adapter before adding scheduling code."
+    ],
+    [
+      "Formal/JLN/ConnesSkeleton.lean",
+      "Existing satisfiability/conjecture-equivalence audit pattern; not yet substantively classified."
+    ],
+    [
+      "Sovereign/Graph/RegularSubfamilies.lean",
+      "Regularity criteria need graph provenance; consult actual tower regularity/census modules."
+    ],
+    [
+      "Sovereign/Combinatorics/LimitingDegreeDistribution.lean",
+      "Constants are already linked to genuine limits by reviewed LimitLaw/Measure/Density. This file itself not fully reviewed."
+    ],
+    [
+      "Sovereign/Algebra/LaplacianSpectralGap.lean",
+      "Existing ordered Hermitian eigenvalue API and connectivity/gap statements; distinct from earlier assistant variational API."
+    ],
+    [
+      "Sovereign/Algebra/TowerCocycle.lean",
+      "Existing imported associator-phase pentagon; independent proof review pending."
+    ],
+    [
+      "Sovereign/Autonomous/PoincareBall.lean",
+      "Concrete real metric/Kelly development exists; do not transfer axiom-heavy Float-variant criticism to it."
+    ],
+    [
+      "Hyperbolic/PoincareMetric.lean",
+      "Concrete gyro/Poincare metric branch exists; substantive review and branch selection pending."
+    ],
+    [
+      "Sovereign/Combinatorics/TowerDegreeCensus.lean",
+      "Actual degreeCount→censusT provenance exists; recurrence proof review pending."
+    ],
+    [
+      "Sovereign/Combinatorics/TowerDegreeClosedForm.lean",
+      "Actual-degree closed form and regular-sector criterion exist; proof review pending."
+    ],
+    [
+      "Sovereign/Combinatorics/TowerDegreeMomentsAllOrders.lean",
+      "Existing all-order polynomial infrastructure imported by reviewed LimitLaw; independent proof review pending."
+    ]
+  ]
+}

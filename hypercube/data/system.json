@@ -1,0 +1,8879 @@
+{
+ "meta": {
+  "name": "QBX hypercube model, stage 1",
+  "doc": "docs/HYPERCUBE_MODEL_2026-10-23.md",
+  "sources": {
+   "ephemeris": {
+    "file": "sources/ephemeris.tar.lzma",
+    "md5": "3a553d743d32a5a38a658948bd20710d"
+   },
+   "bible": {
+    "file": "sources/bible.tar.lzma",
+    "md5": "04f6f342db31e37269f5a99e1ef922a5"
+   },
+   "hyg": {
+    "file": "sources/hyg_v44.tar.lzma",
+    "md5": "adc695e60b50d5d9ddc8b1369f463891"
+   }
+  },
+  "ephemeris_coverage_jd": [
+   186997.5,
+   2597651.3591467496
+  ],
+  "ephemeris_coverage": [
+   "-4201-12-22 00:00",
+   "2400-01-10 20:37"
+  ],
+  "lean": "sovereign/Sovereign/Organism/HypercubeModel.lean"
+ },
+ "address_rule": {
+  "bits": [
+   "dec > 0",
+   "RA >= 12h",
+   "RA mod 12h >= 6h",
+   "RA mod 6h >= 3h",
+   "|dec| >= 30",
+   "mag < 1.00"
+  ],
+  "source": "Star.vertex in sovereign/Sovereign/Organism/HouseSky.lean",
+  "anti_solar": "cell XOR 3 (Lean antipode_vertex)"
+ },
+ "conventions": {
+  "codon": "CodonCells.lean: U=0 C=1 A=2 G=3, first base bits 4-5 (chosen bijection)",
+  "hexagram": "bit i = line i+1 from the bottom, 1 = solid (chosen bijection)",
+  "tone": "RA sector -> major-scale degree, declination band -> octave (A2..A5)",
+  "colour": "hue = RA sector, lightness = declination band, saturation = brightness",
+  "scripture": "phase = RA*15 + shift; chapter = floor(phase*1189/360)+1 (NovaScripture.lean)"
+ },
+ "cells": [
+  {
+   "cell": 0,
+   "bits": "000000",
+   "weight": 0,
+   "parity": 0,
+   "complement": 63,
+   "sky_antipode": 3,
+   "gray": 0,
+   "neighbours": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+   ],
+   "ra_sector_h": [
+    0,
+    3
+   ],
+   "dec_band": "south 0..-30",
+   "bright": 0,
+   "grid": [
+    5,
+    0
+   ],
+   "q3_low": 0,
+   "q3_high": 0,
+   "merkaba": [
+    "A",
+    "A"
+   ],
+   "codon": "UUU",
+   "amino": "F",
+   "amino_name": "Phe",
+   "hexagram_lines": "000000",
+   "trigrams": [
+    "Kun (earth)",
+    "Kun (earth)"
+   ],
+   "tone_hz": 220.0,
+   "colour": "#b63535"
+  },
+  {
+   "cell": 1,
+   "bits": "000001",
+   "weight": 1,
+   "parity": 1,
+   "complement": 62,
+   "sky_antipode": 2,
+   "gray": 1,
+   "neighbours": [
+    0,
+    3,
+    5,
+    9,
+    17,
+    33
+   ],
+   "ra_sector_h": [
+    0,
+    3
+   ],
+   "dec_band": "north 0..30",
+   "bright": 0,
+   "grid": [
+    3,
+    0
+   ],
+   "q3_low": 1,
+   "q3_high": 0,
+   "merkaba": [
+    "B",
+    "A"
+   ],
+   "codon": "UUC",
+   "amino": "F",
+   "amino_name": "Phe",
+   "hexagram_lines": "100000",
+   "trigrams": [
+    "Zhen (thunder)",
+    "Kun (earth)"
+   ],
+   "tone_hz": 440.0,
+   "colour": "#d36969"
+  },
+  {
+   "cell": 2,
+   "bits": "000010",
+   "weight": 1,
+   "parity": 1,
+   "complement": 61,
+   "sky_antipode": 1,
+   "gray": 3,
+   "neighbours": [
+    3,
+    0,
+    6,
+    10,
+    18,
+    34
+   ],
+   "ra_sector_h": [
+    12,
+    15
+   ],
+   "dec_band": "south 0..-30",
+   "bright": 0,
+   "grid": [
+    5,
+    4
+   ],
+   "q3_low": 2,
+   "q3_high": 0,
+   "merkaba": [
+    "B",
+    "A"
+   ],
+   "codon": "UUA",
+   "amino": "L",
+   "amino_name": "Leu",
+   "hexagram_lines": "010000",
+   "trigrams": [
+    "Kan (water)",
+    "Kun (earth)"
+   ],
+   "tone_hz": 329.628,
+   "colour": "#35b6b6"
+  },
+  {
+   "cell": 3,
+   "bits": "000011",
+   "weight": 2,
+   "parity": 0,
+   "complement": 60,
+   "sky_antipode": 0,
+   "gray": 2,
+   "neighbours": [
+    2,
+    1,
+    7,
+    11,
+    19,
+    35
+   ],
+   "ra_sector_h": [
+    12,
+    15
+   ],
+   "dec_band": "north 0..30",
+   "bright": 0,
+   "grid": [
+    3,
+    4
+   ],
+   "q3_low": 3,
+   "q3_high": 0,
+   "merkaba": [
+    "A",
+    "A"
+   ],
+   "codon": "UUG",
+   "amino": "L",
+   "amino_name": "Leu",
+   "hexagram_lines": "110000",
+   "trigrams": [
+    "Dui (lake)",
+    "Kun (earth)"
+   ],
+   "tone_hz": 659.255,
+   "colour": "#69d3d3"
+  },
+  {
+   "cell": 4,
+   "bits": "000100",
+   "weight": 1,
+   "parity": 1,
+   "complement": 59,
+   "sky_antipode": 7,
+   "gray": 6,
+   "neighbours": [
+    5,
+    6,
+    0,
+    12,
+    20,
+    36
+   ],
+   "ra_sector_h": [
+    6,
+    9
+   ],
+   "dec_band": "south 0..-30",
+   "bright": 0,
+   "grid": [
+    5,
+    2
+   ],
+   "q3_low": 4,
+   "q3_high": 0,
+   "merkaba": [
+    "B",
+    "A"
+   ],
+   "codon": "UCU",
+   "amino": "S",
+   "amino_name": "Ser",
+   "hexagram_lines": "001000",
+   "trigrams": [
+    "Gen (mountain)",
+    "Kun (earth)"
+   ],
+   "tone_hz": 277.183,
+   "colour": "#75b635"
+  },
+  {
+   "cell": 5,
+   "bits": "000101",
+   "weight": 2,
+   "parity": 0,
+   "complement": 58,
+   "sky_antipode": 6,
+   "gray": 7,
+   "neighbours": [
+    4,
+    7,
+    1,
+    13,
+    21,
+    37
+   ],
+   "ra_sector_h": [
+    6,
+    9
+   ],
+   "dec_band": "north 0..30",
+   "bright": 0,
+   "grid": [
+    3,
+    2
+   ],
+   "q3_low": 5,
+   "q3_high": 0,
+   "merkaba": [
+    "A",
+    "A"
+   ],
+   "codon": "UCC",
+   "amino": "S",
+   "amino_name": "Ser",
+   "hexagram_lines": "101000",
+   "trigrams": [
+    "Li (fire)",
+    "Kun (earth)"
+   ],
+   "tone_hz": 554.365,
+   "colour": "#9ed369"
+  },
+  {
+   "cell": 6,
+   "bits": "000110",
+   "weight": 2,
+   "parity": 0,
+   "complement": 57,
+   "sky_antipode": 5,
+   "gray": 5,
+   "neighbours": [
+    7,
+    4,
+    2,
+    14,
+    22,
+    38
+   ],
+   "ra_sector_h": [
+    18,
+    21
+   ],
+   "dec_band": "south 0..-30",
+   "bright": 0,
+   "grid": [
+    5,
+    6
+   ],
+   "q3_low": 6,
+   "q3_high": 0,
+   "merkaba": [
+    "A",
+    "A"
+   ],
+   "codon": "UCA",
+   "amino": "S",
+   "amino_name": "Ser",
+   "hexagram_lines": "011000",
+   "trigrams": [
+    "Xun (wind)",
+    "Kun (earth)"
+   ],
+   "tone_hz": 415.305,
+   "colour": "#7535b6"
+  },
+  {
+   "cell": 7,
+   "bits": "000111",
+   "weight": 3,
+   "parity": 1,
+   "complement": 56,
+   "sky_antipode": 4,
+   "gray": 4,
+   "neighbours": [
+    6,
+    5,
+    3,
+    15,
+    23,
+    39
+   ],
+   "ra_sector_h": [
+    18,
+    21
+   ],
+   "dec_band": "north 0..30",
+   "bright": 0,
+   "grid": [
+    3,
+    6
+   ],
+   "q3_low": 7,
+   "q3_high": 0,
+   "merkaba": [
+    "B",
+    "A"
+   ],
+   "codon": "UCG",
+   "amino": "S",
+   "amino_name": "Ser",
+   "hexagram_lines": "111000",
+   "trigrams": [
+    "Qian (heaven)",
+    "Kun (earth)"
+   ],
+   "tone_hz": 830.609,
+   "colour": "#9e69d3"
+  },
+  {
+   "cell": 8,
+   "bits": "001000",
+   "weight": 1,
+   "parity": 1,
+   "complement": 55,
+   "sky_antipode": 11,
+   "gray": 12,
+   "neighbours": [
+    9,
+    10,
+    12,
+    0,
+    24,
+    40
+   ],
+   "ra_sector_h": [
+    3,
+    6
+   ],
+   "dec_band": "south 0..-30",
+   "bright": 0,
+   "grid": [
+    5,
+    1
+   ],
+   "q3_low": 0,
+   "q3_high": 1,
+   "merkaba": [
+    "A",
+    "B"
+   ],
+   "codon": "UAU",
+   "amino": "Y",
+   "amino_name": "Tyr",
+   "hexagram_lines": "000100",
+   "trigrams": [
+    "Kun (earth)",
+    "Zhen (thunder)"
+   ],
+   "tone_hz": 246.942,
+   "colour": "#b69635"
+  },
+  {
+   "cell": 9,
+   "bits": "001001",
+   "weight": 2,
+   "parity": 0,
+   "complement": 54,
+   "sky_antipode": 10,
+   "gray": 13,
+   "neighbours": [
+    8,
+    11,
+    13,
+    1,
+    25,
+    41
+   ],
+   "ra_sector_h": [
+    3,
+    6
+   ],
+   "dec_band": "north 0..30",
+   "bright": 0,
+   "grid": [
+    3,
+    1
+   ],
+   "q3_low": 1,
+   "q3_high": 1,
+   "merkaba": [
+    "B",
+    "B"
+   ],
+   "codon": "UAC",
+   "amino": "Y",
+   "amino_name": "Tyr",
+   "hexagram_lines": "100100",
+   "trigrams": [
+    "Zhen (thunder)",
+    "Zhen (thunder)"
+   ],
+   "tone_hz": 493.883,
+   "colour": "#d3b969"
+  },
+  {
+   "cell": 10,
+   "bits": "001010",
+   "weight": 2,
+   "parity": 0,
+   "complement": 53,
+   "sky_antipode": 9,
+   "gray": 15,
+   "neighbours": [
+    11,
+    8,
+    14,
+    2,
+    26,
+    42
+   ],
+   "ra_sector_h": [
+    15,
+    18
+   ],
+   "dec_band": "south 0..-30",
+   "bright": 0,
+   "grid": [
+    5,
+    5
+   ],
+   "q3_low": 2,
+   "q3_high": 1,
+   "merkaba": [
+    "B",
+    "B"
+   ],
+   "codon": "UAA",
+   "amino": "*",
+   "amino_name": "Stop",
+   "hexagram_lines": "010100",
+   "trigrams": [
+    "Kan (water)",
+    "Zhen (thunder)"
+   ],
+   "tone_hz": 369.994,
+   "colour": "#3555b6"
+  },
+  {
+   "cell": 11,
+   "bits": "001011",
+   "weight": 3,
+   "parity": 1,
+   "complement": 52,
+   "sky_antipode": 8,
+   "gray": 14,
+   "neighbours": [
+    10,
+    9,
+    15,
+    3,
+    27,
+    43
+   ],
+   "ra_sector_h": [
+    15,
+    18
+   ],
+   "dec_band": "north 0..30",
+   "bright": 0,
+   "grid": [
+    3,
+    5
+   ],
+   "q3_low": 3,
+   "q3_high": 1,
+   "merkaba": [
+    "A",
+    "B"
+   ],
+   "codon": "UAG",
+   "amino": "*",
+   "amino_name": "Stop",
+   "hexagram_lines": "110100",
+   "trigrams": [
+    "Dui (lake)",
+    "Zhen (thunder)"
+   ],
+   "tone_hz": 739.989,
+   "colour": "#6983d3"
+  },
+  {
+   "cell": 12,
+   "bits": "001100",
+   "weight": 2,
+   "parity": 0,
+   "complement": 51,
+   "sky_antipode": 15,
+   "gray": 10,
+   "neighbours": [
+    13,
+    14,
+    8,
+    4,
+    28,
+    44
+   ],
+   "ra_sector_h": [
+    9,
+    12
+   ],
+   "dec_band": "south 0..-30",
+   "bright": 0,
+   "grid": [
+    5,
+    3
+   ],
+   "q3_low": 4,
+   "q3_high": 1,
+   "merkaba": [
+    "B",
+    "B"
+   ],
+   "codon": "UGU",
+   "amino": "C",
+   "amino_name": "Cys",
+   "hexagram_lines": "001100",
+   "trigrams": [
+    "Gen (mountain)",
+    "Zhen (thunder)"
+   ],
+   "tone_hz": 293.665,
+   "colour": "#35b655"
+  },
+  {
+   "cell": 13,
+   "bits": "001101",
+   "weight": 3,
+   "parity": 1,
+   "complement": 50,
+   "sky_antipode": 14,
+   "gray": 11,
+   "neighbours": [
+    12,
+    15,
+    9,
+    5,
+    29,
+    45
+   ],
+   "ra_sector_h": [
+    9,
+    12
+   ],
+   "dec_band": "north 0..30",
+   "bright": 0,
+   "grid": [
+    3,
+    3
+   ],
+   "q3_low": 5,
+   "q3_high": 1,
+   "merkaba": [
+    "A",
+    "B"
+   ],
+   "codon": "UGC",
+   "amino": "C",
+   "amino_name": "Cys",
+   "hexagram_lines": "101100",
+   "trigrams": [
+    "Li (fire)",
+    "Zhen (thunder)"
+   ],
+   "tone_hz": 587.33,
+   "colour": "#69d383"
+  },
+  {
+   "cell": 14,
+   "bits": "001110",
+   "weight": 3,
+   "parity": 1,
+   "complement": 49,
+   "sky_antipode": 13,
+   "gray": 9,
+   "neighbours": [
+    15,
+    12,
+    10,
+    6,
+    30,
+    46
+   ],
+   "ra_sector_h": [
+    21,
+    24
+   ],
+   "dec_band": "south 0..-30",
+   "bright": 0,
+   "grid": [
+    5,
+    7
+   ],
+   "q3_low": 6,
+   "q3_high": 1,
+   "merkaba": [
+    "A",
+    "B"
+   ],
+   "codon": "UGA",
+   "amino": "*",
+   "amino_name": "Stop",
+   "hexagram_lines": "011100",
+   "trigrams": [
+    "Xun (wind)",
+    "Zhen (thunder)"
+   ],
+   "tone_hz": 440.0,
+   "colour": "#b63596"
+  },
+  {
+   "cell": 15,
+   "bits": "001111",
+   "weight": 4,
+   "parity": 0,
+   "complement": 48,
+   "sky_antipode": 12,
+   "gray": 8,
+   "neighbours": [
+    14,
+    13,
+    11,
+    7,
+    31,
+    47
+   ],
+   "ra_sector_h": [
+    21,
+    24
+   ],
+   "dec_band": "north 0..30",
+   "bright": 0,
+   "grid": [
+    3,
+    7
+   ],
+   "q3_low": 7,
+   "q3_high": 1,
+   "merkaba": [
+    "B",
+    "B"
+   ],
+   "codon": "UGG",
+   "amino": "W",
+   "amino_name": "Trp",
+   "hexagram_lines": "111100",
+   "trigrams": [
+    "Qian (heaven)",
+    "Zhen (thunder)"
+   ],
+   "tone_hz": 880.0,
+   "colour": "#d369b9"
+  },
+  {
+   "cell": 16,
+   "bits": "010000",
+   "weight": 1,
+   "parity": 1,
+   "complement": 47,
+   "sky_antipode": 19,
+   "gray": 24,
+   "neighbours": [
+    17,
+    18,
+    20,
+    24,
+    0,
+    48
+   ],
+   "ra_sector_h": [
+    0,
+    3
+   ],
+   "dec_band": "south <= -30",
+   "bright": 0,
+   "grid": [
+    7,
+    0
+   ],
+   "q3_low": 0,
+   "q3_high": 2,
+   "merkaba": [
+    "A",
+    "B"
+   ],
+   "codon": "CUU",
+   "amino": "L",
+   "amino_name": "Leu",
+   "hexagram_lines": "000010",
+   "trigrams": [
+    "Kun (earth)",
+    "Kan (water)"
+   ],
+   "tone_hz": 110.0,
+   "colour": "#7e2525"
+  },
+  {
+   "cell": 17,
+   "bits": "010001",
+   "weight": 2,
+   "parity": 0,
+   "complement": 46,
+   "sky_antipode": 18,
+   "gray": 25,
+   "neighbours": [
+    16,
+    19,
+    21,
+    25,
+    1,
+    49
+   ],
+   "ra_sector_h": [
+    0,
+    3
+   ],
+   "dec_band": "north >= 30",
+   "bright": 0,
+   "grid": [
+    1,
+    0
+   ],
+   "q3_low": 1,
+   "q3_high": 2,
+   "merkaba": [
+    "B",
+    "B"
+   ],
+   "codon": "CUC",
+   "amino": "L",
+   "amino_name": "Leu",
+   "hexagram_lines": "100010",
+   "trigrams": [
+    "Zhen (thunder)",
+    "Kan (water)"
+   ],
+   "tone_hz": 880.0,
+   "colour": "#e6a8a8"
+  },
+  {
+   "cell": 18,
+   "bits": "010010",
+   "weight": 2,
+   "parity": 0,
+   "complement": 45,
+   "sky_antipode": 17,
+   "gray": 27,
+   "neighbours": [
+    19,
+    16,
+    22,
+    26,
+    2,
+    50
+   ],
+   "ra_sector_h": [
+    12,
+    15
+   ],
+   "dec_band": "south <= -30",
+   "bright": 0,
+   "grid": [
+    7,
+    4
+   ],
+   "q3_low": 2,
+   "q3_high": 2,
+   "merkaba": [
+    "B",
+    "B"
+   ],
+   "codon": "CUA",
+   "amino": "L",
+   "amino_name": "Leu",
+   "hexagram_lines": "010010",
+   "trigrams": [
+    "Kan (water)",
+    "Kan (water)"
+   ],
+   "tone_hz": 164.814,
+   "colour": "#257e7e"
+  },
+  {
+   "cell": 19,
+   "bits": "010011",
+   "weight": 3,
+   "parity": 1,
+   "complement": 44,
+   "sky_antipode": 16,
+   "gray": 26,
+   "neighbours": [
+    18,
+    17,
+    23,
+    27,
+    3,
+    51
+   ],
+   "ra_sector_h": [
+    12,
+    15
+   ],
+   "dec_band": "north >= 30",
+   "bright": 0,
+   "grid": [
+    1,
+    4
+   ],
+   "q3_low": 3,
+   "q3_high": 2,
+   "merkaba": [
+    "A",
+    "B"
+   ],
+   "codon": "CUG",
+   "amino": "L",
+   "amino_name": "Leu",
+   "hexagram_lines": "110010",
+   "trigrams": [
+    "Dui (lake)",
+    "Kan (water)"
+   ],
+   "tone_hz": 1318.51,
+   "colour": "#a8e6e6"
+  },
+  {
+   "cell": 20,
+   "bits": "010100",
+   "weight": 2,
+   "parity": 0,
+   "complement": 43,
+   "sky_antipode": 23,
+   "gray": 30,
+   "neighbours": [
+    21,
+    22,
+    16,
+    28,
+    4,
+    52
+   ],
+   "ra_sector_h": [
+    6,
+    9
+   ],
+   "dec_band": "south <= -30",
+   "bright": 0,
+   "grid": [
+    7,
+    2
+   ],
+   "q3_low": 4,
+   "q3_high": 2,
+   "merkaba": [
+    "B",
+    "B"
+   ],
+   "codon": "CCU",
+   "amino": "P",
+   "amino_name": "Pro",
+   "hexagram_lines": "001010",
+   "trigrams": [
+    "Gen (mountain)",
+    "Kan (water)"
+   ],
+   "tone_hz": 138.591,
+   "colour": "#527e25"
+  },
+  {
+   "cell": 21,
+   "bits": "010101",
+   "weight": 3,
+   "parity": 1,
+   "complement": 42,
+   "sky_antipode": 22,
+   "gray": 31,
+   "neighbours": [
+    20,
+    23,
+    17,
+    29,
+    5,
+    53
+   ],
+   "ra_sector_h": [
+    6,
+    9
+   ],
+   "dec_band": "north >= 30",
+   "bright": 0,
+   "grid": [
+    1,
+    2
+   ],
+   "q3_low": 5,
+   "q3_high": 2,
+   "merkaba": [
+    "A",
+    "B"
+   ],
+   "codon": "CCC",
+   "amino": "P",
+   "amino_name": "Pro",
+   "hexagram_lines": "101010",
+   "trigrams": [
+    "Li (fire)",
+    "Kan (water)"
+   ],
+   "tone_hz": 1108.731,
+   "colour": "#c7e6a8"
+  },
+  {
+   "cell": 22,
+   "bits": "010110",
+   "weight": 3,
+   "parity": 1,
+   "complement": 41,
+   "sky_antipode": 21,
+   "gray": 29,
+   "neighbours": [
+    23,
+    20,
+    18,
+    30,
+    6,
+    54
+   ],
+   "ra_sector_h": [
+    18,
+    21
+   ],
+   "dec_band": "south <= -30",
+   "bright": 0,
+   "grid": [
+    7,
+    6
+   ],
+   "q3_low": 6,
+   "q3_high": 2,
+   "merkaba": [
+    "A",
+    "B"
+   ],
+   "codon": "CCA",
+   "amino": "P",
+   "amino_name": "Pro",
+   "hexagram_lines": "011010",
+   "trigrams": [
+    "Xun (wind)",
+    "Kan (water)"
+   ],
+   "tone_hz": 207.652,
+   "colour": "#52257e"
+  },
+  {
+   "cell": 23,
+   "bits": "010111",
+   "weight": 4,
+   "parity": 0,
+   "complement": 40,
+   "sky_antipode": 20,
+   "gray": 28,
+   "neighbours": [
+    22,
+    21,
+    19,
+    31,
+    7,
+    55
+   ],
+   "ra_sector_h": [
+    18,
+    21
+   ],
+   "dec_band": "north >= 30",
+   "bright": 0,
+   "grid": [
+    1,
+    6
+   ],
+   "q3_low": 7,
+   "q3_high": 2,
+   "merkaba": [
+    "B",
+    "B"
+   ],
+   "codon": "CCG",
+   "amino": "P",
+   "amino_name": "Pro",
+   "hexagram_lines": "111010",
+   "trigrams": [
+    "Qian (heaven)",
+    "Kan (water)"
+   ],
+   "tone_hz": 1661.219,
+   "colour": "#c7a8e6"
+  },
+  {
+   "cell": 24,
+   "bits": "011000",
+   "weight": 2,
+   "parity": 0,
+   "complement": 39,
+   "sky_antipode": 27,
+   "gray": 20,
+   "neighbours": [
+    25,
+    26,
+    28,
+    16,
+    8,
+    56
+   ],
+   "ra_sector_h": [
+    3,
+    6
+   ],
+   "dec_band": "south <= -30",
+   "bright": 0,
+   "grid": [
+    7,
+    1
+   ],
+   "q3_low": 0,
+   "q3_high": 3,
+   "merkaba": [
+    "A",
+    "A"
+   ],
+   "codon": "CAU",
+   "amino": "H",
+   "amino_name": "His",
+   "hexagram_lines": "000110",
+   "trigrams": [
+    "Kun (earth)",
+    "Dui (lake)"
+   ],
+   "tone_hz": 123.471,
+   "colour": "#7e6825"
+  },
+  {
+   "cell": 25,
+   "bits": "011001",
+   "weight": 3,
+   "parity": 1,
+   "complement": 38,
+   "sky_antipode": 26,
+   "gray": 21,
+   "neighbours": [
+    24,
+    27,
+    29,
+    17,
+    9,
+    57
+   ],
+   "ra_sector_h": [
+    3,
+    6
+   ],
+   "dec_band": "north >= 30",
+   "bright": 0,
+   "grid": [
+    1,
+    1
+   ],
+   "q3_low": 1,
+   "q3_high": 3,
+   "merkaba": [
+    "B",
+    "A"
+   ],
+   "codon": "CAC",
+   "amino": "H",
+   "amino_name": "His",
+   "hexagram_lines": "100110",
+   "trigrams": [
+    "Zhen (thunder)",
+    "Dui (lake)"
+   ],
+   "tone_hz": 987.767,
+   "colour": "#e6d6a8"
+  },
+  {
+   "cell": 26,
+   "bits": "011010",
+   "weight": 3,
+   "parity": 1,
+   "complement": 37,
+   "sky_antipode": 25,
+   "gray": 23,
+   "neighbours": [
+    27,
+    24,
+    30,
+    18,
+    10,
+    58
+   ],
+   "ra_sector_h": [
+    15,
+    18
+   ],
+   "dec_band": "south <= -30",
+   "bright": 0,
+   "grid": [
+    7,
+    5
+   ],
+   "q3_low": 2,
+   "q3_high": 3,
+   "merkaba": [
+    "B",
+    "A"
+   ],
+   "codon": "CAA",
+   "amino": "Q",
+   "amino_name": "Gln",
+   "hexagram_lines": "010110",
+   "trigrams": [
+    "Kan (water)",
+    "Dui (lake)"
+   ],
+   "tone_hz": 184.997,
+   "colour": "#253b7e"
+  },
+  {
+   "cell": 27,
+   "bits": "011011",
+   "weight": 4,
+   "parity": 0,
+   "complement": 36,
+   "sky_antipode": 24,
+   "gray": 22,
+   "neighbours": [
+    26,
+    25,
+    31,
+    19,
+    11,
+    59
+   ],
+   "ra_sector_h": [
+    15,
+    18
+   ],
+   "dec_band": "north >= 30",
+   "bright": 0,
+   "grid": [
+    1,
+    5
+   ],
+   "q3_low": 3,
+   "q3_high": 3,
+   "merkaba": [
+    "A",
+    "A"
+   ],
+   "codon": "CAG",
+   "amino": "Q",
+   "amino_name": "Gln",
+   "hexagram_lines": "110110",
+   "trigrams": [
+    "Dui (lake)",
+    "Dui (lake)"
+   ],
+   "tone_hz": 1479.978,
+   "colour": "#a8b7e6"
+  },
+  {
+   "cell": 28,
+   "bits": "011100",
+   "weight": 3,
+   "parity": 1,
+   "complement": 35,
+   "sky_antipode": 31,
+   "gray": 18,
+   "neighbours": [
+    29,
+    30,
+    24,
+    20,
+    12,
+    60
+   ],
+   "ra_sector_h": [
+    9,
+    12
+   ],
+   "dec_band": "south <= -30",
+   "bright": 0,
+   "grid": [
+    7,
+    3
+   ],
+   "q3_low": 4,
+   "q3_high": 3,
+   "merkaba": [
+    "B",
+    "A"
+   ],
+   "codon": "CGU",
+   "amino": "R",
+   "amino_name": "Arg",
+   "hexagram_lines": "001110",
+   "trigrams": [
+    "Gen (mountain)",
+    "Dui (lake)"
+   ],
+   "tone_hz": 146.832,
+   "colour": "#257e3b"
+  },
+  {
+   "cell": 29,
+   "bits": "011101",
+   "weight": 4,
+   "parity": 0,
+   "complement": 34,
+   "sky_antipode": 30,
+   "gray": 19,
+   "neighbours": [
+    28,
+    31,
+    25,
+    21,
+    13,
+    61
+   ],
+   "ra_sector_h": [
+    9,
+    12
+   ],
+   "dec_band": "north >= 30",
+   "bright": 0,
+   "grid": [
+    1,
+    3
+   ],
+   "q3_low": 5,
+   "q3_high": 3,
+   "merkaba": [
+    "A",
+    "A"
+   ],
+   "codon": "CGC",
+   "amino": "R",
+   "amino_name": "Arg",
+   "hexagram_lines": "101110",
+   "trigrams": [
+    "Li (fire)",
+    "Dui (lake)"
+   ],
+   "tone_hz": 1174.659,
+   "colour": "#a8e6b7"
+  },
+  {
+   "cell": 30,
+   "bits": "011110",
+   "weight": 4,
+   "parity": 0,
+   "complement": 33,
+   "sky_antipode": 29,
+   "gray": 17,
+   "neighbours": [
+    31,
+    28,
+    26,
+    22,
+    14,
+    62
+   ],
+   "ra_sector_h": [
+    21,
+    24
+   ],
+   "dec_band": "south <= -30",
+   "bright": 0,
+   "grid": [
+    7,
+    7
+   ],
+   "q3_low": 6,
+   "q3_high": 3,
+   "merkaba": [
+    "A",
+    "A"
+   ],
+   "codon": "CGA",
+   "amino": "R",
+   "amino_name": "Arg",
+   "hexagram_lines": "011110",
+   "trigrams": [
+    "Xun (wind)",
+    "Dui (lake)"
+   ],
+   "tone_hz": 220.0,
+   "colour": "#7e2568"
+  },
+  {
+   "cell": 31,
+   "bits": "011111",
+   "weight": 5,
+   "parity": 1,
+   "complement": 32,
+   "sky_antipode": 28,
+   "gray": 16,
+   "neighbours": [
+    30,
+    29,
+    27,
+    23,
+    15,
+    63
+   ],
+   "ra_sector_h": [
+    21,
+    24
+   ],
+   "dec_band": "north >= 30",
+   "bright": 0,
+   "grid": [
+    1,
+    7
+   ],
+   "q3_low": 7,
+   "q3_high": 3,
+   "merkaba": [
+    "B",
+    "A"
+   ],
+   "codon": "CGG",
+   "amino": "R",
+   "amino_name": "Arg",
+   "hexagram_lines": "111110",
+   "trigrams": [
+    "Qian (heaven)",
+    "Dui (lake)"
+   ],
+   "tone_hz": 1760.0,
+   "colour": "#e6a8d6"
+  },
+  {
+   "cell": 32,
+   "bits": "100000",
+   "weight": 1,
+   "parity": 1,
+   "complement": 31,
+   "sky_antipode": 35,
+   "gray": 48,
+   "neighbours": [
+    33,
+    34,
+    36,
+    40,
+    48,
+    0
+   ],
+   "ra_sector_h": [
+    0,
+    3
+   ],
+   "dec_band": "south 0..-30",
+   "bright": 1,
+   "grid": [
+    4,
+    0
+   ],
+   "q3_low": 0,
+   "q3_high": 4,
+   "merkaba": [
+    "A",
+    "B"
+   ],
+   "codon": "AUU",
+   "amino": "I",
+   "amino_name": "Ile",
+   "hexagram_lines": "000001",
+   "trigrams": [
+    "Kun (earth)",
+    "Gen (mountain)"
+   ],
+   "tone_hz": 220.0,
+   "colour": "#e50606"
+  },
+  {
+   "cell": 33,
+   "bits": "100001",
+   "weight": 2,
+   "parity": 0,
+   "complement": 30,
+   "sky_antipode": 34,
+   "gray": 49,
+   "neighbours": [
+    32,
+    35,
+    37,
+    41,
+    49,
+    1
+   ],
+   "ra_sector_h": [
+    0,
+    3
+   ],
+   "dec_band": "north 0..30",
+   "bright": 1,
+   "grid": [
+    2,
+    0
+   ],
+   "q3_low": 1,
+   "q3_high": 4,
+   "merkaba": [
+    "B",
+    "B"
+   ],
+   "codon": "AUC",
+   "amino": "I",
+   "amino_name": "Ile",
+   "hexagram_lines": "100001",
+   "trigrams": [
+    "Zhen (thunder)",
+    "Gen (mountain)"
+   ],
+   "tone_hz": 440.0,
+   "colour": "#fa4242"
+  },
+  {
+   "cell": 34,
+   "bits": "100010",
+   "weight": 2,
+   "parity": 0,
+   "complement": 29,
+   "sky_antipode": 33,
+   "gray": 51,
+   "neighbours": [
+    35,
+    32,
+    38,
+    42,
+    50,
+    2
+   ],
+   "ra_sector_h": [
+    12,
+    15
+   ],
+   "dec_band": "south 0..-30",
+   "bright": 1,
+   "grid": [
+    4,
+    4
+   ],
+   "q3_low": 2,
+   "q3_high": 4,
+   "merkaba": [
+    "B",
+    "B"
+   ],
+   "codon": "AUA",
+   "amino": "I",
+   "amino_name": "Ile",
+   "hexagram_lines": "010001",
+   "trigrams": [
+    "Kan (water)",
+    "Gen (mountain)"
+   ],
+   "tone_hz": 329.628,
+   "colour": "#06e5e5"
+  },
+  {
+   "cell": 35,
+   "bits": "100011",
+   "weight": 3,
+   "parity": 1,
+   "complement": 28,
+   "sky_antipode": 32,
+   "gray": 50,
+   "neighbours": [
+    34,
+    33,
+    39,
+    43,
+    51,
+    3
+   ],
+   "ra_sector_h": [
+    12,
+    15
+   ],
+   "dec_band": "north 0..30",
+   "bright": 1,
+   "grid": [
+    2,
+    4
+   ],
+   "q3_low": 3,
+   "q3_high": 4,
+   "merkaba": [
+    "A",
+    "B"
+   ],
+   "codon": "AUG",
+   "amino": "M",
+   "amino_name": "Met",
+   "hexagram_lines": "110001",
+   "trigrams": [
+    "Dui (lake)",
+    "Gen (mountain)"
+   ],
+   "tone_hz": 659.255,
+   "colour": "#42fafa"
+  },
+  {
+   "cell": 36,
+   "bits": "100100",
+   "weight": 2,
+   "parity": 0,
+   "complement": 27,
+   "sky_antipode": 39,
+   "gray": 54,
+   "neighbours": [
+    37,
+    38,
+    32,
+    44,
+    52,
+    4
+   ],
+   "ra_sector_h": [
+    6,
+    9
+   ],
+   "dec_band": "south 0..-30",
+   "bright": 1,
+   "grid": [
+    4,
+    2
+   ],
+   "q3_low": 4,
+   "q3_high": 4,
+   "merkaba": [
+    "B",
+    "B"
+   ],
+   "codon": "ACU",
+   "amino": "T",
+   "amino_name": "Thr",
+   "hexagram_lines": "001001",
+   "trigrams": [
+    "Gen (mountain)",
+    "Gen (mountain)"
+   ],
+   "tone_hz": 277.183,
+   "colour": "#75e506"
+  },
+  {
+   "cell": 37,
+   "bits": "100101",
+   "weight": 3,
+   "parity": 1,
+   "complement": 26,
+   "sky_antipode": 38,
+   "gray": 55,
+   "neighbours": [
+    36,
+    39,
+    33,
+    45,
+    53,
+    5
+   ],
+   "ra_sector_h": [
+    6,
+    9
+   ],
+   "dec_band": "north 0..30",
+   "bright": 1,
+   "grid": [
+    2,
+    2
+   ],
+   "q3_low": 5,
+   "q3_high": 4,
+   "merkaba": [
+    "A",
+    "B"
+   ],
+   "codon": "ACC",
+   "amino": "T",
+   "amino_name": "Thr",
+   "hexagram_lines": "101001",
+   "trigrams": [
+    "Li (fire)",
+    "Gen (mountain)"
+   ],
+   "tone_hz": 554.365,
+   "colour": "#9efa42"
+  },
+  {
+   "cell": 38,
+   "bits": "100110",
+   "weight": 3,
+   "parity": 1,
+   "complement": 25,
+   "sky_antipode": 37,
+   "gray": 53,
+   "neighbours": [
+    39,
+    36,
+    34,
+    46,
+    54,
+    6
+   ],
+   "ra_sector_h": [
+    18,
+    21
+   ],
+   "dec_band": "south 0..-30",
+   "bright": 1,
+   "grid": [
+    4,
+    6
+   ],
+   "q3_low": 6,
+   "q3_high": 4,
+   "merkaba": [
+    "A",
+    "B"
+   ],
+   "codon": "ACA",
+   "amino": "T",
+   "amino_name": "Thr",
+   "hexagram_lines": "011001",
+   "trigrams": [
+    "Xun (wind)",
+    "Gen (mountain)"
+   ],
+   "tone_hz": 415.305,
+   "colour": "#7506e5"
+  },
+  {
+   "cell": 39,
+   "bits": "100111",
+   "weight": 4,
+   "parity": 0,
+   "complement": 24,
+   "sky_antipode": 36,
+   "gray": 52,
+   "neighbours": [
+    38,
+    37,
+    35,
+    47,
+    55,
+    7
+   ],
+   "ra_sector_h": [
+    18,
+    21
+   ],
+   "dec_band": "north 0..30",
+   "bright": 1,
+   "grid": [
+    2,
+    6
+   ],
+   "q3_low": 7,
+   "q3_high": 4,
+   "merkaba": [
+    "B",
+    "B"
+   ],
+   "codon": "ACG",
+   "amino": "T",
+   "amino_name": "Thr",
+   "hexagram_lines": "111001",
+   "trigrams": [
+    "Qian (heaven)",
+    "Gen (mountain)"
+   ],
+   "tone_hz": 830.609,
+   "colour": "#9e42fa"
+  },
+  {
+   "cell": 40,
+   "bits": "101000",
+   "weight": 2,
+   "parity": 0,
+   "complement": 23,
+   "sky_antipode": 43,
+   "gray": 60,
+   "neighbours": [
+    41,
+    42,
+    44,
+    32,
+    56,
+    8
+   ],
+   "ra_sector_h": [
+    3,
+    6
+   ],
+   "dec_band": "south 0..-30",
+   "bright": 1,
+   "grid": [
+    4,
+    1
+   ],
+   "q3_low": 0,
+   "q3_high": 5,
+   "merkaba": [
+    "A",
+    "A"
+   ],
+   "codon": "AAU",
+   "amino": "N",
+   "amino_name": "Asn",
+   "hexagram_lines": "000101",
+   "trigrams": [
+    "Kun (earth)",
+    "Li (fire)"
+   ],
+   "tone_hz": 246.942,
+   "colour": "#e5ad06"
+  },
+  {
+   "cell": 41,
+   "bits": "101001",
+   "weight": 3,
+   "parity": 1,
+   "complement": 22,
+   "sky_antipode": 42,
+   "gray": 61,
+   "neighbours": [
+    40,
+    43,
+    45,
+    33,
+    57,
+    9
+   ],
+   "ra_sector_h": [
+    3,
+    6
+   ],
+   "dec_band": "north 0..30",
+   "bright": 1,
+   "grid": [
+    2,
+    1
+   ],
+   "q3_low": 1,
+   "q3_high": 5,
+   "merkaba": [
+    "B",
+    "A"
+   ],
+   "codon": "AAC",
+   "amino": "N",
+   "amino_name": "Asn",
+   "hexagram_lines": "100101",
+   "trigrams": [
+    "Zhen (thunder)",
+    "Li (fire)"
+   ],
+   "tone_hz": 493.883,
+   "colour": "#facc42"
+  },
+  {
+   "cell": 42,
+   "bits": "101010",
+   "weight": 3,
+   "parity": 1,
+   "complement": 21,
+   "sky_antipode": 41,
+   "gray": 63,
+   "neighbours": [
+    43,
+    40,
+    46,
+    34,
+    58,
+    10
+   ],
+   "ra_sector_h": [
+    15,
+    18
+   ],
+   "dec_band": "south 0..-30",
+   "bright": 1,
+   "grid": [
+    4,
+    5
+   ],
+   "q3_low": 2,
+   "q3_high": 5,
+   "merkaba": [
+    "B",
+    "A"
+   ],
+   "codon": "AAA",
+   "amino": "K",
+   "amino_name": "Lys",
+   "hexagram_lines": "010101",
+   "trigrams": [
+    "Kan (water)",
+    "Li (fire)"
+   ],
+   "tone_hz": 369.994,
+   "colour": "#063ee5"
+  },
+  {
+   "cell": 43,
+   "bits": "101011",
+   "weight": 4,
+   "parity": 0,
+   "complement": 20,
+   "sky_antipode": 40,
+   "gray": 62,
+   "neighbours": [
+    42,
+    41,
+    47,
+    35,
+    59,
+    11
+   ],
+   "ra_sector_h": [
+    15,
+    18
+   ],
+   "dec_band": "north 0..30",
+   "bright": 1,
+   "grid": [
+    2,
+    5
+   ],
+   "q3_low": 3,
+   "q3_high": 5,
+   "merkaba": [
+    "A",
+    "A"
+   ],
+   "codon": "AAG",
+   "amino": "K",
+   "amino_name": "Lys",
+   "hexagram_lines": "110101",
+   "trigrams": [
+    "Dui (lake)",
+    "Li (fire)"
+   ],
+   "tone_hz": 739.989,
+   "colour": "#4270fa"
+  },
+  {
+   "cell": 44,
+   "bits": "101100",
+   "weight": 3,
+   "parity": 1,
+   "complement": 19,
+   "sky_antipode": 47,
+   "gray": 58,
+   "neighbours": [
+    45,
+    46,
+    40,
+    36,
+    60,
+    12
+   ],
+   "ra_sector_h": [
+    9,
+    12
+   ],
+   "dec_band": "south 0..-30",
+   "bright": 1,
+   "grid": [
+    4,
+    3
+   ],
+   "q3_low": 4,
+   "q3_high": 5,
+   "merkaba": [
+    "B",
+    "A"
+   ],
+   "codon": "AGU",
+   "amino": "S",
+   "amino_name": "Ser",
+   "hexagram_lines": "001101",
+   "trigrams": [
+    "Gen (mountain)",
+    "Li (fire)"
+   ],
+   "tone_hz": 293.665,
+   "colour": "#06e53e"
+  },
+  {
+   "cell": 45,
+   "bits": "101101",
+   "weight": 4,
+   "parity": 0,
+   "complement": 18,
+   "sky_antipode": 46,
+   "gray": 59,
+   "neighbours": [
+    44,
+    47,
+    41,
+    37,
+    61,
+    13
+   ],
+   "ra_sector_h": [
+    9,
+    12
+   ],
+   "dec_band": "north 0..30",
+   "bright": 1,
+   "grid": [
+    2,
+    3
+   ],
+   "q3_low": 5,
+   "q3_high": 5,
+   "merkaba": [
+    "A",
+    "A"
+   ],
+   "codon": "AGC",
+   "amino": "S",
+   "amino_name": "Ser",
+   "hexagram_lines": "101101",
+   "trigrams": [
+    "Li (fire)",
+    "Li (fire)"
+   ],
+   "tone_hz": 587.33,
+   "colour": "#42fa70"
+  },
+  {
+   "cell": 46,
+   "bits": "101110",
+   "weight": 4,
+   "parity": 0,
+   "complement": 17,
+   "sky_antipode": 45,
+   "gray": 57,
+   "neighbours": [
+    47,
+    44,
+    42,
+    38,
+    62,
+    14
+   ],
+   "ra_sector_h": [
+    21,
+    24
+   ],
+   "dec_band": "south 0..-30",
+   "bright": 1,
+   "grid": [
+    4,
+    7
+   ],
+   "q3_low": 6,
+   "q3_high": 5,
+   "merkaba": [
+    "A",
+    "A"
+   ],
+   "codon": "AGA",
+   "amino": "R",
+   "amino_name": "Arg",
+   "hexagram_lines": "011101",
+   "trigrams": [
+    "Xun (wind)",
+    "Li (fire)"
+   ],
+   "tone_hz": 440.0,
+   "colour": "#e506ad"
+  },
+  {
+   "cell": 47,
+   "bits": "101111",
+   "weight": 5,
+   "parity": 1,
+   "complement": 16,
+   "sky_antipode": 44,
+   "gray": 56,
+   "neighbours": [
+    46,
+    45,
+    43,
+    39,
+    63,
+    15
+   ],
+   "ra_sector_h": [
+    21,
+    24
+   ],
+   "dec_band": "north 0..30",
+   "bright": 1,
+   "grid": [
+    2,
+    7
+   ],
+   "q3_low": 7,
+   "q3_high": 5,
+   "merkaba": [
+    "B",
+    "A"
+   ],
+   "codon": "AGG",
+   "amino": "R",
+   "amino_name": "Arg",
+   "hexagram_lines": "111101",
+   "trigrams": [
+    "Qian (heaven)",
+    "Li (fire)"
+   ],
+   "tone_hz": 880.0,
+   "colour": "#fa42cc"
+  },
+  {
+   "cell": 48,
+   "bits": "110000",
+   "weight": 2,
+   "parity": 0,
+   "complement": 15,
+   "sky_antipode": 51,
+   "gray": 40,
+   "neighbours": [
+    49,
+    50,
+    52,
+    56,
+    32,
+    16
+   ],
+   "ra_sector_h": [
+    0,
+    3
+   ],
+   "dec_band": "south <= -30",
+   "bright": 1,
+   "grid": [
+    6,
+    0
+   ],
+   "q3_low": 0,
+   "q3_high": 6,
+   "merkaba": [
+    "A",
+    "A"
+   ],
+   "codon": "GUU",
+   "amino": "V",
+   "amino_name": "Val",
+   "hexagram_lines": "000011",
+   "trigrams": [
+    "Kun (earth)",
+    "Xun (wind)"
+   ],
+   "tone_hz": 110.0,
+   "colour": "#9f0404"
+  },
+  {
+   "cell": 49,
+   "bits": "110001",
+   "weight": 3,
+   "parity": 1,
+   "complement": 14,
+   "sky_antipode": 50,
+   "gray": 41,
+   "neighbours": [
+    48,
+    51,
+    53,
+    57,
+    33,
+    17
+   ],
+   "ra_sector_h": [
+    0,
+    3
+   ],
+   "dec_band": "north >= 30",
+   "bright": 1,
+   "grid": [
+    0,
+    0
+   ],
+   "q3_low": 1,
+   "q3_high": 6,
+   "merkaba": [
+    "B",
+    "A"
+   ],
+   "codon": "GUC",
+   "amino": "V",
+   "amino_name": "Val",
+   "hexagram_lines": "100011",
+   "trigrams": [
+    "Zhen (thunder)",
+    "Xun (wind)"
+   ],
+   "tone_hz": 880.0,
+   "colour": "#fc9292"
+  },
+  {
+   "cell": 50,
+   "bits": "110010",
+   "weight": 3,
+   "parity": 1,
+   "complement": 13,
+   "sky_antipode": 49,
+   "gray": 43,
+   "neighbours": [
+    51,
+    48,
+    54,
+    58,
+    34,
+    18
+   ],
+   "ra_sector_h": [
+    12,
+    15
+   ],
+   "dec_band": "south <= -30",
+   "bright": 1,
+   "grid": [
+    6,
+    4
+   ],
+   "q3_low": 2,
+   "q3_high": 6,
+   "merkaba": [
+    "B",
+    "A"
+   ],
+   "codon": "GUA",
+   "amino": "V",
+   "amino_name": "Val",
+   "hexagram_lines": "010011",
+   "trigrams": [
+    "Kan (water)",
+    "Xun (wind)"
+   ],
+   "tone_hz": 164.814,
+   "colour": "#049f9f"
+  },
+  {
+   "cell": 51,
+   "bits": "110011",
+   "weight": 4,
+   "parity": 0,
+   "complement": 12,
+   "sky_antipode": 48,
+   "gray": 42,
+   "neighbours": [
+    50,
+    49,
+    55,
+    59,
+    35,
+    19
+   ],
+   "ra_sector_h": [
+    12,
+    15
+   ],
+   "dec_band": "north >= 30",
+   "bright": 1,
+   "grid": [
+    0,
+    4
+   ],
+   "q3_low": 3,
+   "q3_high": 6,
+   "merkaba": [
+    "A",
+    "A"
+   ],
+   "codon": "GUG",
+   "amino": "V",
+   "amino_name": "Val",
+   "hexagram_lines": "110011",
+   "trigrams": [
+    "Dui (lake)",
+    "Xun (wind)"
+   ],
+   "tone_hz": 1318.51,
+   "colour": "#92fcfc"
+  },
+  {
+   "cell": 52,
+   "bits": "110100",
+   "weight": 3,
+   "parity": 1,
+   "complement": 11,
+   "sky_antipode": 55,
+   "gray": 46,
+   "neighbours": [
+    53,
+    54,
+    48,
+    60,
+    36,
+    20
+   ],
+   "ra_sector_h": [
+    6,
+    9
+   ],
+   "dec_band": "south <= -30",
+   "bright": 1,
+   "grid": [
+    6,
+    2
+   ],
+   "q3_low": 4,
+   "q3_high": 6,
+   "merkaba": [
+    "B",
+    "A"
+   ],
+   "codon": "GCU",
+   "amino": "A",
+   "amino_name": "Ala",
+   "hexagram_lines": "001011",
+   "trigrams": [
+    "Gen (mountain)",
+    "Xun (wind)"
+   ],
+   "tone_hz": 138.591,
+   "colour": "#529f04"
+  },
+  {
+   "cell": 53,
+   "bits": "110101",
+   "weight": 4,
+   "parity": 0,
+   "complement": 10,
+   "sky_antipode": 54,
+   "gray": 47,
+   "neighbours": [
+    52,
+    55,
+    49,
+    61,
+    37,
+    21
+   ],
+   "ra_sector_h": [
+    6,
+    9
+   ],
+   "dec_band": "north >= 30",
+   "bright": 1,
+   "grid": [
+    0,
+    2
+   ],
+   "q3_low": 5,
+   "q3_high": 6,
+   "merkaba": [
+    "A",
+    "A"
+   ],
+   "codon": "GCC",
+   "amino": "A",
+   "amino_name": "Ala",
+   "hexagram_lines": "101011",
+   "trigrams": [
+    "Li (fire)",
+    "Xun (wind)"
+   ],
+   "tone_hz": 1108.731,
+   "colour": "#c7fc92"
+  },
+  {
+   "cell": 54,
+   "bits": "110110",
+   "weight": 4,
+   "parity": 0,
+   "complement": 9,
+   "sky_antipode": 53,
+   "gray": 45,
+   "neighbours": [
+    55,
+    52,
+    50,
+    62,
+    38,
+    22
+   ],
+   "ra_sector_h": [
+    18,
+    21
+   ],
+   "dec_band": "south <= -30",
+   "bright": 1,
+   "grid": [
+    6,
+    6
+   ],
+   "q3_low": 6,
+   "q3_high": 6,
+   "merkaba": [
+    "A",
+    "A"
+   ],
+   "codon": "GCA",
+   "amino": "A",
+   "amino_name": "Ala",
+   "hexagram_lines": "011011",
+   "trigrams": [
+    "Xun (wind)",
+    "Xun (wind)"
+   ],
+   "tone_hz": 207.652,
+   "colour": "#52049f"
+  },
+  {
+   "cell": 55,
+   "bits": "110111",
+   "weight": 5,
+   "parity": 1,
+   "complement": 8,
+   "sky_antipode": 52,
+   "gray": 44,
+   "neighbours": [
+    54,
+    53,
+    51,
+    63,
+    39,
+    23
+   ],
+   "ra_sector_h": [
+    18,
+    21
+   ],
+   "dec_band": "north >= 30",
+   "bright": 1,
+   "grid": [
+    0,
+    6
+   ],
+   "q3_low": 7,
+   "q3_high": 6,
+   "merkaba": [
+    "B",
+    "A"
+   ],
+   "codon": "GCG",
+   "amino": "A",
+   "amino_name": "Ala",
+   "hexagram_lines": "111011",
+   "trigrams": [
+    "Qian (heaven)",
+    "Xun (wind)"
+   ],
+   "tone_hz": 1661.219,
+   "colour": "#c792fc"
+  },
+  {
+   "cell": 56,
+   "bits": "111000",
+   "weight": 3,
+   "parity": 1,
+   "complement": 7,
+   "sky_antipode": 59,
+   "gray": 36,
+   "neighbours": [
+    57,
+    58,
+    60,
+    48,
+    40,
+    24
+   ],
+   "ra_sector_h": [
+    3,
+    6
+   ],
+   "dec_band": "south <= -30",
+   "bright": 1,
+   "grid": [
+    6,
+    1
+   ],
+   "q3_low": 0,
+   "q3_high": 7,
+   "merkaba": [
+    "A",
+    "B"
+   ],
+   "codon": "GAU",
+   "amino": "D",
+   "amino_name": "Asp",
+   "hexagram_lines": "000111",
+   "trigrams": [
+    "Kun (earth)",
+    "Qian (heaven)"
+   ],
+   "tone_hz": 123.471,
+   "colour": "#9f7804"
+  },
+  {
+   "cell": 57,
+   "bits": "111001",
+   "weight": 4,
+   "parity": 0,
+   "complement": 6,
+   "sky_antipode": 58,
+   "gray": 37,
+   "neighbours": [
+    56,
+    59,
+    61,
+    49,
+    41,
+    25
+   ],
+   "ra_sector_h": [
+    3,
+    6
+   ],
+   "dec_band": "north >= 30",
+   "bright": 1,
+   "grid": [
+    0,
+    1
+   ],
+   "q3_low": 1,
+   "q3_high": 7,
+   "merkaba": [
+    "B",
+    "B"
+   ],
+   "codon": "GAC",
+   "amino": "D",
+   "amino_name": "Asp",
+   "hexagram_lines": "100111",
+   "trigrams": [
+    "Zhen (thunder)",
+    "Qian (heaven)"
+   ],
+   "tone_hz": 987.767,
+   "colour": "#fce292"
+  },
+  {
+   "cell": 58,
+   "bits": "111010",
+   "weight": 4,
+   "parity": 0,
+   "complement": 5,
+   "sky_antipode": 57,
+   "gray": 39,
+   "neighbours": [
+    59,
+    56,
+    62,
+    50,
+    42,
+    26
+   ],
+   "ra_sector_h": [
+    15,
+    18
+   ],
+   "dec_band": "south <= -30",
+   "bright": 1,
+   "grid": [
+    6,
+    5
+   ],
+   "q3_low": 2,
+   "q3_high": 7,
+   "merkaba": [
+    "B",
+    "B"
+   ],
+   "codon": "GAA",
+   "amino": "E",
+   "amino_name": "Glu",
+   "hexagram_lines": "010111",
+   "trigrams": [
+    "Kan (water)",
+    "Qian (heaven)"
+   ],
+   "tone_hz": 184.997,
+   "colour": "#042b9f"
+  },
+  {
+   "cell": 59,
+   "bits": "111011",
+   "weight": 5,
+   "parity": 1,
+   "complement": 4,
+   "sky_antipode": 56,
+   "gray": 38,
+   "neighbours": [
+    58,
+    57,
+    63,
+    51,
+    43,
+    27
+   ],
+   "ra_sector_h": [
+    15,
+    18
+   ],
+   "dec_band": "north >= 30",
+   "bright": 1,
+   "grid": [
+    0,
+    5
+   ],
+   "q3_low": 3,
+   "q3_high": 7,
+   "merkaba": [
+    "A",
+    "B"
+   ],
+   "codon": "GAG",
+   "amino": "E",
+   "amino_name": "Glu",
+   "hexagram_lines": "110111",
+   "trigrams": [
+    "Dui (lake)",
+    "Qian (heaven)"
+   ],
+   "tone_hz": 1479.978,
+   "colour": "#92acfc"
+  },
+  {
+   "cell": 60,
+   "bits": "111100",
+   "weight": 4,
+   "parity": 0,
+   "complement": 3,
+   "sky_antipode": 63,
+   "gray": 34,
+   "neighbours": [
+    61,
+    62,
+    56,
+    52,
+    44,
+    28
+   ],
+   "ra_sector_h": [
+    9,
+    12
+   ],
+   "dec_band": "south <= -30",
+   "bright": 1,
+   "grid": [
+    6,
+    3
+   ],
+   "q3_low": 4,
+   "q3_high": 7,
+   "merkaba": [
+    "B",
+    "B"
+   ],
+   "codon": "GGU",
+   "amino": "G",
+   "amino_name": "Gly",
+   "hexagram_lines": "001111",
+   "trigrams": [
+    "Gen (mountain)",
+    "Qian (heaven)"
+   ],
+   "tone_hz": 146.832,
+   "colour": "#049f2b"
+  },
+  {
+   "cell": 61,
+   "bits": "111101",
+   "weight": 5,
+   "parity": 1,
+   "complement": 2,
+   "sky_antipode": 62,
+   "gray": 35,
+   "neighbours": [
+    60,
+    63,
+    57,
+    53,
+    45,
+    29
+   ],
+   "ra_sector_h": [
+    9,
+    12
+   ],
+   "dec_band": "north >= 30",
+   "bright": 1,
+   "grid": [
+    0,
+    3
+   ],
+   "q3_low": 5,
+   "q3_high": 7,
+   "merkaba": [
+    "A",
+    "B"
+   ],
+   "codon": "GGC",
+   "amino": "G",
+   "amino_name": "Gly",
+   "hexagram_lines": "101111",
+   "trigrams": [
+    "Li (fire)",
+    "Qian (heaven)"
+   ],
+   "tone_hz": 1174.659,
+   "colour": "#92fcac"
+  },
+  {
+   "cell": 62,
+   "bits": "111110",
+   "weight": 5,
+   "parity": 1,
+   "complement": 1,
+   "sky_antipode": 61,
+   "gray": 33,
+   "neighbours": [
+    63,
+    60,
+    58,
+    54,
+    46,
+    30
+   ],
+   "ra_sector_h": [
+    21,
+    24
+   ],
+   "dec_band": "south <= -30",
+   "bright": 1,
+   "grid": [
+    6,
+    7
+   ],
+   "q3_low": 6,
+   "q3_high": 7,
+   "merkaba": [
+    "A",
+    "B"
+   ],
+   "codon": "GGA",
+   "amino": "G",
+   "amino_name": "Gly",
+   "hexagram_lines": "011111",
+   "trigrams": [
+    "Xun (wind)",
+    "Qian (heaven)"
+   ],
+   "tone_hz": 220.0,
+   "colour": "#9f0478"
+  },
+  {
+   "cell": 63,
+   "bits": "111111",
+   "weight": 6,
+   "parity": 0,
+   "complement": 0,
+   "sky_antipode": 60,
+   "gray": 32,
+   "neighbours": [
+    62,
+    61,
+    59,
+    55,
+    47,
+    31
+   ],
+   "ra_sector_h": [
+    21,
+    24
+   ],
+   "dec_band": "north >= 30",
+   "bright": 1,
+   "grid": [
+    0,
+    7
+   ],
+   "q3_low": 7,
+   "q3_high": 7,
+   "merkaba": [
+    "B",
+    "B"
+   ],
+   "codon": "GGG",
+   "amino": "G",
+   "amino_name": "Gly",
+   "hexagram_lines": "111111",
+   "trigrams": [
+    "Qian (heaven)",
+    "Qian (heaven)"
+   ],
+   "tone_hz": 1760.0,
+   "colour": "#fc92e2"
+  }
+ ],
+ "house_stars": [
+  {
+   "name": "Sirius",
+   "ra_h": 6.752,
+   "dec": -16.716,
+   "mag": -1.44,
+   "cell": 36
+  },
+  {
+   "name": "Canopus",
+   "ra_h": 6.399,
+   "dec": -52.696,
+   "mag": -0.62,
+   "cell": 52
+  },
+  {
+   "name": "Arcturus",
+   "ra_h": 14.261,
+   "dec": 19.182,
+   "mag": -0.05,
+   "cell": 35
+  },
+  {
+   "name": "Rigil Kentaurus",
+   "ra_h": 14.661,
+   "dec": -60.834,
+   "mag": -0.01,
+   "cell": 50
+  },
+  {
+   "name": "Vega",
+   "ra_h": 18.616,
+   "dec": 38.784,
+   "mag": 0.03,
+   "cell": 55
+  },
+  {
+   "name": "Capella",
+   "ra_h": 5.278,
+   "dec": 45.998,
+   "mag": 0.08,
+   "cell": 57
+  },
+  {
+   "name": "Rigel",
+   "ra_h": 5.242,
+   "dec": -8.202,
+   "mag": 0.18,
+   "cell": 40
+  },
+  {
+   "name": "Procyon",
+   "ra_h": 7.655,
+   "dec": 5.225,
+   "mag": 0.4,
+   "cell": 37
+  },
+  {
+   "name": "Achernar",
+   "ra_h": 1.629,
+   "dec": -57.237,
+   "mag": 0.45,
+   "cell": 48
+  },
+  {
+   "name": "Betelgeuse",
+   "ra_h": 5.92,
+   "dec": 7.407,
+   "mag": 0.45,
+   "cell": 41
+  },
+  {
+   "name": "Hadar",
+   "ra_h": 14.064,
+   "dec": -60.373,
+   "mag": 0.61,
+   "cell": 50
+  },
+  {
+   "name": "Altair",
+   "ra_h": 19.846,
+   "dec": 8.868,
+   "mag": 0.76,
+   "cell": 39
+  },
+  {
+   "name": "Acrux",
+   "ra_h": 12.443,
+   "dec": -63.099,
+   "mag": 0.77,
+   "cell": 50
+  },
+  {
+   "name": "Aldebaran",
+   "ra_h": 4.599,
+   "dec": 16.509,
+   "mag": 0.87,
+   "cell": 41
+  },
+  {
+   "name": "Spica",
+   "ra_h": 13.42,
+   "dec": -11.161,
+   "mag": 0.98,
+   "cell": 34
+  },
+  {
+   "name": "Antares",
+   "ra_h": 16.49,
+   "dec": -26.432,
+   "mag": 1.06,
+   "cell": 10
+  },
+  {
+   "name": "Pollux",
+   "ra_h": 7.755,
+   "dec": 28.026,
+   "mag": 1.16,
+   "cell": 5
+  },
+  {
+   "name": "Fomalhaut",
+   "ra_h": 22.961,
+   "dec": -29.622,
+   "mag": 1.17,
+   "cell": 14
+  },
+  {
+   "name": "Mimosa",
+   "ra_h": 12.795,
+   "dec": -59.689,
+   "mag": 1.25,
+   "cell": 18
+  },
+  {
+   "name": "Deneb",
+   "ra_h": 20.691,
+   "dec": 45.28,
+   "mag": 1.25,
+   "cell": 23
+  },
+  {
+   "name": "Toliman",
+   "ra_h": 14.66,
+   "dec": -60.838,
+   "mag": 1.35,
+   "cell": 18
+  },
+  {
+   "name": "Regulus",
+   "ra_h": 10.14,
+   "dec": 11.967,
+   "mag": 1.36,
+   "cell": 13
+  },
+  {
+   "name": "Adhara",
+   "ra_h": 6.977,
+   "dec": -28.972,
+   "mag": 1.5,
+   "cell": 4
+  },
+  {
+   "name": "Castor",
+   "ra_h": 7.577,
+   "dec": 31.888,
+   "mag": 1.58,
+   "cell": 21
+  },
+  {
+   "name": "Gacrux",
+   "ra_h": 12.519,
+   "dec": -57.113,
+   "mag": 1.59,
+   "cell": 18
+  },
+  {
+   "name": "Shaula",
+   "ra_h": 17.56,
+   "dec": -37.104,
+   "mag": 1.62,
+   "cell": 26
+  },
+  {
+   "name": "Bellatrix",
+   "ra_h": 5.419,
+   "dec": 6.35,
+   "mag": 1.64,
+   "cell": 9
+  },
+  {
+   "name": "Elnath",
+   "ra_h": 5.438,
+   "dec": 28.607,
+   "mag": 1.65,
+   "cell": 9
+  },
+  {
+   "name": "Miaplacidus",
+   "ra_h": 9.22,
+   "dec": -69.717,
+   "mag": 1.67,
+   "cell": 28
+  },
+  {
+   "name": "Alnilam",
+   "ra_h": 5.604,
+   "dec": -1.202,
+   "mag": 1.69,
+   "cell": 8
+  },
+  {
+   "name": "Alnair",
+   "ra_h": 22.137,
+   "dec": -46.961,
+   "mag": 1.73,
+   "cell": 30
+  },
+  {
+   "name": "Alnitak",
+   "ra_h": 5.679,
+   "dec": -1.943,
+   "mag": 1.74,
+   "cell": 8
+  },
+  {
+   "name": "Alioth",
+   "ra_h": 12.9,
+   "dec": 55.96,
+   "mag": 1.76,
+   "cell": 19
+  },
+  {
+   "name": "Mirfak",
+   "ra_h": 3.405,
+   "dec": 49.861,
+   "mag": 1.79,
+   "cell": 25
+  },
+  {
+   "name": "Kaus Australis",
+   "ra_h": 18.403,
+   "dec": -34.385,
+   "mag": 1.79,
+   "cell": 22
+  },
+  {
+   "name": "Dubhe",
+   "ra_h": 11.062,
+   "dec": 61.751,
+   "mag": 1.81,
+   "cell": 29
+  },
+  {
+   "name": "Wezen",
+   "ra_h": 7.14,
+   "dec": -26.393,
+   "mag": 1.83,
+   "cell": 4
+  },
+  {
+   "name": "Alkaid",
+   "ra_h": 13.792,
+   "dec": 49.313,
+   "mag": 1.85,
+   "cell": 19
+  },
+  {
+   "name": "Avior",
+   "ra_h": 8.375,
+   "dec": -59.509,
+   "mag": 1.86,
+   "cell": 20
+  },
+  {
+   "name": "Sargas",
+   "ra_h": 17.622,
+   "dec": -42.998,
+   "mag": 1.86,
+   "cell": 26
+  },
+  {
+   "name": "Menkalinan",
+   "ra_h": 5.992,
+   "dec": 44.947,
+   "mag": 1.9,
+   "cell": 25
+  },
+  {
+   "name": "Atria",
+   "ra_h": 16.811,
+   "dec": -69.028,
+   "mag": 1.91,
+   "cell": 26
+  },
+  {
+   "name": "Alhena",
+   "ra_h": 6.629,
+   "dec": 16.399,
+   "mag": 1.93,
+   "cell": 5
+  },
+  {
+   "name": "Alsephina",
+   "ra_h": 8.745,
+   "dec": -54.709,
+   "mag": 1.93,
+   "cell": 20
+  },
+  {
+   "name": "Peacock",
+   "ra_h": 20.427,
+   "dec": -56.735,
+   "mag": 1.94,
+   "cell": 22
+  },
+  {
+   "name": "Polaris",
+   "ra_h": 2.53,
+   "dec": 89.264,
+   "mag": 1.97,
+   "cell": 17
+  },
+  {
+   "name": "Mirzam",
+   "ra_h": 6.378,
+   "dec": -17.956,
+   "mag": 1.98,
+   "cell": 4
+  },
+  {
+   "name": "Alphard",
+   "ra_h": 9.46,
+   "dec": -8.659,
+   "mag": 1.99,
+   "cell": 12
+  },
+  {
+   "name": "Hamal",
+   "ra_h": 2.12,
+   "dec": 23.462,
+   "mag": 2.01,
+   "cell": 1
+  },
+  {
+   "name": "Algieba",
+   "ra_h": 10.333,
+   "dec": 19.841,
+   "mag": 2.01,
+   "cell": 13
+  },
+  {
+   "name": "Diphda",
+   "ra_h": 0.726,
+   "dec": -17.987,
+   "mag": 2.04,
+   "cell": 0
+  },
+  {
+   "name": "Nunki",
+   "ra_h": 18.921,
+   "dec": -26.297,
+   "mag": 2.05,
+   "cell": 6
+  },
+  {
+   "name": "Menkent",
+   "ra_h": 14.111,
+   "dec": -36.37,
+   "mag": 2.06,
+   "cell": 18
+  },
+  {
+   "name": "Alpheratz",
+   "ra_h": 0.14,
+   "dec": 29.09,
+   "mag": 2.07,
+   "cell": 1
+  },
+  {
+   "name": "Mirach",
+   "ra_h": 1.162,
+   "dec": 35.621,
+   "mag": 2.07,
+   "cell": 17
+  },
+  {
+   "name": "Saiph",
+   "ra_h": 5.796,
+   "dec": -9.67,
+   "mag": 2.07,
+   "cell": 8
+  },
+  {
+   "name": "Kochab",
+   "ra_h": 14.845,
+   "dec": 74.156,
+   "mag": 2.07,
+   "cell": 19
+  },
+  {
+   "name": "Tiaki",
+   "ra_h": 22.711,
+   "dec": -46.885,
+   "mag": 2.07,
+   "cell": 30
+  },
+  {
+   "name": "Rasalhague",
+   "ra_h": 17.582,
+   "dec": 12.56,
+   "mag": 2.08,
+   "cell": 11
+  },
+  {
+   "name": "Algol",
+   "ra_h": 3.136,
+   "dec": 40.956,
+   "mag": 2.09,
+   "cell": 25
+  },
+  {
+   "name": "Almach",
+   "ra_h": 2.065,
+   "dec": 42.33,
+   "mag": 2.1,
+   "cell": 17
+  },
+  {
+   "name": "Denebola",
+   "ra_h": 11.818,
+   "dec": 14.572,
+   "mag": 2.14,
+   "cell": 13
+  },
+  {
+   "name": "Tiansi",
+   "ra_h": 0.945,
+   "dec": 60.717,
+   "mag": 2.15,
+   "cell": 17
+  },
+  {
+   "name": "Naos",
+   "ra_h": 8.06,
+   "dec": -40.003,
+   "mag": 2.21,
+   "cell": 20
+  }
+ ],
+ "solar_system": {
+  "orbits": [
+   {
+    "body": "Mercury",
+    "a_au": 0.38709927,
+    "period_days": 87.9691,
+    "synodic_days": 115.877,
+    "titius_bode_n": null,
+    "titius_bode_au": 0.4,
+    "titius_bode_error": -0.0323
+   },
+   {
+    "body": "Venus",
+    "a_au": 0.72333566,
+    "period_days": 224.701,
+    "synodic_days": 583.923,
+    "titius_bode_n": 0,
+    "titius_bode_au": 0.7,
+    "titius_bode_error": 0.0333
+   },
+   {
+    "body": "Earth",
+    "a_au": 1.00000261,
+    "period_days": 365.256363,
+    "synodic_days": null,
+    "titius_bode_n": 1,
+    "titius_bode_au": 1.0,
+    "titius_bode_error": 0.0
+   },
+   {
+    "body": "Mars",
+    "a_au": 1.52371034,
+    "period_days": 686.98,
+    "synodic_days": 779.936,
+    "titius_bode_n": 2,
+    "titius_bode_au": 1.6,
+    "titius_bode_error": -0.0477
+   },
+   {
+    "body": "Ceres (asteroid belt)",
+    "a_au": 2.7675,
+    "period_days": 1680.0,
+    "synodic_days": 466.73,
+    "titius_bode_n": 3,
+    "titius_bode_au": 2.8,
+    "titius_bode_error": -0.0116
+   },
+   {
+    "body": "Jupiter",
+    "a_au": 5.202887,
+    "period_days": 4332.59,
+    "synodic_days": 398.884,
+    "titius_bode_n": 4,
+    "titius_bode_au": 5.2,
+    "titius_bode_error": 0.0006
+   },
+   {
+    "body": "Saturn",
+    "a_au": 9.53667594,
+    "period_days": 10759.22,
+    "synodic_days": 378.092,
+    "titius_bode_n": 5,
+    "titius_bode_au": 10.0,
+    "titius_bode_error": -0.0463
+   },
+   {
+    "body": "Uranus",
+    "a_au": 19.18916464,
+    "period_days": 30685.4,
+    "synodic_days": 369.656,
+    "titius_bode_n": 6,
+    "titius_bode_au": 19.6,
+    "titius_bode_error": -0.021
+   },
+   {
+    "body": "Neptune",
+    "a_au": 30.06992276,
+    "period_days": 60189.0,
+    "synodic_days": 367.486,
+    "titius_bode_n": 7,
+    "titius_bode_au": 38.8,
+    "titius_bode_error": -0.225
+   },
+   {
+    "body": "Pluto",
+    "a_au": 39.48211675,
+    "period_days": 90560.0,
+    "synodic_days": 366.736,
+    "titius_bode_n": 8,
+    "titius_bode_au": 77.2,
+    "titius_bode_error": -0.4886
+   }
+  ],
+  "note": "Titius-Bode a = 0.4 + 0.3 * 2^n is an empirical rule.  Its n = 3 slot (2.8 AU) is occupied by the asteroid belt (Ceres 2.77 AU).  The belt's total mass is a few percent of the Moon's, and the idea that it is a broken-up planet (Olbers) is not supported; Jupiter's resonances are the accepted reason no planet formed there.  The rule fails for Neptune (30.1 vs 38.8 AU)."
+ },
+ "cycles": {
+  "synodic_month": 29.530588853,
+  "draconic_month": 27.212220817,
+  "anomalistic_month": 27.554549878,
+  "sidereal_month": 27.321661547,
+  "tropical_year": 365.242189,
+  "sidereal_year": 365.256363,
+  "eclipse_year": 346.62007595237316,
+  "saros_days": 6585.321314219001,
+  "inex_days": 10571.950809374,
+  "exeligmos_days": 19755.963942657,
+  "metonic_days": 6939.688380455001,
+  "callippic_days": 27758.753521820003,
+  "precession_arcsec_per_year": 50.29,
+  "precession_period_years": 25770.53092066017,
+  "lean": "Sovereign.Organism.HypercubeModel: saros_draconic, saros_anomalistic, metonic, eclipse_year_bounds, inex_inverse"
+ },
+ "scripture": {
+  "books": [
+   {
+    "n": 1,
+    "name": "Genesis",
+    "chapters": 50,
+    "first_index": 1
+   },
+   {
+    "n": 2,
+    "name": "Exodus",
+    "chapters": 40,
+    "first_index": 51
+   },
+   {
+    "n": 3,
+    "name": "Leviticus",
+    "chapters": 27,
+    "first_index": 91
+   },
+   {
+    "n": 4,
+    "name": "Numbers",
+    "chapters": 36,
+    "first_index": 118
+   },
+   {
+    "n": 5,
+    "name": "Deuteronomy",
+    "chapters": 34,
+    "first_index": 154
+   },
+   {
+    "n": 6,
+    "name": "Joshua",
+    "chapters": 24,
+    "first_index": 188
+   },
+   {
+    "n": 7,
+    "name": "Judges",
+    "chapters": 21,
+    "first_index": 212
+   },
+   {
+    "n": 8,
+    "name": "Ruth",
+    "chapters": 4,
+    "first_index": 233
+   },
+   {
+    "n": 9,
+    "name": "1 Samuel",
+    "chapters": 31,
+    "first_index": 237
+   },
+   {
+    "n": 10,
+    "name": "2 Samuel",
+    "chapters": 24,
+    "first_index": 268
+   },
+   {
+    "n": 11,
+    "name": "1 Kings",
+    "chapters": 22,
+    "first_index": 292
+   },
+   {
+    "n": 12,
+    "name": "2 Kings",
+    "chapters": 25,
+    "first_index": 314
+   },
+   {
+    "n": 13,
+    "name": "1 Chronicles",
+    "chapters": 29,
+    "first_index": 339
+   },
+   {
+    "n": 14,
+    "name": "2 Chronicles",
+    "chapters": 36,
+    "first_index": 368
+   },
+   {
+    "n": 15,
+    "name": "Ezra",
+    "chapters": 10,
+    "first_index": 404
+   },
+   {
+    "n": 16,
+    "name": "Nehemiah",
+    "chapters": 13,
+    "first_index": 414
+   },
+   {
+    "n": 17,
+    "name": "Esther",
+    "chapters": 10,
+    "first_index": 427
+   },
+   {
+    "n": 18,
+    "name": "Job",
+    "chapters": 42,
+    "first_index": 437
+   },
+   {
+    "n": 19,
+    "name": "Psalms",
+    "chapters": 150,
+    "first_index": 479
+   },
+   {
+    "n": 20,
+    "name": "Proverbs",
+    "chapters": 31,
+    "first_index": 629
+   },
+   {
+    "n": 21,
+    "name": "Ecclesiastes",
+    "chapters": 12,
+    "first_index": 660
+   },
+   {
+    "n": 22,
+    "name": "Song of Solomon",
+    "chapters": 8,
+    "first_index": 672
+   },
+   {
+    "n": 23,
+    "name": "Isaiah",
+    "chapters": 66,
+    "first_index": 680
+   },
+   {
+    "n": 24,
+    "name": "Jeremiah",
+    "chapters": 52,
+    "first_index": 746
+   },
+   {
+    "n": 25,
+    "name": "Lamentations",
+    "chapters": 5,
+    "first_index": 798
+   },
+   {
+    "n": 26,
+    "name": "Ezekiel",
+    "chapters": 48,
+    "first_index": 803
+   },
+   {
+    "n": 27,
+    "name": "Daniel",
+    "chapters": 12,
+    "first_index": 851
+   },
+   {
+    "n": 28,
+    "name": "Hosea",
+    "chapters": 14,
+    "first_index": 863
+   },
+   {
+    "n": 29,
+    "name": "Joel",
+    "chapters": 3,
+    "first_index": 877
+   },
+   {
+    "n": 30,
+    "name": "Amos",
+    "chapters": 9,
+    "first_index": 880
+   },
+   {
+    "n": 31,
+    "name": "Obadiah",
+    "chapters": 1,
+    "first_index": 889
+   },
+   {
+    "n": 32,
+    "name": "Jonah",
+    "chapters": 4,
+    "first_index": 890
+   },
+   {
+    "n": 33,
+    "name": "Micah",
+    "chapters": 7,
+    "first_index": 894
+   },
+   {
+    "n": 34,
+    "name": "Nahum",
+    "chapters": 3,
+    "first_index": 901
+   },
+   {
+    "n": 35,
+    "name": "Habakkuk",
+    "chapters": 3,
+    "first_index": 904
+   },
+   {
+    "n": 36,
+    "name": "Zephaniah",
+    "chapters": 3,
+    "first_index": 907
+   },
+   {
+    "n": 37,
+    "name": "Haggai",
+    "chapters": 2,
+    "first_index": 910
+   },
+   {
+    "n": 38,
+    "name": "Zechariah",
+    "chapters": 14,
+    "first_index": 912
+   },
+   {
+    "n": 39,
+    "name": "Malachi",
+    "chapters": 4,
+    "first_index": 926
+   },
+   {
+    "n": 40,
+    "name": "Matthew",
+    "chapters": 28,
+    "first_index": 930
+   },
+   {
+    "n": 41,
+    "name": "Mark",
+    "chapters": 16,
+    "first_index": 958
+   },
+   {
+    "n": 42,
+    "name": "Luke",
+    "chapters": 24,
+    "first_index": 974
+   },
+   {
+    "n": 43,
+    "name": "John",
+    "chapters": 21,
+    "first_index": 998
+   },
+   {
+    "n": 44,
+    "name": "Acts",
+    "chapters": 28,
+    "first_index": 1019
+   },
+   {
+    "n": 45,
+    "name": "Romans",
+    "chapters": 16,
+    "first_index": 1047
+   },
+   {
+    "n": 46,
+    "name": "1 Corinthians",
+    "chapters": 16,
+    "first_index": 1063
+   },
+   {
+    "n": 47,
+    "name": "2 Corinthians",
+    "chapters": 13,
+    "first_index": 1079
+   },
+   {
+    "n": 48,
+    "name": "Galatians",
+    "chapters": 6,
+    "first_index": 1092
+   },
+   {
+    "n": 49,
+    "name": "Ephesians",
+    "chapters": 6,
+    "first_index": 1098
+   },
+   {
+    "n": 50,
+    "name": "Philippians",
+    "chapters": 4,
+    "first_index": 1104
+   },
+   {
+    "n": 51,
+    "name": "Colossians",
+    "chapters": 4,
+    "first_index": 1108
+   },
+   {
+    "n": 52,
+    "name": "1 Thessalonians",
+    "chapters": 5,
+    "first_index": 1112
+   },
+   {
+    "n": 53,
+    "name": "2 Thessalonians",
+    "chapters": 3,
+    "first_index": 1117
+   },
+   {
+    "n": 54,
+    "name": "1 Timothy",
+    "chapters": 6,
+    "first_index": 1120
+   },
+   {
+    "n": 55,
+    "name": "2 Timothy",
+    "chapters": 4,
+    "first_index": 1126
+   },
+   {
+    "n": 56,
+    "name": "Titus",
+    "chapters": 3,
+    "first_index": 1130
+   },
+   {
+    "n": 57,
+    "name": "Philemon",
+    "chapters": 1,
+    "first_index": 1133
+   },
+   {
+    "n": 58,
+    "name": "Hebrews",
+    "chapters": 13,
+    "first_index": 1134
+   },
+   {
+    "n": 59,
+    "name": "James",
+    "chapters": 5,
+    "first_index": 1147
+   },
+   {
+    "n": 60,
+    "name": "1 Peter",
+    "chapters": 5,
+    "first_index": 1152
+   },
+   {
+    "n": 61,
+    "name": "2 Peter",
+    "chapters": 3,
+    "first_index": 1157
+   },
+   {
+    "n": 62,
+    "name": "1 John",
+    "chapters": 5,
+    "first_index": 1160
+   },
+   {
+    "n": 63,
+    "name": "2 John",
+    "chapters": 1,
+    "first_index": 1165
+   },
+   {
+    "n": 64,
+    "name": "3 John",
+    "chapters": 1,
+    "first_index": 1166
+   },
+   {
+    "n": 65,
+    "name": "Jude",
+    "chapters": 1,
+    "first_index": 1167
+   },
+   {
+    "n": 66,
+    "name": "Revelation",
+    "chapters": 22,
+    "first_index": 1168
+   }
+  ],
+  "total_chapters": 1189,
+  "tribes_numbers_1": {
+   "Reuben": 46500,
+   "Simeon": 59300,
+   "Gad": 45650,
+   "Judah": 74600,
+   "Issachar": 54400,
+   "Zebulun": 57400,
+   "Ephraim": 40500,
+   "Manasseh": 32200,
+   "Benjamin": 35400,
+   "Dan": 62700,
+   "Asher": 41500,
+   "Naphtali": 53400
+  }
+ },
+ "anchors": [
+  {
+   "event": "Bur-Sagale eclipse / Amos 8:9",
+   "verse": "Amos 8:9",
+   "jerusalem_local": "-762-06-15 12.00 (Julian)",
+   "ut": "-0762-06-15 09:39",
+   "bodies": {
+    "Sun": {
+     "cell": 37,
+     "cell_date": 41,
+     "ra_j2000_h": 7.67273,
+     "dec_j2000": 21.78309,
+     "mag": -26.74,
+     "wall_margin": {
+      "ra_min": 79.64,
+      "dec_deg": 8.217,
+      "mag": 27.74
+     },
+     "cell_previous_ephemeris": 37,
+     "ra_diff_min_vs_previous": 0.002
+    },
+    "Moon": {
+     "cell": 37,
+     "cell_date": 41,
+     "ra_j2000_h": 7.73366,
+     "dec_j2000": 21.82732,
+     "mag": -3.95177,
+     "wall_margin": {
+      "ra_min": 75.98,
+      "dec_deg": 8.173,
+      "mag": 4.95
+     },
+     "cell_previous_ephemeris": 37,
+     "ra_diff_min_vs_previous": 0.232
+    },
+    "Mercury": {
+     "cell": 5,
+     "cell_date": 9,
+     "ra_j2000_h": 7.71828,
+     "dec_j2000": 17.14844,
+     "mag": 4.92211,
+     "wall_margin": {
+      "ra_min": 76.9,
+      "dec_deg": 12.852,
+      "mag": 3.92
+     },
+     "cell_previous_ephemeris": 5,
+     "ra_diff_min_vs_previous": 0.039
+    },
+    "Venus": {
+     "cell": 45,
+     "cell_date": 37,
+     "ra_j2000_h": 10.72594,
+     "dec_j2000": 9.66389,
+     "mag": -4.27175,
+     "wall_margin": {
+      "ra_min": 76.44,
+      "dec_deg": 9.664,
+      "mag": 5.27
+     },
+     "cell_previous_ephemeris": 45,
+     "ra_diff_min_vs_previous": -0.003
+    },
+    "Mars": {
+     "cell": 34,
+     "cell_date": 34,
+     "ra_j2000_h": 14.75711,
+     "dec_j2000": -17.5199,
+     "mag": -0.78012,
+     "wall_margin": {
+      "ra_min": 14.57,
+      "dec_deg": 12.48,
+      "mag": 1.78
+     },
+     "cell_previous_ephemeris": 34,
+     "ra_diff_min_vs_previous": -0.137
+    },
+    "Jupiter": {
+     "cell": 37,
+     "cell_date": 41,
+     "ra_j2000_h": 7.47655,
+     "dec_j2000": 22.20871,
+     "mag": -1.82389,
+     "wall_margin": {
+      "ra_min": 88.59,
+      "dec_deg": 7.791,
+      "mag": 2.82
+     },
+     "cell_previous_ephemeris": 37,
+     "ra_diff_min_vs_previous": -0.032
+    },
+    "Saturn": {
+     "cell": 45,
+     "cell_date": 37,
+     "ra_j2000_h": 9.84286,
+     "dec_j2000": 14.17437,
+     "mag": 0.64259,
+     "wall_margin": {
+      "ra_min": 50.57,
+      "dec_deg": 14.174,
+      "mag": 0.36
+     },
+     "cell_previous_ephemeris": 45,
+     "ra_diff_min_vs_previous": -0.503
+    }
+   },
+   "moon": {
+    "elongation_deg": 0.834,
+    "illuminated": 0.0001,
+    "phase": "new",
+    "age_days": 0.07,
+    "lunation": -34157,
+    "node_lon_j2000": 299.585,
+    "sun_from_node_deg": 6.395,
+    "solar_eclipse_season": true,
+    "lunar_eclipse_season": true
+   },
+   "nearest_eclipses": {
+    "solar": {
+     "date": "-0762-06-15 08:14",
+     "type": "total",
+     "magnitude": 1.042,
+     "saros": 44,
+     "days_from_event": -0.06,
+     "jerusalem": {
+      "ut": "-0762-06-15 07:27",
+      "separation_deg": 0.067,
+      "magnitude": 0.901,
+      "phase_seen": "partial",
+      "sun_alt": 61.124,
+      "sun_az": 100.105,
+      "geometric_max": {
+       "ut": "-0762-06-15 07:27",
+       "magnitude": 0.901,
+       "sun_alt": 61.124
+      }
+     }
+    },
+    "lunar": {
+     "date": "-0762-06-30 16:51",
+     "type": "penumbral",
+     "magnitude": 0.801,
+     "saros": 56,
+     "days_from_event": 15.3,
+     "jerusalem": {
+      "ut": "-0762-06-30 16:51",
+      "moon_alt": 2.134,
+      "moon_az": 119.22,
+      "visible_at_maximum": true,
+      "contacts": {
+       "P1": [
+        "-0762-06-30 14:46",
+        -21.65
+       ],
+       "P4": [
+        "-0762-06-30 18:56",
+        22.27
+       ]
+      }
+     }
+    }
+   },
+   "scripture_at_sun": {
+    "phase_deg": 115.095,
+    "chapter_index": 381,
+    "chapter": "2 Chronicles 14",
+    "isaiah_sector": 22,
+    "isaiah_book": "Song of Solomon",
+    "tribe": "Judah"
+   }
+  },
+  {
+   "event": "Jerusalem taken, 2 Adar",
+   "verse": "2 Kings 24:12",
+   "jerusalem_local": "-596-03-16 12.00 (Julian)",
+   "ut": "-0596-03-16 09:39",
+   "bodies": {
+    "Sun": {
+     "cell": 33,
+     "cell_date": 46,
+     "ra_j2000_h": 1.57192,
+     "dec_j2000": 9.99139,
+     "mag": -26.74,
+     "wall_margin": {
+      "ra_min": 85.69,
+      "dec_deg": 9.991,
+      "mag": 27.74
+     },
+     "cell_previous_ephemeris": 33,
+     "ra_diff_min_vs_previous": 0.007
+    },
+    "Moon": {
+     "cell": 41,
+     "cell_date": 33,
+     "ra_j2000_h": 4.23027,
+     "dec_j2000": 26.656,
+     "mag": -7.6312,
+     "wall_margin": {
+      "ra_min": 73.82,
+      "dec_deg": 3.344,
+      "mag": 8.63
+     },
+     "cell_previous_ephemeris": 41,
+     "ra_diff_min_vs_previous": -0.462
+    },
+    "Mercury": {
+     "cell": 33,
+     "cell_date": 46,
+     "ra_j2000_h": 1.22233,
+     "dec_j2000": 6.31868,
+     "mag": -1.45962,
+     "wall_margin": {
+      "ra_min": 73.34,
+      "dec_deg": 6.319,
+      "mag": 2.46
+     },
+     "cell_previous_ephemeris": 33,
+     "ra_diff_min_vs_previous": -0.028
+    },
+    "Venus": {
+     "cell": 33,
+     "cell_date": 46,
+     "ra_j2000_h": 1.97522,
+     "dec_j2000": 11.12582,
+     "mag": -3.90629,
+     "wall_margin": {
+      "ra_min": 61.49,
+      "dec_deg": 11.126,
+      "mag": 4.91
+     },
+     "cell_previous_ephemeris": 33,
+     "ra_diff_min_vs_previous": -0.015
+    },
+    "Mars": {
+     "cell": 14,
+     "cell_date": 6,
+     "ra_j2000_h": 23.17295,
+     "dec_j2000": -6.76262,
+     "mag": 1.13852,
+     "wall_margin": {
+      "ra_min": 49.62,
+      "dec_deg": 6.763,
+      "mag": 0.14
+     },
+     "cell_previous_ephemeris": 14,
+     "ra_diff_min_vs_previous": -0.028
+    },
+    "Jupiter": {
+     "cell": 37,
+     "cell_date": 41,
+     "ra_j2000_h": 6.00463,
+     "dec_j2000": 23.54425,
+     "mag": -2.04884,
+     "wall_margin": {
+      "ra_min": 0.28,
+      "dec_deg": 6.456,
+      "mag": 3.05
+     },
+     "cell_previous_ephemeris": 37,
+     "ra_diff_min_vs_previous": -0.054
+    },
+    "Saturn": {
+     "cell": 32,
+     "cell_date": 46,
+     "ra_j2000_h": 0.24099,
+     "dec_j2000": -0.48184,
+     "mag": 0.92038,
+     "wall_margin": {
+      "ra_min": 14.46,
+      "dec_deg": 0.482,
+      "mag": 0.08
+     },
+     "cell_previous_ephemeris": 32,
+     "ra_diff_min_vs_previous": -0.221
+    }
+   },
+   "moon": {
+    "elongation_deg": 40.858,
+    "illuminated": 0.1218,
+    "phase": "waxing crescent",
+    "age_days": 3.35,
+    "lunation": -32106,
+    "node_lon_j2000": 330.963,
+    "sun_from_node_deg": 54.533,
+    "solar_eclipse_season": false,
+    "lunar_eclipse_season": false
+   },
+   "nearest_eclipses": {
+    "solar": {
+     "date": "-0596-01-14 11:38",
+     "type": "total",
+     "magnitude": 1.034,
+     "saros": 41,
+     "days_from_event": -61.92,
+     "jerusalem": {
+      "ut": "-0596-01-14 13:26",
+      "separation_deg": 1.15,
+      "magnitude": 0.0,
+      "phase_seen": "none",
+      "sun_alt": 15.316,
+      "sun_az": 230.44,
+      "geometric_max": {
+       "ut": "-0596-01-14 13:26",
+       "magnitude": 0.0,
+       "sun_alt": 15.316
+      }
+     }
+    },
+    "lunar": {
+     "date": "-0596-01-29 08:50",
+     "type": "partial",
+     "magnitude": 0.266,
+     "saros": 53,
+     "days_from_event": -47.03,
+     "jerusalem": {
+      "ut": "-0596-01-29 08:50",
+      "moon_alt": -37.568,
+      "moon_az": 340.722,
+      "visible_at_maximum": false,
+      "contacts": {
+       "P1": [
+        "-0596-01-29 06:09",
+        -17.08
+       ],
+       "U1": [
+        "-0596-01-29 07:49",
+        -31.7
+       ],
+       "U4": [
+        "-0596-01-29 09:52",
+        -40.02
+       ],
+       "P4": [
+        "-0596-01-29 11:32",
+        -35.73
+       ]
+      }
+     }
+    }
+   },
+   "scripture_at_sun": {
+    "phase_deg": 23.58,
+    "chapter_index": 78,
+    "chapter": "Exodus 28",
+    "isaiah_sector": 5,
+    "isaiah_book": "Deuteronomy",
+    "tribe": "Reuben"
+   }
+  },
+  {
+   "event": "Herod's eclipse",
+   "verse": "Matthew 2:19",
+   "jerusalem_local": "-3-03-13 00.00 (Julian)",
+   "ut": "-0003-03-12 21:39",
+   "bodies": {
+    "Sun": {
+     "cell": 33,
+     "cell_date": 46,
+     "ra_j2000_h": 1.1079,
+     "dec_j2000": 7.15856,
+     "mag": -26.74,
+     "wall_margin": {
+      "ra_min": 66.47,
+      "dec_deg": 7.159,
+      "mag": 27.74
+     },
+     "cell_previous_ephemeris": 33,
+     "ra_diff_min_vs_previous": 0.008
+    },
+    "Moon": {
+     "cell": 34,
+     "cell_date": 45,
+     "ra_j2000_h": 12.99997,
+     "dec_j2000": -7.1217,
+     "mag": -12.68822,
+     "wall_margin": {
+      "ra_min": 60.0,
+      "dec_deg": 7.122,
+      "mag": 13.69
+     },
+     "cell_previous_ephemeris": 34,
+     "ra_diff_min_vs_previous": 0.056
+    },
+    "Mercury": {
+     "cell": 33,
+     "cell_date": 46,
+     "ra_j2000_h": 1.59211,
+     "dec_j2000": 10.04748,
+     "mag": -1.59356,
+     "wall_margin": {
+      "ra_min": 84.47,
+      "dec_deg": 10.047,
+      "mag": 2.59
+     },
+     "cell_previous_ephemeris": 33,
+     "ra_diff_min_vs_previous": -0.028
+    },
+    "Venus": {
+     "cell": 33,
+     "cell_date": 46,
+     "ra_j2000_h": 0.79236,
+     "dec_j2000": 3.63023,
+     "mag": -3.89635,
+     "wall_margin": {
+      "ra_min": 47.54,
+      "dec_deg": 3.63,
+      "mag": 4.9
+     },
+     "cell_previous_ephemeris": 33,
+     "ra_diff_min_vs_previous": -0.004
+    },
+    "Mars": {
+     "cell": 9,
+     "cell_date": 1,
+     "ra_j2000_h": 3.14803,
+     "dec_j2000": 18.03992,
+     "mag": 1.55151,
+     "wall_margin": {
+      "ra_min": 8.88,
+      "dec_deg": 11.96,
+      "mag": 0.55
+     },
+     "cell_previous_ephemeris": 9,
+     "ra_diff_min_vs_previous": 0.034
+    },
+    "Jupiter": {
+     "cell": 41,
+     "cell_date": 41,
+     "ra_j2000_h": 5.79854,
+     "dec_j2000": 23.43332,
+     "mag": -2.09438,
+     "wall_margin": {
+      "ra_min": 12.09,
+      "dec_deg": 6.567,
+      "mag": 3.09
+     },
+     "cell_previous_ephemeris": 41,
+     "ra_diff_min_vs_previous": 0.22
+    },
+    "Saturn": {
+     "cell": 33,
+     "cell_date": 33,
+     "ra_j2000_h": 2.98591,
+     "dec_j2000": 14.84534,
+     "mag": 0.24877,
+     "wall_margin": {
+      "ra_min": 0.85,
+      "dec_deg": 14.845,
+      "mag": 0.75
+     },
+     "cell_previous_ephemeris": 33,
+     "ra_diff_min_vs_previous": 0.155
+    }
+   },
+   "moon": {
+    "elongation_deg": 178.507,
+    "illuminated": 0.9998,
+    "phase": "full",
+    "age_days": 14.64,
+    "lunation": -24772,
+    "node_lon_j2000": 9.697,
+    "sun_from_node_deg": 8.358,
+    "solar_eclipse_season": true,
+    "lunar_eclipse_season": true
+   },
+   "nearest_eclipses": {
+    "solar": {
+     "date": "-0003-02-25 18:43",
+     "type": "total",
+     "magnitude": 1.036,
+     "saros": 59,
+     "days_from_event": -15.12,
+     "jerusalem": {
+      "ut": "-0003-02-25 19:39",
+      "separation_deg": 0.769,
+      "magnitude": 0.0,
+      "phase_seen": "none",
+      "sun_alt": -51.589,
+      "sun_az": 297.647,
+      "geometric_max": {
+       "ut": "-0003-02-25 19:39",
+       "magnitude": 0.0,
+       "sun_alt": -51.589
+      }
+     }
+    },
+    "lunar": {
+     "date": "-0003-03-13 00:41",
+     "type": "partial",
+     "magnitude": 0.366,
+     "saros": 71,
+     "days_from_event": 0.13,
+     "jerusalem": {
+      "ut": "-0003-03-13 00:41",
+      "moon_alt": 39.935,
+      "moon_az": 243.634,
+      "visible_at_maximum": true,
+      "contacts": {
+       "P1": [
+        "-0003-03-12 22:00",
+        61.44
+       ],
+       "U1": [
+        "-0003-03-12 23:31",
+        52.13
+       ],
+       "U4": [
+        "-0003-03-13 01:51",
+        26.08
+       ],
+       "P4": [
+        "-0003-03-13 03:21",
+        7.28
+       ]
+      }
+     }
+    }
+   },
+   "scripture_at_sun": {
+    "phase_deg": 16.62,
+    "chapter_index": 55,
+    "chapter": "Exodus 5",
+    "isaiah_sector": 4,
+    "isaiah_book": "Numbers",
+    "tribe": "Reuben"
+   }
+  },
+  {
+   "event": "Crucifixion AD 30",
+   "verse": "Mark 15:33",
+   "jerusalem_local": "30-04-07 15.00 (Julian)",
+   "ut": "0030-04-07 12:39",
+   "bodies": {
+    "Sun": {
+     "cell": 33,
+     "cell_date": 33,
+     "ra_j2000_h": 2.66802,
+     "dec_j2000": 15.76463,
+     "mag": -26.74,
+     "wall_margin": {
+      "ra_min": 19.92,
+      "dec_deg": 14.235,
+      "mag": 27.74
+     },
+     "cell_previous_ephemeris": 33,
+     "ra_diff_min_vs_previous": 0.017
+    },
+    "Moon": {
+     "cell": 42,
+     "cell_date": 34,
+     "ra_j2000_h": 15.39164,
+     "dec_j2000": -15.70308,
+     "mag": -12.45834,
+     "wall_margin": {
+      "ra_min": 23.5,
+      "dec_deg": 14.297,
+      "mag": 13.46
+     },
+     "cell_previous_ephemeris": 42,
+     "ra_diff_min_vs_previous": -0.118
+    },
+    "Mercury": {
+     "cell": 9,
+     "cell_date": 1,
+     "ra_j2000_h": 3.81451,
+     "dec_j2000": 23.01013,
+     "mag": 1.64569,
+     "wall_margin": {
+      "ra_min": 48.87,
+      "dec_deg": 6.99,
+      "mag": 0.65
+     },
+     "cell_previous_ephemeris": 9,
+     "ra_diff_min_vs_previous": 0.042
+    },
+    "Venus": {
+     "cell": 46,
+     "cell_date": 46,
+     "ra_j2000_h": 23.84839,
+     "dec_j2000": -1.59005,
+     "mag": -4.20645,
+     "wall_margin": {
+      "ra_min": 9.1,
+      "dec_deg": 1.59,
+      "mag": 5.21
+     },
+     "cell_previous_ephemeris": 46,
+     "ra_diff_min_vs_previous": 0.004
+    },
+    "Mars": {
+     "cell": 38,
+     "cell_date": 38,
+     "ra_j2000_h": 20.33524,
+     "dec_j2000": -20.72985,
+     "mag": -0.25693,
+     "wall_margin": {
+      "ra_min": 39.89,
+      "dec_deg": 9.27,
+      "mag": 1.26
+     },
+     "cell_previous_ephemeris": 38,
+     "ra_diff_min_vs_previous": -0.011
+    },
+    "Jupiter": {
+     "cell": 33,
+     "cell_date": 46,
+     "ra_j2000_h": 1.31388,
+     "dec_j2000": 7.135,
+     "mag": -2.04418,
+     "wall_margin": {
+      "ra_min": 78.83,
+      "dec_deg": 7.135,
+      "mag": 3.04
+     },
+     "cell_previous_ephemeris": 33,
+     "ra_diff_min_vs_previous": 0.065
+    },
+    "Saturn": {
+     "cell": 37,
+     "cell_date": 41,
+     "ra_j2000_h": 6.31703,
+     "dec_j2000": 22.63666,
+     "mag": 0.12836,
+     "wall_margin": {
+      "ra_min": 19.02,
+      "dec_deg": 7.363,
+      "mag": 0.87
+     },
+     "cell_previous_ephemeris": 37,
+     "ra_diff_min_vs_previous": -0.577
+    }
+   },
+   "moon": {
+    "elongation_deg": 190.025,
+    "illuminated": 0.9924,
+    "phase": "full",
+    "age_days": 15.59,
+    "lunation": -24363,
+    "node_lon_j2000": 85.272,
+    "sun_from_node_deg": 42.75,
+    "solar_eclipse_season": false,
+    "lunar_eclipse_season": false
+   },
+   "nearest_eclipses": {
+    "solar": {
+     "date": "0030-05-21 01:20",
+     "type": "annular",
+     "magnitude": 0.938,
+     "saros": 67,
+     "days_from_event": 43.53,
+     "jerusalem": {
+      "ut": "0030-05-21 00:38",
+      "separation_deg": 1.05,
+      "magnitude": 0.0,
+      "phase_seen": "none",
+      "sun_alt": -21.971,
+      "sun_az": 47.439,
+      "geometric_max": {
+       "ut": "0030-05-21 00:38",
+       "magnitude": 0.0,
+       "sun_alt": -21.971
+      }
+     }
+    },
+    "lunar": {
+     "date": "0030-05-06 03:19",
+     "type": "penumbral",
+     "magnitude": 0.04,
+     "saros": 41,
+     "days_from_event": 28.61,
+     "jerusalem": {
+      "ut": "0030-05-06 03:19",
+      "moon_alt": -5.112,
+      "moon_az": 255.662,
+      "visible_at_maximum": false,
+      "contacts": {
+       "P1": [
+        "0030-05-06 02:53",
+        0.17
+       ],
+       "P4": [
+        "0030-05-06 03:46",
+        -10.45
+       ]
+      }
+     }
+    }
+   },
+   "scripture_at_sun": {
+    "phase_deg": 40.02,
+    "chapter_index": 133,
+    "chapter": "Numbers 16",
+    "isaiah_sector": 8,
+    "isaiah_book": "Ruth",
+    "tribe": "Simeon"
+   }
+  },
+  {
+   "event": "Crucifixion AD 33",
+   "verse": "Mark 15:33",
+   "jerusalem_local": "33-04-03 15.00 (Julian)",
+   "ut": "0033-04-03 12:39",
+   "bodies": {
+    "Sun": {
+     "cell": 33,
+     "cell_date": 33,
+     "ra_j2000_h": 2.42888,
+     "dec_j2000": 14.61254,
+     "mag": -26.74,
+     "wall_margin": {
+      "ra_min": 34.27,
+      "dec_deg": 14.613,
+      "mag": 27.74
+     },
+     "cell_previous_ephemeris": 33,
+     "ra_diff_min_vs_previous": 0.003
+    },
+    "Moon": {
+     "cell": 34,
+     "cell_date": 34,
+     "ra_j2000_h": 14.34806,
+     "dec_j2000": -14.75674,
+     "mag": -12.69928,
+     "wall_margin": {
+      "ra_min": 39.12,
+      "dec_deg": 14.757,
+      "mag": 13.7
+     },
+     "cell_previous_ephemeris": 34,
+     "ra_diff_min_vs_previous": -0.046
+    },
+    "Mercury": {
+     "cell": 33,
+     "cell_date": 46,
+     "ra_j2000_h": 0.95804,
+     "dec_j2000": 3.29704,
+     "mag": -0.01205,
+     "wall_margin": {
+      "ra_min": 57.48,
+      "dec_deg": 3.297,
+      "mag": 1.01
+     },
+     "cell_previous_ephemeris": 33,
+     "ra_diff_min_vs_previous": -0.009
+    },
+    "Venus": {
+     "cell": 33,
+     "cell_date": 47,
+     "ra_j2000_h": 1.06046,
+     "dec_j2000": 12.25083,
+     "mag": -4.27119,
+     "wall_margin": {
+      "ra_min": 63.63,
+      "dec_deg": 12.251,
+      "mag": 5.27
+     },
+     "cell_previous_ephemeris": 33,
+     "ra_diff_min_vs_previous": 0.034
+    },
+    "Mars": {
+     "cell": 5,
+     "cell_date": 9,
+     "ra_j2000_h": 6.3619,
+     "dec_j2000": 24.9959,
+     "mag": 1.54734,
+     "wall_margin": {
+      "ra_min": 21.71,
+      "dec_deg": 5.004,
+      "mag": 0.55
+     },
+     "cell_previous_ephemeris": 5,
+     "ra_diff_min_vs_previous": 0.037
+    },
+    "Jupiter": {
+     "cell": 37,
+     "cell_date": 41,
+     "ra_j2000_h": 6.87101,
+     "dec_j2000": 23.24425,
+     "mag": -2.0078,
+     "wall_margin": {
+      "ra_min": 52.26,
+      "dec_deg": 6.756,
+      "mag": 3.01
+     },
+     "cell_previous_ephemeris": 37,
+     "ra_diff_min_vs_previous": 0.068
+    },
+    "Saturn": {
+     "cell": 45,
+     "cell_date": 37,
+     "ra_j2000_h": 9.083,
+     "dec_j2000": 17.63197,
+     "mag": 0.34056,
+     "wall_margin": {
+      "ra_min": 4.98,
+      "dec_deg": 12.368,
+      "mag": 0.66
+     },
+     "cell_previous_ephemeris": 45,
+     "ra_diff_min_vs_previous": -0.648
+    }
+   },
+   "moon": {
+    "elongation_deg": 178.942,
+    "illuminated": 0.9999,
+    "phase": "full",
+    "age_days": 14.68,
+    "lunation": -24326,
+    "node_lon_j2000": 30.746,
+    "sun_from_node_deg": 8.128,
+    "solar_eclipse_season": true,
+    "lunar_eclipse_season": true
+   },
+   "nearest_eclipses": {
+    "solar": {
+     "date": "0033-03-19 10:50",
+     "type": "total",
+     "magnitude": 1.045,
+     "saros": 59,
+     "days_from_event": -15.08,
+     "jerusalem": {
+      "ut": "0033-03-19 12:25",
+      "separation_deg": 0.967,
+      "magnitude": 0.0,
+      "phase_seen": "none",
+      "sun_alt": 40.234,
+      "sun_az": 236.128,
+      "geometric_max": {
+       "ut": "0033-03-19 12:25",
+       "magnitude": 0.0,
+       "sun_alt": 40.234
+      }
+     }
+    },
+    "lunar": {
+     "date": "0033-04-03 14:48",
+     "type": "partial",
+     "magnitude": 0.584,
+     "saros": 71,
+     "days_from_event": 0.09,
+     "jerusalem": {
+      "ut": "0033-04-03 14:48",
+      "moon_alt": -14.992,
+      "moon_az": 87.344,
+      "visible_at_maximum": false,
+      "contacts": {
+       "P1": [
+        "0033-04-03 11:59",
+        -47.53
+       ],
+       "U1": [
+        "0033-04-03 13:22",
+        -32.18
+       ],
+       "U4": [
+        "0033-04-03 16:13",
+        2.48
+       ],
+       "P4": [
+        "0033-04-03 17:36",
+        18.87
+       ]
+      }
+     }
+    }
+   },
+   "scripture_at_sun": {
+    "phase_deg": 36.435,
+    "chapter_index": 121,
+    "chapter": "Numbers 4",
+    "isaiah_sector": 7,
+    "isaiah_book": "Judges",
+    "tribe": "Simeon"
+   }
+  },
+  {
+   "event": "Pentecost AD 33",
+   "verse": "Acts 2:1",
+   "jerusalem_local": "33-05-24 09.00 (Julian)",
+   "ut": "0033-05-24 06:39",
+   "bodies": {
+    "Sun": {
+     "cell": 41,
+     "cell_date": 41,
+     "ra_j2000_h": 5.81888,
+     "dec_j2000": 23.67575,
+     "mag": -26.74,
+     "wall_margin": {
+      "ra_min": 10.87,
+      "dec_deg": 6.324,
+      "mag": 27.74
+     },
+     "cell_previous_ephemeris": 41,
+     "ra_diff_min_vs_previous": -0.001
+    },
+    "Moon": {
+     "cell": 45,
+     "cell_date": 45,
+     "ra_j2000_h": 11.58074,
+     "dec_j2000": 6.24645,
+     "mag": -9.90377,
+     "wall_margin": {
+      "ra_min": 25.16,
+      "dec_deg": 6.246,
+      "mag": 10.9
+     },
+     "cell_previous_ephemeris": 45,
+     "ra_diff_min_vs_previous": 0.299
+    },
+    "Mercury": {
+     "cell": 37,
+     "cell_date": 41,
+     "ra_j2000_h": 7.4923,
+     "dec_j2000": 24.02698,
+     "mag": -0.08221,
+     "wall_margin": {
+      "ra_min": 89.54,
+      "dec_deg": 5.973,
+      "mag": 1.08
+     },
+     "cell_previous_ephemeris": 37,
+     "ra_diff_min_vs_previous": -0.016
+    },
+    "Venus": {
+     "cell": 33,
+     "cell_date": 33,
+     "ra_j2000_h": 2.68331,
+     "dec_j2000": 13.24845,
+     "mag": -4.33431,
+     "wall_margin": {
+      "ra_min": 19.0,
+      "dec_deg": 13.248,
+      "mag": 5.33
+     },
+     "cell_previous_ephemeris": 33,
+     "ra_diff_min_vs_previous": 0.015
+    },
+    "Mars": {
+     "cell": 5,
+     "cell_date": 5,
+     "ra_j2000_h": 8.55585,
+     "dec_j2000": 20.36347,
+     "mag": 1.7866,
+     "wall_margin": {
+      "ra_min": 26.65,
+      "dec_deg": 9.637,
+      "mag": 0.79
+     },
+     "cell_previous_ephemeris": 5,
+     "ra_diff_min_vs_previous": 0.033
+    },
+    "Jupiter": {
+     "cell": 37,
+     "cell_date": 41,
+     "ra_j2000_h": 7.55441,
+     "dec_j2000": 22.12789,
+     "mag": -1.82443,
+     "wall_margin": {
+      "ra_min": 86.74,
+      "dec_deg": 7.872,
+      "mag": 2.82
+     },
+     "cell_previous_ephemeris": 37,
+     "ra_diff_min_vs_previous": 0.068
+    },
+    "Saturn": {
+     "cell": 45,
+     "cell_date": 37,
+     "ra_j2000_h": 9.30265,
+     "dec_j2000": 16.66625,
+     "mag": 0.50393,
+     "wall_margin": {
+      "ra_min": 18.16,
+      "dec_deg": 13.334,
+      "mag": 0.5
+     },
+     "cell_previous_ephemeris": 45,
+     "ra_diff_min_vs_previous": -0.599
+    }
+   },
+   "moon": {
+    "elongation_deg": 84.248,
+    "illuminated": 0.4499,
+    "phase": "first quarter",
+    "age_days": 6.91,
+    "lunation": -24324,
+    "node_lon_j2000": 29.011,
+    "sun_from_node_deg": 58.501,
+    "solar_eclipse_season": false,
+    "lunar_eclipse_season": false
+   },
+   "nearest_eclipses": {
+    "solar": {
+     "date": "0033-03-19 10:50",
+     "type": "total",
+     "magnitude": 1.045,
+     "saros": 59,
+     "days_from_event": -65.83,
+     "jerusalem": {
+      "ut": "0033-03-19 12:25",
+      "separation_deg": 0.967,
+      "magnitude": 0.0,
+      "phase_seen": "none",
+      "sun_alt": 40.234,
+      "sun_az": 236.128,
+      "geometric_max": {
+       "ut": "0033-03-19 12:25",
+       "magnitude": 0.0,
+       "sun_alt": 40.234
+      }
+     }
+    },
+    "lunar": {
+     "date": "0033-04-03 14:48",
+     "type": "partial",
+     "magnitude": 0.584,
+     "saros": 71,
+     "days_from_event": -50.66,
+     "jerusalem": {
+      "ut": "0033-04-03 14:48",
+      "moon_alt": -14.992,
+      "moon_az": 87.344,
+      "visible_at_maximum": false,
+      "contacts": {
+       "P1": [
+        "0033-04-03 11:59",
+        -47.53
+       ],
+       "U1": [
+        "0033-04-03 13:22",
+        -32.18
+       ],
+       "U4": [
+        "0033-04-03 16:13",
+        2.48
+       ],
+       "P4": [
+        "0033-04-03 17:36",
+        18.87
+       ]
+      }
+     }
+    }
+   },
+   "scripture_at_sun": {
+    "phase_deg": 87.285,
+    "chapter_index": 289,
+    "chapter": "2 Samuel 22",
+    "isaiah_sector": 17,
+    "isaiah_book": "Esther",
+    "tribe": "Gad"
+   }
+  },
+  {
+   "event": "Temple burned AD 70",
+   "verse": "Matthew 24:2",
+   "jerusalem_local": "70-08-30 12.00 (Julian)",
+   "ut": "0070-08-30 09:39",
+   "bodies": {
+    "Sun": {
+     "cell": 34,
+     "cell_date": 45,
+     "ra_j2000_h": 12.08718,
+     "dec_j2000": -0.57611,
+     "mag": -26.74,
+     "wall_margin": {
+      "ra_min": 5.23,
+      "dec_deg": 0.576,
+      "mag": 27.74
+     },
+     "cell_previous_ephemeris": 34,
+     "ra_diff_min_vs_previous": 0.005
+    },
+    "Moon": {
+     "cell": 42,
+     "cell_date": 34,
+     "ra_j2000_h": 16.46709,
+     "dec_j2000": -25.57305,
+     "mag": -9.1858,
+     "wall_margin": {
+      "ra_min": 88.03,
+      "dec_deg": 4.427,
+      "mag": 10.19
+     },
+     "cell_previous_ephemeris": 42,
+     "ra_diff_min_vs_previous": -0.095
+    },
+    "Mercury": {
+     "cell": 45,
+     "cell_date": 45,
+     "ra_j2000_h": 11.01119,
+     "dec_j2000": 7.13906,
+     "mag": -0.30337,
+     "wall_margin": {
+      "ra_min": 59.33,
+      "dec_deg": 7.139,
+      "mag": 1.3
+     },
+     "cell_previous_ephemeris": 45,
+     "ra_diff_min_vs_previous": 0.003
+    },
+    "Venus": {
+     "cell": 45,
+     "cell_date": 45,
+     "ra_j2000_h": 11.48259,
+     "dec_j2000": 4.86773,
+     "mag": -3.92992,
+     "wall_margin": {
+      "ra_min": 31.04,
+      "dec_deg": 4.868,
+      "mag": 4.93
+     },
+     "cell_previous_ephemeris": 45,
+     "ra_diff_min_vs_previous": -0.018
+    },
+    "Mars": {
+     "cell": 5,
+     "cell_date": 5,
+     "ra_j2000_h": 8.35137,
+     "dec_j2000": 20.49864,
+     "mag": 1.3557,
+     "wall_margin": {
+      "ra_min": 38.92,
+      "dec_deg": 9.501,
+      "mag": 0.36
+     },
+     "cell_previous_ephemeris": 5,
+     "ra_diff_min_vs_previous": 0.081
+    },
+    "Jupiter": {
+     "cell": 45,
+     "cell_date": 45,
+     "ra_j2000_h": 11.22932,
+     "dec_j2000": 6.11243,
+     "mag": -1.69612,
+     "wall_margin": {
+      "ra_min": 46.24,
+      "dec_deg": 6.112,
+      "mag": 2.7
+     },
+     "cell_previous_ephemeris": 45,
+     "ra_diff_min_vs_previous": 0.005
+    },
+    "Saturn": {
+     "cell": 42,
+     "cell_date": 34,
+     "ra_j2000_h": 15.23569,
+     "dec_j2000": -15.87975,
+     "mag": 0.66694,
+     "wall_margin": {
+      "ra_min": 14.14,
+      "dec_deg": 14.12,
+      "mag": 0.33
+     },
+     "cell_previous_ephemeris": 42,
+     "ra_diff_min_vs_previous": -0.561
+    }
+   },
+   "moon": {
+    "elongation_deg": 67.898,
+    "illuminated": 0.3119,
+    "phase": "first quarter",
+    "age_days": 5.57,
+    "lunation": -23863,
+    "node_lon_j2000": 25.86,
+    "sun_from_node_deg": 24.431,
+    "solar_eclipse_season": false,
+    "lunar_eclipse_season": false
+   },
+   "nearest_eclipses": {
+    "solar": {
+     "date": "0070-09-23 02:16",
+     "type": "annular",
+     "magnitude": 0.944,
+     "saros": 74,
+     "days_from_event": 23.69,
+     "jerusalem": {
+      "ut": "0070-09-23 00:43",
+      "separation_deg": 0.04,
+      "magnitude": 0.0,
+      "phase_seen": "none",
+      "sun_alt": -34.484,
+      "sun_az": 63.528,
+      "geometric_max": {
+       "ut": "0070-09-23 00:43",
+       "magnitude": 0.894,
+       "sun_alt": -34.484
+      }
+     }
+    },
+    "lunar": {
+     "date": "0070-09-09 01:41",
+     "type": "penumbral",
+     "magnitude": 0.185,
+     "saros": 48,
+     "days_from_event": 9.67,
+     "jerusalem": {
+      "ut": "0070-09-09 01:41",
+      "moon_alt": 19.304,
+      "moon_az": 246.822,
+      "visible_at_maximum": true,
+      "contacts": {
+       "P1": [
+        "0070-09-09 00:41",
+        30.02
+       ],
+       "P4": [
+        "0070-09-09 02:41",
+        7.7
+       ]
+      }
+     }
+    }
+   },
+   "scripture_at_sun": {
+    "phase_deg": 181.305,
+    "chapter_index": 599,
+    "chapter": "Psalms 121",
+    "isaiah_sector": 34,
+    "isaiah_book": "Nahum",
+    "tribe": "Ephraim"
+   }
+  }
+ ],
+ "eclipses_2000_2100": [
+  {
+   "date": "2000-01-21 04:43",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.33348,
+   "saros": 124,
+   "jd_ut": 2451564.69687
+  },
+  {
+   "date": "2000-02-05 12:49",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.58446,
+   "saros": 150,
+   "gamma": 1.22329,
+   "jd_ut": 2451580.03421
+  },
+  {
+   "date": "2000-07-01 19:32",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.48216,
+   "saros": 117,
+   "gamma": 1.2822,
+   "jd_ut": 2451727.31421
+  },
+  {
+   "date": "2000-07-16 13:56",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.77653,
+   "saros": 129,
+   "jd_ut": 2451742.08024
+  },
+  {
+   "date": "2000-07-31 02:13",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.60902,
+   "saros": 155,
+   "gamma": 1.21666,
+   "jd_ut": 2451756.59241
+  },
+  {
+   "date": "2000-12-25 17:35",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.7275,
+   "saros": 122,
+   "gamma": 1.1367,
+   "jd_ut": 2451904.23259
+  },
+  {
+   "date": "2001-01-09 20:21",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.19777,
+   "saros": 134,
+   "jd_ut": 2451919.34762
+  },
+  {
+   "date": "2001-06-21 12:04",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.03498,
+   "saros": 127,
+   "gamma": 0.57013,
+   "jd_ut": 2452082.00253
+  },
+  {
+   "date": "2001-07-05 14:55",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.50263,
+   "saros": 139,
+   "jd_ut": 2452096.12172
+  },
+  {
+   "date": "2001-12-14 20:52",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.95389,
+   "saros": 132,
+   "gamma": 0.40883,
+   "jd_ut": 2452258.36941
+  },
+  {
+   "date": "2001-12-30 10:29",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.92189,
+   "saros": 144,
+   "jd_ut": 2452273.937
+  },
+  {
+   "date": "2002-05-26 12:03",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.71746,
+   "saros": 111,
+   "jd_ut": 2452421.00232
+  },
+  {
+   "date": "2002-06-10 23:44",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.98058,
+   "saros": 137,
+   "gamma": 0.19931,
+   "jd_ut": 2452436.48907
+  },
+  {
+   "date": "2002-06-24 21:27",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.23762,
+   "saros": 149,
+   "jd_ut": 2452450.39382
+  },
+  {
+   "date": "2002-11-20 01:47",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.88934,
+   "saros": 116,
+   "jd_ut": 2452598.57402
+  },
+  {
+   "date": "2002-12-04 07:31",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.0078,
+   "saros": 142,
+   "gamma": 0.30203,
+   "jd_ut": 2452612.81332
+  },
+  {
+   "date": "2003-05-16 03:40",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.13673,
+   "saros": 121,
+   "jd_ut": 2452775.65286
+  },
+  {
+   "date": "2003-05-31 04:08",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.93795,
+   "saros": 147,
+   "gamma": 0.99597,
+   "jd_ut": 2452790.67238
+  },
+  {
+   "date": "2003-11-09 01:19",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.0255,
+   "saros": 126,
+   "jd_ut": 2452952.55454
+  },
+  {
+   "date": "2003-11-23 22:49",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.03346,
+   "saros": 152,
+   "gamma": 0.96381,
+   "jd_ut": 2452967.45088
+  },
+  {
+   "date": "2004-04-19 13:34",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.74124,
+   "saros": 119,
+   "gamma": 1.13348,
+   "jd_ut": 2453115.06533
+  },
+  {
+   "date": "2004-05-04 20:30",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.31265,
+   "saros": 131,
+   "jd_ut": 2453130.35429
+  },
+  {
+   "date": "2004-10-14 02:59",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.93304,
+   "saros": 124,
+   "gamma": 1.03482,
+   "jd_ut": 2453292.62444
+  },
+  {
+   "date": "2004-10-28 03:04",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.31627,
+   "saros": 136,
+   "jd_ut": 2453306.62784
+  },
+  {
+   "date": "2005-04-08 20:36",
+   "kind": "solar",
+   "type": "hybrid",
+   "magnitude": 0.99184,
+   "saros": 129,
+   "gamma": 0.34732,
+   "jd_ut": 2453469.35816
+  },
+  {
+   "date": "2005-04-24 09:55",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.89363,
+   "saros": 141,
+   "jd_ut": 2453484.91306
+  },
+  {
+   "date": "2005-10-03 10:32",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.94344,
+   "saros": 134,
+   "gamma": 0.33057,
+   "jd_ut": 2453646.93866
+  },
+  {
+   "date": "2005-10-17 12:03",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.0708,
+   "saros": 146,
+   "jd_ut": 2453661.00232
+  },
+  {
+   "date": "2006-03-14 23:47",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 1.05956,
+   "saros": 113,
+   "jd_ut": 2453809.4913
+  },
+  {
+   "date": "2006-03-29 10:11",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.03481,
+   "saros": 139,
+   "gamma": 0.38431,
+   "jd_ut": 2453823.9245
+  },
+  {
+   "date": "2006-09-07 18:51",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.19249,
+   "saros": 118,
+   "jd_ut": 2453986.28563
+  },
+  {
+   "date": "2006-09-22 11:40",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.92215,
+   "saros": 144,
+   "gamma": 0.40623,
+   "jd_ut": 2454000.98622
+  },
+  {
+   "date": "2007-03-03 23:21",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.24062,
+   "saros": 123,
+   "jd_ut": 2454163.47282
+  },
+  {
+   "date": "2007-03-19 02:32",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.88053,
+   "saros": 149,
+   "gamma": 1.07278,
+   "jd_ut": 2454178.60543
+  },
+  {
+   "date": "2007-08-28 10:37",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.48475,
+   "saros": 128,
+   "jd_ut": 2454340.94259
+  },
+  {
+   "date": "2007-09-11 12:31",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.75517,
+   "saros": 154,
+   "gamma": 1.12553,
+   "jd_ut": 2454355.02179
+  },
+  {
+   "date": "2008-02-07 03:55",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.96077,
+   "saros": 121,
+   "gamma": 0.957,
+   "jd_ut": 2454503.66318
+  },
+  {
+   "date": "2008-02-21 03:26",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.11441,
+   "saros": 133,
+   "jd_ut": 2454517.64308
+  },
+  {
+   "date": "2008-08-01 10:21",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.02985,
+   "saros": 126,
+   "gamma": 0.83071,
+   "jd_ut": 2454679.93133
+  },
+  {
+   "date": "2008-08-16 21:10",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.81582,
+   "saros": 138,
+   "jd_ut": 2454695.38199
+  },
+  {
+   "date": "2009-01-26 07:59",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.91452,
+   "saros": 131,
+   "gamma": 0.28196,
+   "jd_ut": 2454857.83238
+  },
+  {
+   "date": "2009-02-09 14:38",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.9278,
+   "saros": 143,
+   "jd_ut": 2454872.10988
+  },
+  {
+   "date": "2009-07-07 09:39",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.18498,
+   "saros": 110,
+   "jd_ut": 2455019.9018
+  },
+  {
+   "date": "2009-07-22 02:35",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.06122,
+   "saros": 136,
+   "gamma": 0.06978,
+   "jd_ut": 2455034.60783
+  },
+  {
+   "date": "2009-08-06 00:39",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.4309,
+   "saros": 148,
+   "jd_ut": 2455049.52717
+  },
+  {
+   "date": "2009-12-31 19:23",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.08478,
+   "saros": 115,
+   "jd_ut": 2455197.30739
+  },
+  {
+   "date": "2010-01-15 07:07",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.90614,
+   "saros": 141,
+   "gamma": 0.40015,
+   "jd_ut": 2455211.7962
+  },
+  {
+   "date": "2010-06-26 11:38",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.54475,
+   "saros": 120,
+   "jd_ut": 2455373.98501
+  },
+  {
+   "date": "2010-07-11 19:33",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.04483,
+   "saros": 146,
+   "gamma": 0.67874,
+   "jd_ut": 2455389.3149
+  },
+  {
+   "date": "2010-12-21 08:17",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.26454,
+   "saros": 125,
+   "jd_ut": 2455551.8451
+  },
+  {
+   "date": "2011-01-04 08:51",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.86235,
+   "saros": 151,
+   "gamma": 1.06266,
+   "jd_ut": 2455565.86852
+  },
+  {
+   "date": "2011-06-01 21:16",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.60608,
+   "saros": 118,
+   "gamma": 1.21304,
+   "jd_ut": 2455714.38613
+  },
+  {
+   "date": "2011-06-15 20:13",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.70884,
+   "saros": 130,
+   "jd_ut": 2455728.34206
+  },
+  {
+   "date": "2011-07-01 08:38",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.1019,
+   "saros": 156,
+   "gamma": 1.4918,
+   "jd_ut": 2455743.85983
+  },
+  {
+   "date": "2011-11-25 06:20",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.91019,
+   "saros": 123,
+   "gamma": 1.05359,
+   "jd_ut": 2455890.76411
+  },
+  {
+   "date": "2011-12-10 14:32",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.11394,
+   "saros": 135,
+   "jd_ut": 2455906.10542
+  },
+  {
+   "date": "2012-05-20 23:53",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.93131,
+   "saros": 128,
+   "gamma": 0.48278,
+   "jd_ut": 2456068.49495
+  },
+  {
+   "date": "2012-06-04 11:03",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.37929,
+   "saros": 140,
+   "jd_ut": 2456082.96054
+  },
+  {
+   "date": "2012-11-13 22:12",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.03316,
+   "saros": 133,
+   "gamma": 0.37187,
+   "jd_ut": 2456245.42484
+  },
+  {
+   "date": "2012-11-28 14:33",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.945,
+   "saros": 145,
+   "jd_ut": 2456260.10623
+  },
+  {
+   "date": "2013-04-25 20:07",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.02325,
+   "saros": 112,
+   "jd_ut": 2456408.33851
+  },
+  {
+   "date": "2013-05-10 00:25",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.94021,
+   "saros": 138,
+   "gamma": 0.26935,
+   "jd_ut": 2456422.51748
+  },
+  {
+   "date": "2013-05-25 04:10",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.04312,
+   "saros": 150,
+   "jd_ut": 2456437.67357
+  },
+  {
+   "date": "2013-10-18 23:50",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.7937,
+   "saros": 117,
+   "jd_ut": 2456584.49323
+  },
+  {
+   "date": "2013-11-03 12:46",
+   "kind": "solar",
+   "type": "hybrid",
+   "magnitude": 0.99979,
+   "saros": 143,
+   "gamma": 0.32714,
+   "jd_ut": 2456600.03225
+  },
+  {
+   "date": "2014-04-15 07:46",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.29907,
+   "saros": 122,
+   "jd_ut": 2456762.82335
+  },
+  {
+   "date": "2014-04-29 06:03",
+   "kind": "solar",
+   "type": "hybrid",
+   "magnitude": 0.98446,
+   "saros": 148,
+   "gamma": 0.99996,
+   "jd_ut": 2456776.7524
+  },
+  {
+   "date": "2014-10-08 10:55",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.17474,
+   "saros": 127,
+   "jd_ut": 2456938.95456
+  },
+  {
+   "date": "2014-10-23 21:44",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.81667,
+   "saros": 153,
+   "gamma": 1.0908,
+   "jd_ut": 2456954.40582
+  },
+  {
+   "date": "2015-03-20 09:46",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.03896,
+   "saros": 120,
+   "gamma": 0.94536,
+   "jd_ut": 2457101.90669
+  },
+  {
+   "date": "2015-04-04 12:00",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.00864,
+   "saros": 132,
+   "jd_ut": 2457117.00015
+  },
+  {
+   "date": "2015-09-13 06:54",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.79267,
+   "saros": 125,
+   "gamma": 1.10041,
+   "jd_ut": 2457278.78761
+  },
+  {
+   "date": "2015-09-28 02:47",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.28551,
+   "saros": 137,
+   "jd_ut": 2457293.61604
+  },
+  {
+   "date": "2016-03-09 01:57",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.02764,
+   "saros": 130,
+   "gamma": 0.26091,
+   "jd_ut": 2457456.58135
+  },
+  {
+   "date": "2016-03-23 11:47",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.80407,
+   "saros": 142,
+   "jd_ut": 2457470.9911
+  },
+  {
+   "date": "2016-08-18 09:43",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.01916,
+   "saros": 109,
+   "jd_ut": 2457618.90451
+  },
+  {
+   "date": "2016-09-01 09:07",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.95913,
+   "saros": 135,
+   "gamma": 0.333,
+   "jd_ut": 2457632.87976
+  },
+  {
+   "date": "2016-09-16 18:54",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.93623,
+   "saros": 147,
+   "jd_ut": 2457648.28768
+  },
+  {
+   "date": "2017-02-11 00:44",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 1.01715,
+   "saros": 114,
+   "jd_ut": 2457795.53046
+  },
+  {
+   "date": "2017-02-26 14:53",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.97778,
+   "saros": 140,
+   "gamma": 0.45778,
+   "jd_ut": 2457811.12038
+  },
+  {
+   "date": "2017-08-07 18:20",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.25431,
+   "saros": 119,
+   "jd_ut": 2457973.26418
+  },
+  {
+   "date": "2017-08-21 18:25",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.01516,
+   "saros": 145,
+   "gamma": 0.43669,
+   "jd_ut": 2457987.2677
+  },
+  {
+   "date": "2018-01-31 13:30",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.32439,
+   "saros": 124,
+   "jd_ut": 2458150.06237
+  },
+  {
+   "date": "2018-02-15 20:51",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.60415,
+   "saros": 150,
+   "gamma": 1.21166,
+   "jd_ut": 2458165.36893
+  },
+  {
+   "date": "2018-07-13 03:01",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.34194,
+   "saros": 117,
+   "gamma": 1.3543,
+   "jd_ut": 2458312.62572
+  },
+  {
+   "date": "2018-07-27 20:22",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.61676,
+   "saros": 129,
+   "jd_ut": 2458327.34839
+  },
+  {
+   "date": "2018-08-11 09:46",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.74254,
+   "saros": 155,
+   "gamma": 1.14759,
+   "jd_ut": 2458341.90715
+  },
+  {
+   "date": "2019-01-06 01:41",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.71935,
+   "saros": 122,
+   "gamma": 1.14176,
+   "jd_ut": 2458489.57048
+  },
+  {
+   "date": "2019-01-21 05:12",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.2042,
+   "saros": 134,
+   "jd_ut": 2458504.71684
+  },
+  {
+   "date": "2019-07-02 19:23",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.03252,
+   "saros": 127,
+   "gamma": 0.64656,
+   "jd_ut": 2458667.30755
+  },
+  {
+   "date": "2019-07-16 21:31",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.66108,
+   "saros": 139,
+   "jd_ut": 2458681.39631
+  },
+  {
+   "date": "2019-12-26 05:18",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.95584,
+   "saros": 132,
+   "gamma": 0.41349,
+   "jd_ut": 2458843.72062
+  },
+  {
+   "date": "2020-01-10 19:10",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.92414,
+   "saros": 144,
+   "jd_ut": 2458859.29859
+  },
+  {
+   "date": "2020-06-05 19:25",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.5963,
+   "saros": 111,
+   "jd_ut": 2459006.30904
+  },
+  {
+   "date": "2020-06-21 06:40",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.97825,
+   "saros": 137,
+   "gamma": 0.12088,
+   "jd_ut": 2459021.77779
+  },
+  {
+   "date": "2020-07-05 04:30",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.38279,
+   "saros": 149,
+   "jd_ut": 2459035.68748
+  },
+  {
+   "date": "2020-11-30 09:43",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.85791,
+   "saros": 116,
+   "jd_ut": 2459183.90473
+  },
+  {
+   "date": "2020-12-14 16:13",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.00869,
+   "saros": 142,
+   "gamma": 0.29393,
+   "jd_ut": 2459198.176
+  },
+  {
+   "date": "2021-05-26 11:19",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.0186,
+   "saros": 121,
+   "jd_ut": 2459360.97128
+  },
+  {
+   "date": "2021-06-10 10:42",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.93791,
+   "saros": 147,
+   "gamma": 0.91514,
+   "jd_ut": 2459375.94572
+  },
+  {
+   "date": "2021-11-19 09:03",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.98179,
+   "saros": 126,
+   "jd_ut": 2459537.87699
+  },
+  {
+   "date": "2021-12-04 07:33",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.03159,
+   "saros": 152,
+   "gamma": 0.95261,
+   "jd_ut": 2459552.81486
+  },
+  {
+   "date": "2022-04-30 20:41",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.64414,
+   "saros": 119,
+   "gamma": 1.19012,
+   "jd_ut": 2459700.36213
+  },
+  {
+   "date": "2022-05-16 04:11",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.42284,
+   "saros": 131,
+   "jd_ut": 2459715.67462
+  },
+  {
+   "date": "2022-10-25 11:00",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.86665,
+   "saros": 124,
+   "gamma": 1.07015,
+   "jd_ut": 2459877.95833
+  },
+  {
+   "date": "2022-11-08 10:59",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.36703,
+   "saros": 136,
+   "jd_ut": 2459891.95773
+  },
+  {
+   "date": "2023-04-20 04:17",
+   "kind": "solar",
+   "type": "hybrid",
+   "magnitude": 0.99784,
+   "saros": 129,
+   "gamma": 0.39514,
+   "jd_ut": 2460054.67826
+  },
+  {
+   "date": "2023-05-05 17:23",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.99231,
+   "saros": 141,
+   "jd_ut": 2460070.22418
+  },
+  {
+   "date": "2023-10-14 17:59",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.93826,
+   "saros": 134,
+   "gamma": 0.37533,
+   "jd_ut": 2460232.24959
+  },
+  {
+   "date": "2023-10-28 20:14",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.13033,
+   "saros": 146,
+   "jd_ut": 2460246.34308
+  },
+  {
+   "date": "2024-03-25 07:13",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.98512,
+   "saros": 113,
+   "jd_ut": 2460394.80052
+  },
+  {
+   "date": "2024-04-08 18:17",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.03946,
+   "saros": 139,
+   "gamma": 0.34312,
+   "jd_ut": 2460409.26197
+  },
+  {
+   "date": "2024-09-18 02:44",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.09358,
+   "saros": 118,
+   "jd_ut": 2460571.614
+  },
+  {
+   "date": "2024-10-02 18:45",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.91929,
+   "saros": 144,
+   "gamma": 0.35085,
+   "jd_ut": 2460586.28122
+  },
+  {
+   "date": "2025-03-14 06:59",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.18628,
+   "saros": 123,
+   "jd_ut": 2460748.79075
+  },
+  {
+   "date": "2025-03-29 10:47",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.94259,
+   "saros": 149,
+   "gamma": 1.04054,
+   "jd_ut": 2460763.94952
+  },
+  {
+   "date": "2025-09-07 18:12",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.37073,
+   "saros": 128,
+   "jd_ut": 2460926.25812
+  },
+  {
+   "date": "2025-09-21 19:42",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.85954,
+   "saros": 154,
+   "gamma": 1.06509,
+   "jd_ut": 2460940.32075
+  },
+  {
+   "date": "2026-02-17 12:12",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.95986,
+   "saros": 121,
+   "gamma": 0.97426,
+   "jd_ut": 2461089.00816
+  },
+  {
+   "date": "2026-03-03 11:34",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.159,
+   "saros": 133,
+   "jd_ut": 2461102.98166
+  },
+  {
+   "date": "2026-08-12 17:46",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.03113,
+   "saros": 126,
+   "gamma": 0.89775,
+   "jd_ut": 2461265.24018
+  },
+  {
+   "date": "2026-08-28 04:13",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.93818,
+   "saros": 138,
+   "jd_ut": 2461280.67554
+  },
+  {
+   "date": "2027-02-06 16:00",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.91446,
+   "saros": 131,
+   "gamma": 0.29514,
+   "jd_ut": 2461443.16633
+  },
+  {
+   "date": "2027-02-20 23:13",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.95501,
+   "saros": 143,
+   "jd_ut": 2461457.46723
+  },
+  {
+   "date": "2027-07-18 16:03",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.03018,
+   "saros": 110,
+   "jd_ut": 2461605.16866
+  },
+  {
+   "date": "2027-08-02 10:07",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.0605,
+   "saros": 136,
+   "gamma": 0.1421,
+   "jd_ut": 2461619.92121
+  },
+  {
+   "date": "2027-08-17 07:14",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.57475,
+   "saros": 148,
+   "jd_ut": 2461634.80115
+  },
+  {
+   "date": "2028-01-12 04:13",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.07461,
+   "saros": 115,
+   "jd_ut": 2461782.67565
+  },
+  {
+   "date": "2028-01-26 15:08",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.90782,
+   "saros": 141,
+   "gamma": 0.39014,
+   "jd_ut": 2461797.13035
+  },
+  {
+   "date": "2028-07-06 18:20",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.39718,
+   "saros": 120,
+   "jd_ut": 2461959.26364
+  },
+  {
+   "date": "2028-07-22 02:55",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.04174,
+   "saros": 146,
+   "gamma": 0.60554,
+   "jd_ut": 2461974.62176
+  },
+  {
+   "date": "2028-12-31 16:52",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.25468,
+   "saros": 125,
+   "jd_ut": 2462137.20275
+  },
+  {
+   "date": "2029-01-14 17:13",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.87611,
+   "saros": 151,
+   "gamma": 1.05533,
+   "jd_ut": 2462151.21708
+  },
+  {
+   "date": "2029-06-12 04:05",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.46248,
+   "saros": 118,
+   "gamma": 1.29437,
+   "jd_ut": 2462299.66997
+  },
+  {
+   "date": "2029-06-26 03:22",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.85268,
+   "saros": 130,
+   "jd_ut": 2462313.64031
+  },
+  {
+   "date": "2029-07-11 15:36",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.23509,
+   "saros": 156,
+   "gamma": 1.41914,
+   "jd_ut": 2462329.14987
+  },
+  {
+   "date": "2029-12-05 15:03",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.8965,
+   "saros": 123,
+   "gamma": 1.06091,
+   "jd_ut": 2462476.12688
+  },
+  {
+   "date": "2029-12-20 22:42",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.1252,
+   "saros": 135,
+   "jd_ut": 2462491.44576
+  },
+  {
+   "date": "2030-06-01 06:28",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.9324,
+   "saros": 128,
+   "gamma": 0.56265,
+   "jd_ut": 2462653.76936
+  },
+  {
+   "date": "2030-06-15 18:33",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.51146,
+   "saros": 140,
+   "jd_ut": 2462668.27308
+  },
+  {
+   "date": "2030-11-25 06:50",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.03013,
+   "saros": 133,
+   "gamma": 0.38667,
+   "jd_ut": 2462830.78493
+  },
+  {
+   "date": "2030-12-09 22:28",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.97112,
+   "saros": 145,
+   "jd_ut": 2462845.43579
+  },
+  {
+   "date": "2031-05-07 03:51",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.90963,
+   "saros": 112,
+   "jd_ut": 2462993.6602
+  },
+  {
+   "date": "2031-05-21 07:15",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.94435,
+   "saros": 138,
+   "gamma": 0.19697,
+   "jd_ut": 2463007.8019
+  },
+  {
+   "date": "2031-06-05 11:44",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.15672,
+   "saros": 150,
+   "jd_ut": 2463022.98885
+  },
+  {
+   "date": "2031-10-30 07:45",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.74487,
+   "saros": 117,
+   "jd_ut": 2463169.8232
+  },
+  {
+   "date": "2031-11-14 21:06",
+   "kind": "solar",
+   "type": "hybrid",
+   "magnitude": 0.99452,
+   "saros": 143,
+   "gamma": 0.30775,
+   "jd_ut": 2463185.37929
+  },
+  {
+   "date": "2032-04-25 15:13",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.19971,
+   "saros": 122,
+   "jd_ut": 2463348.13437
+  },
+  {
+   "date": "2032-05-09 13:25",
+   "kind": "solar",
+   "type": "hybrid",
+   "magnitude": 0.9903,
+   "saros": 148,
+   "gamma": 0.93747,
+   "jd_ut": 2463362.05933
+  },
+  {
+   "date": "2032-10-18 19:02",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.11161,
+   "saros": 127,
+   "jd_ut": 2463524.29328
+  },
+  {
+   "date": "2032-11-03 05:33",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.86063,
+   "saros": 153,
+   "gamma": 1.06433,
+   "jd_ut": 2463539.7311
+  },
+  {
+   "date": "2033-03-30 18:01",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.04282,
+   "saros": 120,
+   "gamma": 0.97778,
+   "jd_ut": 2463687.25088
+  },
+  {
+   "date": "2033-04-14 19:12",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.10228,
+   "saros": 132,
+   "jd_ut": 2463702.30035
+  },
+  {
+   "date": "2033-09-23 13:53",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.69411,
+   "saros": 125,
+   "gamma": 1.15833,
+   "jd_ut": 2463864.0786
+  },
+  {
+   "date": "2033-10-08 10:55",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.35885,
+   "saros": 137,
+   "jd_ut": 2463878.95487
+  },
+  {
+   "date": "2034-03-20 10:17",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.02864,
+   "saros": 130,
+   "gamma": 0.28941,
+   "jd_ut": 2464041.92874
+  },
+  {
+   "date": "2034-04-03 19:06",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.88386,
+   "saros": 142,
+   "jd_ut": 2464056.29558
+  },
+  {
+   "date": "2034-09-12 16:18",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.95948,
+   "saros": 135,
+   "gamma": 0.39356,
+   "jd_ut": 2464218.17923
+  },
+  {
+   "date": "2034-09-28 02:46",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.02287,
+   "saros": 147,
+   "jd_ut": 2464233.61545
+  },
+  {
+   "date": "2035-02-22 09:05",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.99386,
+   "saros": 114,
+   "jd_ut": 2464380.87835
+  },
+  {
+   "date": "2035-03-09 23:05",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.97733,
+   "saros": 140,
+   "gamma": 0.43677,
+   "jd_ut": 2464396.46146
+  },
+  {
+   "date": "2035-08-19 01:11",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.11149,
+   "saros": 119,
+   "jd_ut": 2464558.54921
+  },
+  {
+   "date": "2035-09-02 01:55",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.01604,
+   "saros": 145,
+   "gamma": 0.37271,
+   "jd_ut": 2464572.58014
+  },
+  {
+   "date": "2036-02-11 22:12",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.30842,
+   "saros": 124,
+   "jd_ut": 2464735.42481
+  },
+  {
+   "date": "2036-02-27 04:45",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.63371,
+   "saros": 150,
+   "gamma": 1.19423,
+   "jd_ut": 2464750.69816
+  },
+  {
+   "date": "2036-07-23 10:31",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.20457,
+   "saros": 117,
+   "gamma": 1.42511,
+   "jd_ut": 2464897.93797
+  },
+  {
+   "date": "2036-08-07 02:51",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.46237,
+   "saros": 129,
+   "jd_ut": 2464912.61884
+  },
+  {
+   "date": "2036-08-21 17:24",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.86812,
+   "saros": 155,
+   "gamma": 1.08247,
+   "jd_ut": 2464927.22527
+  },
+  {
+   "date": "2037-01-16 09:48",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.7098,
+   "saros": 122,
+   "gamma": 1.14773,
+   "jd_ut": 2465074.90805
+  },
+  {
+   "date": "2037-01-31 14:00",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.21629,
+   "saros": 134,
+   "jd_ut": 2465090.08351
+  },
+  {
+   "date": "2037-07-13 02:39",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.02931,
+   "saros": 127,
+   "gamma": 0.72458,
+   "jd_ut": 2465252.61052
+  },
+  {
+   "date": "2037-07-27 04:08",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.81756,
+   "saros": 139,
+   "jd_ut": 2465266.67255
+  },
+  {
+   "date": "2038-01-05 13:46",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.95847,
+   "saros": 132,
+   "gamma": 0.41687,
+   "jd_ut": 2465429.07347
+  },
+  {
+   "date": "2038-01-21 03:48",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.92817,
+   "saros": 144,
+   "jd_ut": 2465444.65866
+  },
+  {
+   "date": "2038-06-17 02:44",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.4701,
+   "saros": 111,
+   "jd_ut": 2465591.61362
+  },
+  {
+   "date": "2038-07-02 13:31",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.97535,
+   "saros": 137,
+   "gamma": 0.03974,
+   "jd_ut": 2465607.06353
+  },
+  {
+   "date": "2038-07-16 11:35",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.52816,
+   "saros": 149,
+   "jd_ut": 2465620.9823
+  },
+  {
+   "date": "2038-12-11 17:44",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.83401,
+   "saros": 116,
+   "jd_ut": 2465769.23861
+  },
+  {
+   "date": "2038-12-26 00:59",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.01009,
+   "saros": 142,
+   "gamma": 0.28812,
+   "jd_ut": 2465783.5408
+  },
+  {
+   "date": "2039-06-06 18:53",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.89372,
+   "saros": 121,
+   "jd_ut": 2465946.2868
+  },
+  {
+   "date": "2039-06-21 17:11",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.93753,
+   "saros": 147,
+   "gamma": 0.83115,
+   "jd_ut": 2465961.21627
+  },
+  {
+   "date": "2039-11-30 16:55",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.95022,
+   "saros": 126,
+   "jd_ut": 2466123.20488
+  },
+  {
+   "date": "2039-12-15 16:22",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.03007,
+   "saros": 152,
+   "gamma": 0.94577,
+   "jd_ut": 2466138.18218
+  },
+  {
+   "date": "2040-05-11 03:42",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.53519,
+   "saros": 119,
+   "gamma": 1.25295,
+   "jd_ut": 2466285.65396
+  },
+  {
+   "date": "2040-05-26 11:45",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.54397,
+   "saros": 131,
+   "jd_ut": 2466300.98952
+  },
+  {
+   "date": "2040-11-04 19:07",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.81218,
+   "saros": 124,
+   "gamma": 1.09929,
+   "jd_ut": 2466463.29687
+  },
+  {
+   "date": "2040-11-18 19:03",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.40556,
+   "saros": 136,
+   "jd_ut": 2466477.29391
+  },
+  {
+   "date": "2041-04-30 11:51",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.00385,
+   "saros": 129,
+   "gamma": 0.44918,
+   "jd_ut": 2466639.99368
+  },
+  {
+   "date": "2041-05-16 00:42",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.07264,
+   "saros": 141,
+   "jd_ut": 2466655.52887
+  },
+  {
+   "date": "2041-10-25 01:35",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.93323,
+   "saros": 134,
+   "gamma": 0.4133,
+   "jd_ut": 2466817.5659
+  },
+  {
+   "date": "2041-11-08 04:34",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.17791,
+   "saros": 146,
+   "jd_ut": 2466831.69001
+  },
+  {
+   "date": "2042-04-05 14:29",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.89741,
+   "saros": 113,
+   "jd_ut": 2466980.10329
+  },
+  {
+   "date": "2042-04-20 02:16",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.04394,
+   "saros": 139,
+   "gamma": 0.29558,
+   "jd_ut": 2466994.59447
+  },
+  {
+   "date": "2042-09-29 10:44",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.0056,
+   "saros": 118,
+   "jd_ut": 2467156.94744
+  },
+  {
+   "date": "2042-10-14 01:59",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.91654,
+   "saros": 144,
+   "gamma": 0.30302,
+   "jd_ut": 2467171.5828
+  },
+  {
+   "date": "2042-10-28 19:33",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.0102,
+   "saros": 156,
+   "jd_ut": 2467186.31461
+  },
+  {
+   "date": "2043-03-25 14:31",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.12203,
+   "saros": 123,
+   "jd_ut": 2467334.10457
+  },
+  {
+   "date": "2043-04-09 18:56",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 1.01462,
+   "saros": 149,
+   "gamma": 1.00314,
+   "jd_ut": 2467349.2891
+  },
+  {
+   "date": "2043-09-19 01:50",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.26435,
+   "saros": 128,
+   "jd_ut": 2467511.57663
+  },
+  {
+   "date": "2043-10-03 03:00",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.95423,
+   "saros": 154,
+   "gamma": 1.0102,
+   "jd_ut": 2467525.62528
+  },
+  {
+   "date": "2044-02-28 20:23",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.95925,
+   "saros": 121,
+   "gamma": 0.99537,
+   "jd_ut": 2467674.34937
+  },
+  {
+   "date": "2044-03-13 19:37",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.21146,
+   "saros": 133,
+   "jd_ut": 2467688.3174
+  },
+  {
+   "date": "2044-08-23 01:16",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.03195,
+   "saros": 126,
+   "gamma": 0.96131,
+   "jd_ut": 2467850.55249
+  },
+  {
+   "date": "2044-09-07 11:19",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.05383,
+   "saros": 138,
+   "jd_ut": 2467865.97169
+  },
+  {
+   "date": "2045-02-16 23:55",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.91491,
+   "saros": 131,
+   "gamma": 0.31252,
+   "jd_ut": 2468028.49626
+  },
+  {
+   "date": "2045-03-03 07:42",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.99066,
+   "saros": 143,
+   "jd_ut": 2468042.82078
+  },
+  {
+   "date": "2045-08-12 17:41",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.05908,
+   "saros": 136,
+   "gamma": 0.21161,
+   "jd_ut": 2468205.2369
+  },
+  {
+   "date": "2045-08-27 13:53",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.71172,
+   "saros": 148,
+   "jd_ut": 2468220.07867
+  },
+  {
+   "date": "2046-01-22 13:01",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.06164,
+   "saros": 115,
+   "jd_ut": 2468368.04244
+  },
+  {
+   "date": "2046-02-05 23:05",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.91009,
+   "saros": 141,
+   "gamma": 0.37654,
+   "jd_ut": 2468382.46176
+  },
+  {
+   "date": "2046-07-18 01:05",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.25399,
+   "saros": 120,
+   "jd_ut": 2468544.54483
+  },
+  {
+   "date": "2046-08-02 10:20",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.03805,
+   "saros": 146,
+   "gamma": 0.53493,
+   "jd_ut": 2468559.93033
+  },
+  {
+   "date": "2047-01-12 01:25",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.24247,
+   "saros": 125,
+   "jd_ut": 2468722.55883
+  },
+  {
+   "date": "2047-01-26 01:32",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.89544,
+   "saros": 151,
+   "gamma": 1.04497,
+   "jd_ut": 2468736.5638
+  },
+  {
+   "date": "2047-06-23 10:51",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.31766,
+   "saros": 118,
+   "gamma": 1.37671,
+   "jd_ut": 2468884.95195
+  },
+  {
+   "date": "2047-07-07 10:34",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.76034,
+   "saros": 130,
+   "jd_ut": 2468898.94042
+  },
+  {
+   "date": "2047-07-22 22:35",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.3652,
+   "saros": 156,
+   "gamma": 1.3477,
+   "jd_ut": 2468914.44068
+  },
+  {
+   "date": "2047-12-16 23:49",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.887,
+   "saros": 123,
+   "gamma": 1.06606,
+   "jd_ut": 2469061.49217
+  },
+  {
+   "date": "2048-01-01 06:52",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.13579,
+   "saros": 135,
+   "jd_ut": 2469076.78637
+  },
+  {
+   "date": "2048-06-11 12:57",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.93324,
+   "saros": 128,
+   "gamma": 0.64685,
+   "jd_ut": 2469239.0398
+  },
+  {
+   "date": "2048-06-26 02:01",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.64784,
+   "saros": 140,
+   "jd_ut": 2469253.58396
+  },
+  {
+   "date": "2048-12-05 15:34",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.02743,
+   "saros": 133,
+   "gamma": 0.39725,
+   "jd_ut": 2469416.14854
+  },
+  {
+   "date": "2048-12-20 06:26",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.99123,
+   "saros": 145,
+   "jd_ut": 2469430.76823
+  },
+  {
+   "date": "2049-05-17 11:25",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.79189,
+   "saros": 112,
+   "jd_ut": 2469578.97574
+  },
+  {
+   "date": "2049-05-31 13:58",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.94827,
+   "saros": 138,
+   "gamma": 0.11869,
+   "jd_ut": 2469593.08223
+  },
+  {
+   "date": "2049-06-15 19:13",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.27871,
+   "saros": 150,
+   "jd_ut": 2469608.30043
+  },
+  {
+   "date": "2049-11-09 15:51",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.70959,
+   "saros": 117,
+   "jd_ut": 2469755.16015
+  },
+  {
+   "date": "2049-11-25 05:32",
+   "kind": "solar",
+   "type": "hybrid",
+   "magnitude": 0.98969,
+   "saros": 143,
+   "gamma": 0.29426,
+   "jd_ut": 2469770.73071
+  },
+  {
+   "date": "2050-05-06 22:30",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.08502,
+   "saros": 122,
+   "jd_ut": 2469933.4378
+  },
+  {
+   "date": "2050-05-20 20:41",
+   "kind": "solar",
+   "type": "hybrid",
+   "magnitude": 0.99581,
+   "saros": 148,
+   "gamma": 0.86876,
+   "jd_ut": 2469947.36202
+  },
+  {
+   "date": "2050-10-30 03:20",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.06255,
+   "saros": 127,
+   "jd_ut": 2470109.63902
+  },
+  {
+   "date": "2050-11-14 13:29",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.89251,
+   "saros": 153,
+   "gamma": 1.04469,
+   "jd_ut": 2470125.06194
+  },
+  {
+   "date": "2051-04-11 02:09",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.9908,
+   "saros": 120,
+   "gamma": 1.01695,
+   "jd_ut": 2470272.58961
+  },
+  {
+   "date": "2051-04-26 02:15",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.21015,
+   "saros": 132,
+   "jd_ut": 2470287.59364
+  },
+  {
+   "date": "2051-10-04 21:01",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.6075,
+   "saros": 125,
+   "gamma": 1.20941,
+   "jd_ut": 2470449.37545
+  },
+  {
+   "date": "2051-10-19 19:10",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.42097,
+   "saros": 137,
+   "jd_ut": 2470464.29875
+  },
+  {
+   "date": "2052-03-30 18:30",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.02968,
+   "saros": 130,
+   "gamma": 0.32384,
+   "jd_ut": 2470627.27099
+  },
+  {
+   "date": "2052-04-14 02:16",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.97594,
+   "saros": 142,
+   "jd_ut": 2470641.59476
+  },
+  {
+   "date": "2052-09-22 23:38",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.95958,
+   "saros": 135,
+   "gamma": 0.44803,
+   "jd_ut": 2470803.48438
+  },
+  {
+   "date": "2052-10-08 10:44",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.09049,
+   "saros": 147,
+   "jd_ut": 2470818.94743
+  },
+  {
+   "date": "2053-03-04 17:20",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.96091,
+   "saros": 114,
+   "jd_ut": 2470966.22256
+  },
+  {
+   "date": "2053-03-20 07:07",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.97715,
+   "saros": 140,
+   "gamma": 0.40892,
+   "jd_ut": 2470981.79627
+  },
+  {
+   "date": "2053-08-29 08:04",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 1.04822,
+   "saros": 119,
+   "jd_ut": 2471143.8362
+  },
+  {
+   "date": "2053-09-12 09:32",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.0164,
+   "saros": 145,
+   "gamma": 0.31393,
+   "jd_ut": 2471157.89754
+  },
+  {
+   "date": "2054-02-22 06:50",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.28589,
+   "saros": 124,
+   "jd_ut": 2471320.78454
+  },
+  {
+   "date": "2054-03-09 12:32",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.67296,
+   "saros": 150,
+   "gamma": 1.17113,
+   "jd_ut": 2471336.02214
+  },
+  {
+   "date": "2054-08-03 18:02",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.071,
+   "saros": 117,
+   "gamma": 1.49425,
+   "jd_ut": 2471483.25157
+  },
+  {
+   "date": "2054-08-18 09:25",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.31413,
+   "saros": 129,
+   "jd_ut": 2471497.89219
+  },
+  {
+   "date": "2054-09-02 01:08",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.98528,
+   "saros": 155,
+   "gamma": 1.02148,
+   "jd_ut": 2471512.54711
+  },
+  {
+   "date": "2055-01-27 17:52",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.69819,
+   "saros": 122,
+   "gamma": 1.15498,
+   "jd_ut": 2471660.24474
+  },
+  {
+   "date": "2055-02-11 22:45",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.23355,
+   "saros": 134,
+   "jd_ut": 2471675.44761
+  },
+  {
+   "date": "2055-07-24 09:56",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.02561,
+   "saros": 127,
+   "gamma": 0.80119,
+   "jd_ut": 2471837.9139
+  },
+  {
+   "date": "2055-08-07 10:52",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.96752,
+   "saros": 139,
+   "jd_ut": 2471851.95245
+  },
+  {
+   "date": "2056-01-16 22:15",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.96157,
+   "saros": 132,
+   "gamma": 0.41991,
+   "jd_ut": 2472014.42708
+  },
+  {
+   "date": "2056-02-01 12:24",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.93427,
+   "saros": 144,
+   "jd_ut": 2472030.0169
+  },
+  {
+   "date": "2056-06-27 10:01",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.34211,
+   "saros": 111,
+   "jd_ut": 2472176.9176
+  },
+  {
+   "date": "2056-07-12 20:20",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.9721,
+   "saros": 137,
+   "gamma": 0.04262,
+   "jd_ut": 2472192.34735
+  },
+  {
+   "date": "2056-07-26 18:42",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.67181,
+   "saros": 149,
+   "jd_ut": 2472206.27889
+  },
+  {
+   "date": "2056-12-22 01:47",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.81513,
+   "saros": 116,
+   "jd_ut": 2472354.5744
+  },
+  {
+   "date": "2057-01-05 09:46",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.01188,
+   "saros": 142,
+   "gamma": 0.2837,
+   "jd_ut": 2472368.90699
+  },
+  {
+   "date": "2057-06-17 02:24",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.76453,
+   "saros": 121,
+   "jd_ut": 2472531.60035
+  },
+  {
+   "date": "2057-07-01 23:38",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.93685,
+   "saros": 147,
+   "gamma": 0.74549,
+   "jd_ut": 2472546.485
+  },
+  {
+   "date": "2057-12-11 00:52",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.92567,
+   "saros": 126,
+   "jd_ut": 2472708.53597
+  },
+  {
+   "date": "2057-12-26 01:13",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.02899,
+   "saros": 152,
+   "gamma": 0.9405,
+   "jd_ut": 2472723.55051
+  },
+  {
+   "date": "2058-05-22 10:38",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.41867,
+   "saros": 119,
+   "gamma": 1.31944,
+   "jd_ut": 2472870.94284
+  },
+  {
+   "date": "2058-06-06 19:14",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.67039,
+   "saros": 131,
+   "jd_ut": 2472886.30134
+  },
+  {
+   "date": "2058-06-21 00:18",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.13072,
+   "saros": 157,
+   "gamma": 1.487,
+   "jd_ut": 2472900.51237
+  },
+  {
+   "date": "2058-11-16 03:21",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.76922,
+   "saros": 124,
+   "gamma": 1.12239,
+   "jd_ut": 2473048.63968
+  },
+  {
+   "date": "2058-11-30 03:14",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.43419,
+   "saros": 136,
+   "jd_ut": 2473062.63502
+  },
+  {
+   "date": "2059-05-11 19:20",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.00955,
+   "saros": 129,
+   "gamma": 0.50795,
+   "jd_ut": 2473225.30582
+  },
+  {
+   "date": "2059-05-27 07:54",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.19113,
+   "saros": 141,
+   "jd_ut": 2473240.82893
+  },
+  {
+   "date": "2059-11-05 09:16",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.92856,
+   "saros": 134,
+   "gamma": 0.44541,
+   "jd_ut": 2473402.88634
+  },
+  {
+   "date": "2059-11-19 13:00",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.21627,
+   "saros": 146,
+   "jd_ut": 2473417.04145
+  },
+  {
+   "date": "2060-04-15 21:35",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.79673,
+   "saros": 113,
+   "jd_ut": 2473565.39941
+  },
+  {
+   "date": "2060-04-30 10:08",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.04813,
+   "saros": 139,
+   "gamma": 0.24215,
+   "jd_ut": 2473579.92227
+  },
+  {
+   "date": "2060-10-09 18:52",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.90775,
+   "saros": 118,
+   "jd_ut": 2473742.28583
+  },
+  {
+   "date": "2060-10-24 09:22",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.914,
+   "saros": 144,
+   "gamma": 0.26248,
+   "jd_ut": 2473756.89044
+  },
+  {
+   "date": "2060-11-08 04:02",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.05438,
+   "saros": 156,
+   "jd_ut": 2473771.66824
+  },
+  {
+   "date": "2061-04-04 21:52",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.04195,
+   "saros": 123,
+   "jd_ut": 2473919.41119
+  },
+  {
+   "date": "2061-04-20 02:55",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.0427,
+   "saros": 149,
+   "gamma": 0.95775,
+   "jd_ut": 2473934.6214
+  },
+  {
+   "date": "2061-09-29 09:36",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.17076,
+   "saros": 128,
+   "jd_ut": 2474096.90017
+  },
+  {
+   "date": "2061-10-13 10:30",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.94326,
+   "saros": 154,
+   "gamma": 0.96393,
+   "jd_ut": 2474110.93768
+  },
+  {
+   "date": "2062-03-11 04:24",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.93769,
+   "saros": 121,
+   "gamma": 1.0238,
+   "jd_ut": 2474259.68346
+  },
+  {
+   "date": "2062-03-25 03:32",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.27802,
+   "saros": 133,
+   "jd_ut": 2474273.64711
+  },
+  {
+   "date": "2062-09-03 08:53",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.97988,
+   "saros": 126,
+   "gamma": 1.01917,
+   "jd_ut": 2474435.8698
+  },
+  {
+   "date": "2062-09-18 18:32",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.15776,
+   "saros": 138,
+   "jd_ut": 2474451.27223
+  },
+  {
+   "date": "2063-02-28 07:41",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.91582,
+   "saros": 131,
+   "gamma": 0.33602,
+   "jd_ut": 2474613.82047
+  },
+  {
+   "date": "2063-03-14 16:04",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.04275,
+   "saros": 143,
+   "jd_ut": 2474628.1693
+  },
+  {
+   "date": "2063-08-24 01:20",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.05705,
+   "saros": 136,
+   "gamma": 0.27714,
+   "jd_ut": 2474790.55564
+  },
+  {
+   "date": "2063-09-07 20:39",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.83944,
+   "saros": 148,
+   "jd_ut": 2474805.3605
+  },
+  {
+   "date": "2064-02-02 21:47",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.04607,
+   "saros": 115,
+   "jd_ut": 2474953.40757
+  },
+  {
+   "date": "2064-02-17 06:58",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.91297,
+   "saros": 141,
+   "gamma": 0.35964,
+   "jd_ut": 2474967.79051
+  },
+  {
+   "date": "2064-07-28 07:51",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.11166,
+   "saros": 120,
+   "jd_ut": 2475129.82688
+  },
+  {
+   "date": "2064-08-12 17:44",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.03373,
+   "saros": 146,
+   "gamma": 0.46518,
+   "jd_ut": 2475145.23889
+  },
+  {
+   "date": "2065-01-22 09:57",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.23145,
+   "saros": 125,
+   "jd_ut": 2475307.91451
+  },
+  {
+   "date": "2065-02-05 09:50",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.91697,
+   "saros": 151,
+   "gamma": 1.03357,
+   "jd_ut": 2475321.91002
+  },
+  {
+   "date": "2065-07-03 17:32",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.16847,
+   "saros": 118,
+   "gamma": 1.46195,
+   "jd_ut": 2475470.23027
+  },
+  {
+   "date": "2065-07-17 17:47",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.62113,
+   "saros": 130,
+   "jd_ut": 2475484.24066
+  },
+  {
+   "date": "2065-08-02 05:32",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.49498,
+   "saros": 156,
+   "gamma": 1.27587,
+   "jd_ut": 2475499.73056
+  },
+  {
+   "date": "2065-12-27 08:38",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.88217,
+   "saros": 123,
+   "gamma": 1.0688,
+   "jd_ut": 2475646.85962
+  },
+  {
+   "date": "2066-01-11 15:03",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.14553,
+   "saros": 135,
+   "jd_ut": 2475662.12685
+  },
+  {
+   "date": "2066-06-22 19:24",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.93379,
+   "saros": 128,
+   "gamma": 0.73297,
+   "jd_ut": 2475824.30808
+  },
+  {
+   "date": "2066-07-07 09:28",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.78441,
+   "saros": 140,
+   "jd_ut": 2475838.89468
+  },
+  {
+   "date": "2066-12-17 00:22",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.0251,
+   "saros": 133,
+   "gamma": 0.40426,
+   "jd_ut": 2476001.51494
+  },
+  {
+   "date": "2066-12-31 14:28",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 1.00687,
+   "saros": 145,
+   "jd_ut": 2476016.10278
+  },
+  {
+   "date": "2067-05-28 18:54",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.66832,
+   "saros": 112,
+   "jd_ut": 2476164.28745
+  },
+  {
+   "date": "2067-06-11 20:40",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.95198,
+   "saros": 138,
+   "gamma": 0.03864,
+   "jd_ut": 2476178.36128
+  },
+  {
+   "date": "2067-06-27 02:39",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.40316,
+   "saros": 150,
+   "jd_ut": 2476193.61035
+  },
+  {
+   "date": "2067-11-21 00:03",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.68314,
+   "saros": 117,
+   "jd_ut": 2476340.50174
+  },
+  {
+   "date": "2067-12-06 14:02",
+   "kind": "solar",
+   "type": "hybrid",
+   "magnitude": 0.98518,
+   "saros": 143,
+   "gamma": 0.28445,
+   "jd_ut": 2476356.08439
+  },
+  {
+   "date": "2068-05-17 05:40",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.9615,
+   "saros": 122,
+   "jd_ut": 2476518.73615
+  },
+  {
+   "date": "2068-05-31 03:54",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.00107,
+   "saros": 148,
+   "gamma": 0.79701,
+   "jd_ut": 2476532.66283
+  },
+  {
+   "date": "2068-11-09 11:45",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.02372,
+   "saros": 127,
+   "jd_ut": 2476694.98942
+  },
+  {
+   "date": "2068-11-24 21:30",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.91595,
+   "saros": 153,
+   "gamma": 1.02989,
+   "jd_ut": 2476710.39596
+  },
+  {
+   "date": "2069-04-21 10:09",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.90499,
+   "saros": 120,
+   "gamma": 1.06243,
+   "jd_ut": 2476857.92286
+  },
+  {
+   "date": "2069-05-06 09:08",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.33094,
+   "saros": 132,
+   "jd_ut": 2476872.88034
+  },
+  {
+   "date": "2069-05-20 17:51",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.09324,
+   "saros": 158,
+   "gamma": 1.48528,
+   "jd_ut": 2476887.24385
+  },
+  {
+   "date": "2069-10-15 04:18",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.53482,
+   "saros": 125,
+   "gamma": 1.25245,
+   "jd_ut": 2477034.67898
+  },
+  {
+   "date": "2069-10-30 03:33",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.47073,
+   "saros": 137,
+   "jd_ut": 2477049.6478
+  },
+  {
+   "date": "2070-04-11 02:34",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.03051,
+   "saros": 130,
+   "gamma": 0.36523,
+   "jd_ut": 2477212.60685
+  },
+  {
+   "date": "2070-04-25 09:19",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 1.08086,
+   "saros": 142,
+   "jd_ut": 2477226.88828
+  },
+  {
+   "date": "2070-10-04 07:07",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.95966,
+   "saros": 135,
+   "gamma": 0.49495,
+   "jd_ut": 2477388.7963
+  },
+  {
+   "date": "2070-10-19 18:49",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.14668,
+   "saros": 147,
+   "jd_ut": 2477404.28396
+  },
+  {
+   "date": "2071-03-16 01:29",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.91645,
+   "saros": 114,
+   "jd_ut": 2477551.56169
+  },
+  {
+   "date": "2071-03-31 14:59",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.97692,
+   "saros": 140,
+   "gamma": 0.37391,
+   "jd_ut": 2477567.12415
+  },
+  {
+   "date": "2071-09-09 15:03",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.92796,
+   "saros": 119,
+   "jd_ut": 2477729.12731
+  },
+  {
+   "date": "2071-09-23 17:18",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.01651,
+   "saros": 145,
+   "gamma": 0.26198,
+   "jd_ut": 2477743.22093
+  },
+  {
+   "date": "2072-03-04 15:21",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.2531,
+   "saros": 124,
+   "jd_ut": 2477906.13942
+  },
+  {
+   "date": "2072-03-19 20:08",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.72511,
+   "saros": 150,
+   "gamma": 1.1405,
+   "jd_ut": 2477921.33895
+  },
+  {
+   "date": "2072-08-28 16:03",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.17403,
+   "saros": 129,
+   "jd_ut": 2478083.16897
+  },
+  {
+   "date": "2072-09-12 08:57",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.05141,
+   "saros": 155,
+   "gamma": 0.96551,
+   "jd_ut": 2478097.8729
+  },
+  {
+   "date": "2073-02-07 01:54",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.68185,
+   "saros": 122,
+   "gamma": 1.16508,
+   "jd_ut": 2478245.57895
+  },
+  {
+   "date": "2073-02-22 07:23",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.25928,
+   "saros": 134,
+   "jd_ut": 2478260.80729
+  },
+  {
+   "date": "2073-08-03 17:13",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.02123,
+   "saros": 127,
+   "gamma": 0.87627,
+   "jd_ut": 2478423.2173
+  },
+  {
+   "date": "2073-08-17 17:40",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.10948,
+   "saros": 139,
+   "jd_ut": 2478437.2363
+  },
+  {
+   "date": "2074-01-27 06:42",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.96534,
+   "saros": 132,
+   "gamma": 0.42509,
+   "jd_ut": 2478599.77907
+  },
+  {
+   "date": "2074-02-11 20:54",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.9478,
+   "saros": 144,
+   "jd_ut": 2478615.37052
+  },
+  {
+   "date": "2074-07-08 17:19",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.21464,
+   "saros": 111,
+   "jd_ut": 2478762.22165
+  },
+  {
+   "date": "2074-07-24 03:08",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.96835,
+   "saros": 137,
+   "gamma": 0.12425,
+   "jd_ut": 2478777.63061
+  },
+  {
+   "date": "2074-08-07 01:54",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.8097,
+   "saros": 149,
+   "jd_ut": 2478791.5789
+  },
+  {
+   "date": "2075-01-02 09:53",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.80087,
+   "saros": 116,
+   "jd_ut": 2478939.91153
+  },
+  {
+   "date": "2075-01-16 18:34",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.0142,
+   "saros": 142,
+   "gamma": 0.27987,
+   "jd_ut": 2478954.27335
+  },
+  {
+   "date": "2075-06-28 09:53",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.63102,
+   "saros": 121,
+   "jd_ut": 2479116.91188
+  },
+  {
+   "date": "2075-07-13 06:03",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.93587,
+   "saros": 147,
+   "gamma": 0.65826,
+   "jd_ut": 2479131.75225
+  },
+  {
+   "date": "2075-12-22 08:53",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.90882,
+   "saros": 126,
+   "jd_ut": 2479293.87044
+  },
+  {
+   "date": "2076-01-06 10:05",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.02829,
+   "saros": 152,
+   "gamma": 0.93732,
+   "jd_ut": 2479308.92011
+  },
+  {
+   "date": "2076-06-01 17:29",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.29434,
+   "saros": 119,
+   "gamma": 1.38973,
+   "jd_ut": 2479456.22847
+  },
+  {
+   "date": "2076-06-17 02:37",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.80359,
+   "saros": 131,
+   "jd_ut": 2479471.60921
+  },
+  {
+   "date": "2076-07-01 06:48",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.27939,
+   "saros": 157,
+   "gamma": 1.40057,
+   "jd_ut": 2479485.78355
+  },
+  {
+   "date": "2076-11-26 11:40",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.73627,
+   "saros": 124,
+   "gamma": 1.14016,
+   "jd_ut": 2479633.98638
+  },
+  {
+   "date": "2076-12-10 11:32",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.45421,
+   "saros": 136,
+   "jd_ut": 2479647.98079
+  },
+  {
+   "date": "2077-05-22 02:44",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.015,
+   "saros": 129,
+   "gamma": 0.57246,
+   "jd_ut": 2479810.61359
+  },
+  {
+   "date": "2077-06-06 14:57",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.32052,
+   "saros": 141,
+   "jd_ut": 2479826.12313
+  },
+  {
+   "date": "2077-11-15 17:05",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.92424,
+   "saros": 134,
+   "gamma": 0.47045,
+   "jd_ut": 2479988.21206
+  },
+  {
+   "date": "2077-11-29 21:33",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.24389,
+   "saros": 146,
+   "jd_ut": 2480002.39814
+  },
+  {
+   "date": "2078-04-27 04:33",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.68498,
+   "saros": 113,
+   "jd_ut": 2480150.6897
+  },
+  {
+   "date": "2078-05-11 17:54",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.05193,
+   "saros": 139,
+   "gamma": 0.18378,
+   "jd_ut": 2480165.24606
+  },
+  {
+   "date": "2078-10-21 03:05",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.84528,
+   "saros": 118,
+   "jd_ut": 2480327.6288
+  },
+  {
+   "date": "2078-11-04 16:53",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.91176,
+   "saros": 144,
+   "gamma": 0.22851,
+   "jd_ut": 2480342.20358
+  },
+  {
+   "date": "2078-11-19 12:37",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.08919,
+   "saros": 156,
+   "jd_ut": 2480357.026
+  },
+  {
+   "date": "2079-04-16 05:08",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.95306,
+   "saros": 123,
+   "jd_ut": 2480504.71398
+  },
+  {
+   "date": "2079-05-01 10:48",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.04383,
+   "saros": 149,
+   "gamma": 0.90807,
+   "jd_ut": 2480519.9497
+  },
+  {
+   "date": "2079-10-10 17:28",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.08775,
+   "saros": 128,
+   "jd_ut": 2480682.22769
+  },
+  {
+   "date": "2079-10-24 18:09",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.94295,
+   "saros": 154,
+   "gamma": 0.92426,
+   "jd_ut": 2480696.25611
+  },
+  {
+   "date": "2080-03-21 12:18",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.878,
+   "saros": 121,
+   "gamma": 1.05778,
+   "jd_ut": 2480845.01216
+  },
+  {
+   "date": "2080-04-04 11:21",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.35454,
+   "saros": 133,
+   "jd_ut": 2480858.97291
+  },
+  {
+   "date": "2080-09-13 16:36",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.87926,
+   "saros": 126,
+   "gamma": 1.07237,
+   "jd_ut": 2481021.19136
+  },
+  {
+   "date": "2080-09-29 01:50",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.25244,
+   "saros": 138,
+   "jd_ut": 2481036.57641
+  },
+  {
+   "date": "2081-03-10 15:21",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.91711,
+   "saros": 131,
+   "gamma": 0.36526,
+   "jd_ut": 2481199.13946
+  },
+  {
+   "date": "2081-03-25 00:19",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.10385,
+   "saros": 143,
+   "jd_ut": 2481213.51342
+  },
+  {
+   "date": "2081-09-03 09:05",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.05447,
+   "saros": 136,
+   "gamma": 0.33785,
+   "jd_ut": 2481375.87834
+  },
+  {
+   "date": "2081-09-18 03:33",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.95643,
+   "saros": 148,
+   "jd_ut": 2481390.64771
+  },
+  {
+   "date": "2082-02-13 06:27",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.0218,
+   "saros": 115,
+   "jd_ut": 2481538.76848
+  },
+  {
+   "date": "2082-02-27 14:44",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.91632,
+   "saros": 141,
+   "gamma": 0.33611,
+   "jd_ut": 2481553.11409
+  },
+  {
+   "date": "2082-08-08 14:44",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 1.02997,
+   "saros": 120,
+   "jd_ut": 2481715.11386
+  },
+  {
+   "date": "2082-08-24 01:14",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.02897,
+   "saros": 146,
+   "gamma": 0.40033,
+   "jd_ut": 2481730.5511
+  },
+  {
+   "date": "2083-02-02 18:24",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.21355,
+   "saros": 125,
+   "jd_ut": 2481893.26668
+  },
+  {
+   "date": "2083-02-16 18:04",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.94791,
+   "saros": 151,
+   "gamma": 1.01702,
+   "jd_ut": 2481907.25274
+  },
+  {
+   "date": "2083-07-15 00:11",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.02135,
+   "saros": 118,
+   "gamma": 1.54656,
+   "jd_ut": 2482055.50794
+  },
+  {
+   "date": "2083-07-29 01:03",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.48632,
+   "saros": 130,
+   "jd_ut": 2482069.5436
+  },
+  {
+   "date": "2083-08-13 12:32",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.6193,
+   "saros": 156,
+   "gamma": 1.20642,
+   "jd_ut": 2482085.02207
+  },
+  {
+   "date": "2084-01-07 17:28",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.87752,
+   "saros": 123,
+   "gamma": 1.07151,
+   "jd_ut": 2482232.22754
+  },
+  {
+   "date": "2084-01-22 23:10",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.15908,
+   "saros": 135,
+   "jd_ut": 2482247.46543
+  },
+  {
+   "date": "2084-07-03 01:48",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.93402,
+   "saros": 128,
+   "gamma": 0.8208,
+   "jd_ut": 2482409.57473
+  },
+  {
+   "date": "2084-07-17 16:56",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.92103,
+   "saros": 140,
+   "jd_ut": 2482424.20558
+  },
+  {
+   "date": "2084-12-27 09:11",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.02326,
+   "saros": 133,
+   "gamma": 0.40942,
+   "jd_ut": 2482586.88262
+  },
+  {
+   "date": "2085-01-10 22:30",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 1.02229,
+   "saros": 145,
+   "jd_ut": 2482601.43727
+  },
+  {
+   "date": "2085-06-08 02:15",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.53447,
+   "saros": 112,
+   "jd_ut": 2482749.59358
+  },
+  {
+   "date": "2085-06-22 03:18",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.95528,
+   "saros": 138,
+   "gamma": 0.04527,
+   "jd_ut": 2482763.63778
+  },
+  {
+   "date": "2085-07-07 10:02",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.53255,
+   "saros": 150,
+   "jd_ut": 2482778.91792
+  },
+  {
+   "date": "2085-12-01 08:23",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.66736,
+   "saros": 117,
+   "jd_ut": 2482925.84912
+  },
+  {
+   "date": "2085-12-16 22:35",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.98127,
+   "saros": 143,
+   "gamma": 0.27864,
+   "jd_ut": 2482941.44093
+  },
+  {
+   "date": "2086-05-28 12:41",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.82615,
+   "saros": 122,
+   "jd_ut": 2483104.02839
+  },
+  {
+   "date": "2086-06-11 11:04",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.00583,
+   "saros": 148,
+   "gamma": 0.72147,
+   "jd_ut": 2483117.96138
+  },
+  {
+   "date": "2086-11-20 20:17",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.99522,
+   "saros": 127,
+   "jd_ut": 2483280.34501
+  },
+  {
+   "date": "2086-12-06 05:36",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.93207,
+   "saros": 153,
+   "gamma": 1.01941,
+   "jd_ut": 2483295.7333
+  },
+  {
+   "date": "2087-05-02 18:02",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.8068,
+   "saros": 120,
+   "gamma": 1.11398,
+   "jd_ut": 2483443.25125
+  },
+  {
+   "date": "2087-05-17 15:52",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.4635,
+   "saros": 132,
+   "jd_ut": 2483458.1614
+  },
+  {
+   "date": "2087-06-01 01:24",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.21997,
+   "saros": 158,
+   "gamma": 1.41863,
+   "jd_ut": 2483472.55861
+  },
+  {
+   "date": "2087-10-26 11:44",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.47457,
+   "saros": 125,
+   "gamma": 1.28826,
+   "jd_ut": 2483619.98894
+  },
+  {
+   "date": "2087-11-10 12:03",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.50971,
+   "saros": 137,
+   "jd_ut": 2483635.00183
+  },
+  {
+   "date": "2088-04-21 10:29",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.03122,
+   "saros": 130,
+   "gamma": 0.41351,
+   "jd_ut": 2483797.93671
+  },
+  {
+   "date": "2088-05-05 16:14",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.10955,
+   "saros": 142,
+   "jd_ut": 2483812.1763
+  },
+  {
+   "date": "2088-10-14 14:45",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.95961,
+   "saros": 135,
+   "gamma": 0.53491,
+   "jd_ut": 2483974.11468
+  },
+  {
+   "date": "2088-10-30 03:00",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.19145,
+   "saros": 147,
+   "jd_ut": 2483989.62526
+  },
+  {
+   "date": "2089-03-26 09:31",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.86164,
+   "saros": 114,
+   "jd_ut": 2484136.89669
+  },
+  {
+   "date": "2089-04-10 22:42",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.97677,
+   "saros": 140,
+   "gamma": 0.33184,
+   "jd_ut": 2484152.44562
+  },
+  {
+   "date": "2089-09-19 22:08",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.81839,
+   "saros": 119,
+   "jd_ut": 2484314.4224
+  },
+  {
+   "date": "2089-10-04 01:12",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.0163,
+   "saros": 145,
+   "gamma": 0.21669,
+   "jd_ut": 2484328.55027
+  },
+  {
+   "date": "2090-03-15 23:45",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.21019,
+   "saros": 124,
+   "jd_ut": 2484491.48992
+  },
+  {
+   "date": "2090-03-31 03:35",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.78949,
+   "saros": 150,
+   "gamma": 1.10277,
+   "jd_ut": 2484506.64933
+  },
+  {
+   "date": "2090-09-08 22:49",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.04546,
+   "saros": 129,
+   "jd_ut": 2484668.451
+  },
+  {
+   "date": "2090-09-23 16:54",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.04903,
+   "saros": 155,
+   "gamma": 0.91568,
+   "jd_ut": 2484683.20387
+  },
+  {
+   "date": "2091-02-18 09:52",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.66087,
+   "saros": 122,
+   "gamma": 1.17792,
+   "jd_ut": 2484830.9109
+  },
+  {
+   "date": "2091-03-05 15:55",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.29215,
+   "saros": 134,
+   "jd_ut": 2484846.16342
+  },
+  {
+   "date": "2091-08-15 00:32",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.01647,
+   "saros": 127,
+   "gamma": 0.94898,
+   "jd_ut": 2485008.52192
+  },
+  {
+   "date": "2091-08-29 00:35",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.24338,
+   "saros": 139,
+   "jd_ut": 2485022.52453
+  },
+  {
+   "date": "2092-02-07 15:07",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.96954,
+   "saros": 132,
+   "gamma": 0.43216,
+   "jd_ut": 2485185.13005
+  },
+  {
+   "date": "2092-02-23 05:18",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.967,
+   "saros": 144,
+   "jd_ut": 2485200.72076
+  },
+  {
+   "date": "2092-07-19 00:39",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.08962,
+   "saros": 111,
+   "jd_ut": 2485347.52697
+  },
+  {
+   "date": "2092-08-03 09:56",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.96429,
+   "saros": 137,
+   "gamma": 0.20443,
+   "jd_ut": 2485362.91418
+  },
+  {
+   "date": "2092-08-17 09:11",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.94153,
+   "saros": 149,
+   "jd_ut": 2485376.88255
+  },
+  {
+   "date": "2093-01-12 17:57",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.78477,
+   "saros": 116,
+   "jd_ut": 2485525.24786
+  },
+  {
+   "date": "2093-01-27 03:19",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.01698,
+   "saros": 142,
+   "gamma": 0.27371,
+   "jd_ut": 2485539.6383
+  },
+  {
+   "date": "2093-07-08 17:21",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.49612,
+   "saros": 121,
+   "jd_ut": 2485702.22301
+  },
+  {
+   "date": "2093-07-23 12:29",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.93455,
+   "saros": 147,
+   "gamma": 0.57162,
+   "jd_ut": 2485717.02006
+  },
+  {
+   "date": "2094-01-01 16:57",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.89469,
+   "saros": 126,
+   "jd_ut": 2485879.20621
+  },
+  {
+   "date": "2094-01-16 18:56",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.02809,
+   "saros": 152,
+   "gamma": 0.93334,
+   "jd_ut": 2485894.28881
+  },
+  {
+   "date": "2094-06-13 00:19",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.16648,
+   "saros": 119,
+   "gamma": 1.46141,
+   "jd_ut": 2486041.51331
+  },
+  {
+   "date": "2094-06-28 09:59",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.83258,
+   "saros": 131,
+   "jd_ut": 2486056.9158
+  },
+  {
+   "date": "2094-07-12 13:21",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.42738,
+   "saros": 157,
+   "gamma": 1.31498,
+   "jd_ut": 2486071.05658
+  },
+  {
+   "date": "2094-12-07 20:03",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.70943,
+   "saros": 124,
+   "gamma": 1.15472,
+   "jd_ut": 2486219.33515
+  },
+  {
+   "date": "2094-12-21 19:53",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.47097,
+   "saros": 136,
+   "jd_ut": 2486233.32871
+  },
+  {
+   "date": "2095-06-02 10:04",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.01997,
+   "saros": 129,
+   "gamma": 0.63959,
+   "jd_ut": 2486395.91977
+  },
+  {
+   "date": "2095-06-17 21:57",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.45416,
+   "saros": 141,
+   "jd_ut": 2486411.41454
+  },
+  {
+   "date": "2095-11-27 01:00",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.92044,
+   "saros": 134,
+   "gamma": 0.49028,
+   "jd_ut": 2486573.54146
+  },
+  {
+   "date": "2095-12-11 06:12",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.26487,
+   "saros": 146,
+   "jd_ut": 2486587.75819
+  },
+  {
+   "date": "2096-05-07 11:21",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.55998,
+   "saros": 113,
+   "jd_ut": 2486735.97324
+  },
+  {
+   "date": "2096-05-22 01:34",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.05525,
+   "saros": 139,
+   "gamma": 0.11958,
+   "jd_ut": 2486750.56526
+  },
+  {
+   "date": "2096-06-06 02:40",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.03341,
+   "saros": 151,
+   "jd_ut": 2486765.61138
+  },
+  {
+   "date": "2096-10-31 11:27",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.79472,
+   "saros": 118,
+   "jd_ut": 2486912.97717
+  },
+  {
+   "date": "2096-11-15 00:33",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.90989,
+   "saros": 144,
+   "gamma": 0.20181,
+   "jd_ut": 2486927.5229
+  },
+  {
+   "date": "2096-11-29 21:19",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 0.11394,
+   "saros": 156,
+   "jd_ut": 2486942.38824
+  },
+  {
+   "date": "2097-04-26 12:15",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.84993,
+   "saros": 123,
+   "jd_ut": 2487090.0104
+  },
+  {
+   "date": "2097-05-11 18:31",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.04451,
+   "saros": 149,
+   "gamma": 0.85154,
+   "jd_ut": 2487105.27166
+  },
+  {
+   "date": "2097-10-21 01:28",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.01826,
+   "saros": 128,
+   "jd_ut": 2487267.56084
+  },
+  {
+   "date": "2097-11-04 01:58",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.94285,
+   "saros": 154,
+   "gamma": 0.89264,
+   "jd_ut": 2487281.58206
+  },
+  {
+   "date": "2098-04-01 19:59",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.80299,
+   "saros": 121,
+   "gamma": 1.1005,
+   "jd_ut": 2487430.33269
+  },
+  {
+   "date": "2098-04-15 19:01",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.44562,
+   "saros": 133,
+   "jd_ut": 2487444.29268
+  },
+  {
+   "date": "2098-09-25 00:28",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.79198,
+   "saros": 126,
+   "gamma": 1.11847,
+   "jd_ut": 2487606.51943
+  },
+  {
+   "date": "2098-10-10 09:17",
+   "kind": "lunar",
+   "type": "total",
+   "magnitude": 1.33276,
+   "saros": 138,
+   "jd_ut": 2487621.88654
+  },
+  {
+   "date": "2098-10-24 10:33",
+   "kind": "solar",
+   "type": "partial",
+   "magnitude": 0.01017,
+   "saros": 164,
+   "gamma": 1.54083,
+   "jd_ut": 2487635.93959
+  },
+  {
+   "date": "2099-03-21 22:51",
+   "kind": "solar",
+   "type": "annular",
+   "magnitude": 0.91874,
+   "saros": 131,
+   "gamma": 0.40162,
+   "jd_ut": 2487784.45219
+  },
+  {
+   "date": "2099-04-05 08:28",
+   "kind": "lunar",
+   "type": "partial",
+   "magnitude": 0.17663,
+   "saros": 143,
+   "jd_ut": 2487798.85247
+  },
+  {
+   "date": "2099-09-14 16:54",
+   "kind": "solar",
+   "type": "total",
+   "magnitude": 1.05141,
+   "saros": 136,
+   "gamma": 0.39421,
+   "jd_ut": 2487961.20451
+  },
+  {
+   "date": "2099-09-29 10:33",
+   "kind": "lunar",
+   "type": "penumbral",
+   "magnitude": 1.06349,
+   "saros": 148,
+   "jd_ut": 2487975.93974
+  }
+ ]
+}
