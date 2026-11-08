@@ -1,0 +1,35 @@
+{
+  "name": "cache_tree",
+  "version": "1.0.0",
+  "curvature": "negative",
+  "carrier": "tree(2)",
+  "metric": {
+    "formula": "tree distance",
+    "lean": "QBX.Formal.Foundations.treeDist"
+  },
+  "algebra": [
+    "insert",
+    "lookup_by_path",
+    "path_routing"
+  ],
+  "boundary": {
+    "kind": "leaves"
+  },
+  "hosting": {
+    "preserve": [
+      "metric",
+      "algebra"
+    ],
+    "substrates": [
+      "cpu",
+      "dht"
+    ]
+  },
+  "lean": {
+    "correctness": "QBX.Formal.Foundations.tree_correct"
+  },
+  "code": [
+    "src/qbx_live/window_cache.py"
+  ],
+  "notes": "Query cache: 2^d entries at depth d in O(d) path length."
+}

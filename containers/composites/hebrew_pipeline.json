@@ -1,0 +1,46 @@
+{
+  "name": "hebrew_pipeline",
+  "kind": "pipeline",
+  "curvature": "negative",
+  "stages": [
+    {
+      "container": "hebrew_text"
+    },
+    {
+      "container": "reading_frame"
+    },
+    {
+      "container": "hebrew_encoding"
+    },
+    {
+      "container": "braid_words"
+    },
+    {
+      "container": "braid_invariants"
+    }
+  ],
+  "transitions": [
+    {
+      "operation": "normalise surface layout to logical order (undo direction/boustrophedon)",
+      "curvature_changing": true,
+      "to": "positive",
+      "lean": "QBX.Formal.TextLayout.decode_surface"
+    },
+    {
+      "operation": "per-letter lookup in the encoding bundle",
+      "curvature_changing": false
+    },
+    {
+      "operation": "concatenate generator images (a word grows by one letter per position)",
+      "curvature_changing": true,
+      "to": "negative"
+    },
+    {
+      "operation": "evaluate writhe and linking of the closure",
+      "curvature_changing": true,
+      "to": "flat",
+      "lean": "QBX.Formal.Dir.linkingSpectrum_act"
+    }
+  ],
+  "notes": "text (flat) -> frame (positive) -> encoding (bundle, positive) -> words (negative) -> invariants (flat). Every curvature change is declared at its interface."
+}

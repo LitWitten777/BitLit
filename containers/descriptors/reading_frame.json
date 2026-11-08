@@ -1,0 +1,23 @@
+{
+  "name": "reading_frame",
+  "version": "1.0.0",
+  "curvature": "positive",
+  "carrier": "finite(8)",
+  "metric": {
+    "formula": "number of differing senses/axis (Hamming on (axis, line sense, progression sense))"
+  },
+  "algebra": [
+    "compose",
+    "invert",
+    "act_on_words"
+  ],
+  "boundary": {
+    "kind": "closed"
+  },
+  "lean": {
+    "correctness": "QBX.Formal.Foundations.card_frame",
+    "structure": "QBX.Formal.Foundations.frameEquiv",
+    "invariance": "QBX.Formal.Foundations.frame_change_invariants"
+  },
+  "notes": "The 8 reading frames = 2 axes x 4 rigid elements of the direction group (Z/2)^3."
+}

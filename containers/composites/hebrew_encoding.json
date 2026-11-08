@@ -1,0 +1,12 @@
+{
+  "name": "hebrew_encoding",
+  "kind": "bundle",
+  "base": "hebrew_letters",
+  "fiber": "generator_assignment",
+  "connection": "qbx_bible.encode: letter -> signed generator, depending on the strand count",
+  "curvature": "positive",
+  "boundary": {
+    "kind": "closed"
+  },
+  "notes": "Total space letters x generators; the connection is the strand-count-dependent assignment."
+}

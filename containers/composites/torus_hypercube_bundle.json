@@ -1,0 +1,8 @@
+{
+  "name": "torus_hypercube_bundle",
+  "kind": "bundle",
+  "base": "torus_8x8",
+  "fiber": "hypercube_q4",
+  "connection": "gate transport along torus edges (the connection is what makes gates work)",
+  "curvature": "flat"
+}

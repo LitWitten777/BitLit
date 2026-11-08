@@ -1,0 +1,27 @@
+{
+  "name": "braid_invariants",
+  "version": "1.0.0",
+  "curvature": "flat",
+  "carrier": "lattice(7)",
+  "metric": {
+    "formula": "l1 distance between (writhe, 6 pairwise linking numbers) vectors",
+    "lean": "QBX.Formal.Foundations.l1"
+  },
+  "algebra": [
+    "add",
+    "translation",
+    "fft",
+    "compare"
+  ],
+  "boundary": {
+    "kind": "edge"
+  },
+  "lean": {
+    "correctness": "QBX.Formal.Foundations.lattice_correct",
+    "direction_invariance": "QBX.Formal.Dir.linkingSpectrum_act"
+  },
+  "code": [
+    "src/qbx_ir/views/invariant.py"
+  ],
+  "notes": "Exact integer invariants of the closed braid (4 strands): writhe and the linking numbers of the 6 strand pairs of a pure closure."
+}

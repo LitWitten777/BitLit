@@ -1,0 +1,21 @@
+{
+  "name": "braid_permutation",
+  "version": "1.0.0",
+  "curvature": "positive",
+  "carrier": "finite(24)",
+  "metric": {
+    "formula": "Cayley distance in S_4"
+  },
+  "algebra": [
+    "compose",
+    "invert",
+    "cycle_type"
+  ],
+  "boundary": {
+    "kind": "closed"
+  },
+  "lean": {
+    "hom": "QBX.Formal.permHom"
+  },
+  "notes": "The bounded image of the braid group used to read closure components."
+}

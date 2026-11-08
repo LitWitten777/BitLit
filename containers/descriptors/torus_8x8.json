@@ -1,0 +1,24 @@
+{
+  "name": "torus_8x8",
+  "version": "1.0.0",
+  "curvature": "flat",
+  "carrier": "torus(8,8)",
+  "development": "lattice(2)",
+  "metric": {
+    "formula": "l1 distance modulo the periods (8, 8)",
+    "lean": "QBX.Formal.Foundations.torusCover"
+  },
+  "algebra": [
+    "translation",
+    "fft",
+    "route"
+  ],
+  "boundary": {
+    "kind": "none"
+  },
+  "lean": {
+    "correctness": "QBX.Formal.Foundations.lattice_correct",
+    "cover": "QBX.Formal.Foundations.torusCover_surjective"
+  },
+  "notes": "Finite, but flat through its development Z^2 (it is Z^2 modulo the period lattice)."
+}

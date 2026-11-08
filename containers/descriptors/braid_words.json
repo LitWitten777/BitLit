@@ -1,0 +1,29 @@
+{
+  "name": "braid_words",
+  "version": "1.0.0",
+  "curvature": "negative",
+  "carrier": "free(6)",
+  "metric": {
+    "formula": "word distance = length of the shortest edit path in the Cayley tree of the free monoid",
+    "lean": "QBX.Formal.Foundations.treeDist"
+  },
+  "algebra": [
+    "concat",
+    "rewrite",
+    "reduce",
+    "path_routing"
+  ],
+  "boundary": {
+    "kind": "leaves",
+    "attaches": [
+      "braid_invariants"
+    ]
+  },
+  "lean": {
+    "correctness": "QBX.Formal.Foundations.tree_correct"
+  },
+  "code": [
+    "src/qbx_ir/core/braid.py"
+  ],
+  "notes": "Words before group relations: the word space grows exponentially with length (the binary-tree theorem embeds in it)."
+}

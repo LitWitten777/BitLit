@@ -1,0 +1,21 @@
+{
+  "name": "hypercube_q4",
+  "version": "1.0.0",
+  "curvature": "positive",
+  "carrier": "hypercube(4)",
+  "metric": {
+    "formula": "Hamming distance",
+    "lean": "QBX.Formal.Foundations.hamming"
+  },
+  "algebra": [
+    "xor",
+    "flip_bit",
+    "codeword_decode"
+  ],
+  "boundary": {
+    "kind": "closed"
+  },
+  "lean": {
+    "correctness": "QBX.Formal.Foundations.hypercube_correct"
+  }
+}

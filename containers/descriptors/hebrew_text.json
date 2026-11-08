@@ -1,0 +1,29 @@
+{
+  "name": "hebrew_text",
+  "version": "1.0.0",
+  "curvature": "flat",
+  "carrier": "lattice(1)",
+  "metric": {
+    "formula": "|i - j| (letter positions in logical order)",
+    "lean": "QBX.Formal.Foundations.l1"
+  },
+  "algebra": [
+    "concat",
+    "slice",
+    "translation",
+    "reverse"
+  ],
+  "boundary": {
+    "kind": "edge",
+    "attaches": [
+      "hebrew_encoding"
+    ]
+  },
+  "lean": {
+    "correctness": "QBX.Formal.Foundations.lattice_correct"
+  },
+  "code": [
+    "src/qbx/hebrew/text.py"
+  ],
+  "notes": "A text is a sequence; positions form a line. Surface layout (direction, boustrophedon) is undone first by the reading_frame container."
+}

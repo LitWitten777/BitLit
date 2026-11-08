@@ -1,0 +1,21 @@
+{
+  "name": "hebrew_letters",
+  "version": "1.0.0",
+  "curvature": "positive",
+  "carrier": "finite(27)",
+  "metric": {
+    "formula": "discrete (0 if equal else 1)"
+  },
+  "algebra": [
+    "lookup",
+    "gematria",
+    "final_form"
+  ],
+  "boundary": {
+    "kind": "closed"
+  },
+  "code": [
+    "src/qbx/hebrew/gematria.py"
+  ],
+  "notes": "22 letters + 5 final forms. Gematria convention is a parameter (standard: finals 500-900; base: finals = base letter), not a fixed choice."
+}

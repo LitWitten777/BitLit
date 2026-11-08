@@ -1,0 +1,10 @@
+{
+  "name": "codeword_cache",
+  "kind": "product",
+  "factors": [
+    "cache_tree",
+    "hypercube_q4"
+  ],
+  "curvature": "negative",
+  "notes": "Lean: tree_prod_hypercube_correct."
+}

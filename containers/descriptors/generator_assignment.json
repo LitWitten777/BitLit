@@ -1,0 +1,17 @@
+{
+  "name": "generator_assignment",
+  "version": "1.0.0",
+  "curvature": "positive",
+  "carrier": "finite(6)",
+  "metric": {
+    "formula": "discrete"
+  },
+  "algebra": [
+    "lookup",
+    "invert"
+  ],
+  "boundary": {
+    "kind": "closed"
+  },
+  "notes": "Fiber of the encoding bundle: the signed Artin generators sigma_i^{+-1} available on n = 4 strands (6 letters). Changes with the strand count."
+}
