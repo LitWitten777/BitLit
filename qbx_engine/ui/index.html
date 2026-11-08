@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>QBX engine — torus, braids, letters, merkaba</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --bg:#0d1117; --panel:#161b22; --line:#30363d; --fg:#e6edf3; --dim:#8b949e;
+          --ok:#3fb950; --bad:#f85149; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:13px/1.4 system-ui, sans-serif; }
+  header { display:flex; gap:8px; align-items:center; padding:8px 12px; border-bottom:1px solid var(--line); flex-wrap:wrap; }
+  header h1 { font-size:15px; margin:0 12px 0 0; font-weight:600; }
+  input, select, button, textarea { background:#0b0f14; color:var(--fg); border:1px solid var(--line); border-radius:5px; padding:4px 7px; font:inherit; }
+  button { cursor:pointer; } button:hover { border-color:#58a6ff; } button.on { background:#1f6feb; border-color:#1f6feb; }
+  #text { width:340px; font-size:15px; }
+  .num { width:52px; }
+  main { display:grid; grid-template-columns: 280px 1fr 1fr 330px; gap:8px; padding:8px; }
+  .panel { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:8px; min-width:0; }
+  .panel h2 { font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--dim); margin:0 0 6px; font-weight:600; }
+  .row { display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin:4px 0; }
+  .grid3 { display:grid; grid-template-columns: 1fr 1fr 1fr; gap:4px; }
+  canvas { width:100%; display:block; background:#0b0f14; border-radius:6px; }
+  textarea { width:100%; height:92px; font-family:ui-monospace, monospace; font-size:12px; }
+  .checks div { font-family:ui-monospace, monospace; font-size:12px; }
+  .ok { color:var(--ok); } .bad { color:var(--bad); }
+  .card { border:1px solid var(--line); border-radius:6px; padding:6px; margin:4px 0; overflow:hidden; }
+  .glyph { font-size:26px; float:left; margin-right:8px; line-height:1; }
+  .bars { display:flex; gap:3px; align-items:flex-end; height:34px; margin-top:4px; }
+  .bar { width:18px; border-radius:2px 2px 0 0; }
+  .mono { font-family:ui-monospace, monospace; font-size:12px; white-space:pre-wrap; }
+  .dim { color:var(--dim); }
+  #log { height:110px; overflow:auto; }
+  #alphabet { display:flex; flex-wrap:wrap; gap:3px; }
+  #alphabet button { font-size:18px; width:36px; height:36px; padding:0; }
+  .phase { height:8px; background:#0b0f14; border-radius:4px; overflow:hidden; margin:2px 0 6px; }
+  .phase > div { height:100%; background:#1f6feb; }
+  #err { color:var(--bad); min-height:1em; }
+  @media (max-width:1300px) { main { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>QBX engine</h1>
+  <input id="text" value="בראשית ברא אלהים את השמים" title="input text (any alphabet)">
+  torus <input id="N" class="num" type="number" value="16" min="2" max="64">×<input id="M" class="num" type="number" value="25" min="2" max="64">
+  direction <input id="p" class="num" type="number" value="1">,<input id="q" class="num" type="number" value="2">
+  channel <select id="channel"><option>value</option><option>written</option><option>spoken</option><option>code</option><option>bytes</option></select>
+  <button id="load">Load</button>
+  <span id="err"></span>
+</header>
+<main>
+  <!-- column 1: controls -->
+  <section class="panel">
+    <h2>Time</h2>
+    <div class="row">
+      <button id="play">▶ Play</button><button id="step">Step</button><button id="reset">Reset</button>
+    </div>
+    <div class="row">speed <input id="speed" type="range" min="1" max="30" value="6"> <span id="fps" class="dim"></span></div>
+    <div class="row">frame <b id="frame">0</b> · steps <b id="steps">0</b></div>
+    <div id="clock"></div>
+
+    <h2 style="margin-top:10px">Schedule</h2>
+    <div class="row">read a letter every <input id="read_every" class="num" type="number" value="2" min="0"> frames</div>
+    <div class="row">merkaba every <input id="merkaba_every" class="num" type="number" value="3" min="0"> frames</div>
+    <div class="row">cycle <input id="cycle" value="diag turnZ spin" style="width:150px"></div>
+    <div class="row"><button id="apply">Apply schedule</button></div>
+
+    <h2 style="margin-top:10px">Merkaba controls</h2>
+    <div class="grid3">
+      <button data-ctl="turnX" title="quarter turn about x (swaps tetrahedra)">turn X</button>
+      <button data-ctl="turnY" title="quarter turn about y (swaps tetrahedra)">turn Y</button>
+      <button data-ctl="turnZ" title="quarter turn about z (swaps tetrahedra)">turn Z</button>
+      <button data-ctl="diag" title="120° about the main diagonal (keeps tetrahedra)">diag</button>
+      <button data-ctl="invert" title="central inversion (swaps tetrahedra)">invert</button>
+      <button data-ctl="spin" title="counter-rotation: not reachable by rigid controls">spin ⟲⟳</button>
+    </div>
+    <div id="merkinfo" class="mono dim" style="margin-top:4px"></div>
+
+    <h2 style="margin-top:10px">Program</h2>
+    <textarea id="program">flow 1 2
+repeat 4 { read; diag }
+turnX; spin
+cross 1; cross -2</textarea>
+    <div class="row"><button id="run">Run program</button><button id="outset">Export output set</button></div>
+    <div id="outres" class="mono dim"></div>
+  </section>
+
+  <!-- column 2: torus + braid -->
+  <section class="panel">
+    <h2>Harmonic torus <span class="dim" id="torusinfo"></span></h2>
+    <div class="row"><button id="v_torus" class="on">moving wave</button><button id="v_stand">standing wave</button><button id="v_spec">mode power</button></div>
+    <canvas id="torus" width="560" height="380"></canvas>
+    <h2 style="margin-top:8px">Braid of the reading <span class="dim" id="braidinfo"></span></h2>
+    <canvas id="braid" width="560" height="240"></canvas>
+  </section>
+
+  <!-- column 3: merkaba + braids with braids -->
+  <section class="panel">
+    <h2>Merkaba <span class="dim">(drag to turn the view)</span></h2>
+    <canvas id="merk" width="560" height="380"></canvas>
+    <h2 style="margin-top:8px">Braids with braids</h2>
+    <div class="row">bundle A <input id="ba" value="בראשית ברא" style="width:120px"> bundle B <input id="bb" value="ΕΝ ΑΡΧΗ" style="width:120px"> <button id="bbgo">Combine</button></div>
+    <div id="bbres" class="mono"></div>
+  </section>
+
+  <!-- column 4: letters, checks -->
+  <section class="panel">
+    <h2>Letters now</h2>
+    <div id="letters"></div>
+    <h2 style="margin-top:8px">Letter details</h2>
+    <div class="row"><select id="alpha"><option>hebrew</option><option>greek</option><option>latin</option></select></div>
+    <div id="alphabet"></div>
+    <div id="detail"></div>
+    <h2 style="margin-top:8px">Checks (Lean statements re-derived)</h2>
+    <div id="checks" class="checks"></div>
+    <h2 style="margin-top:8px">Log</h2>
+    <div id="log" class="mono dim"></div>
+  </section>
+</main>
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const BEAST_COL = {LION:"#e8a33d", OX:"#7a8b3a", MAN:"#3d7be8", EAGLE:"#c9d6ea"};
+let S = null, view = "torus", playing = false, timer = null, busy = false;
+
+async function api(path, body) {
+  const opt = body === undefined ? {} : {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(body)};
+  const r = await fetch(path, opt);
+  const j = await r.json();
+  if (!r.ok) { $("err").textContent = j.error || ("HTTP " + r.status); return null; }
+  $("err").textContent = "";
+  return j;
+}
+
+/* ---------------- torus ---------------- */
+function heat(x) {
+  const r = Math.min(1, Math.max(0, 1.5*x - 0.2)), g = Math.min(1, Math.max(0, 1.5 - Math.abs(3*x - 1.5))), b = Math.min(1, Math.max(0, 1.2 - 1.5*x));
+  return `rgb(${255*r|0},${255*g|0},${255*b|0})`;
+}
+function dft2Power(g) {
+  const N = g.length, M = g[0].length, P = [];
+  for (let a = 0; a < N; a++) { P.push([]); for (let b = 0; b < M; b++) {
+    let re = 0, im = 0;
+    for (let j = 0; j < N; j++) for (let k = 0; k < M; k++) { const t = -2*Math.PI*(a*j/N + b*k/M); re += g[j][k]*Math.cos(t); im += g[j][k]*Math.sin(t); }
+    P[a].push(Math.log(1 + re*re + im*im)); } }
+  return P;
+}
+let specCache = {key:null, P:null};
+function drawTorus() {
+  const c = $("torus"), x = c.getContext("2d");
+  x.fillStyle = "#0b0f14"; x.fillRect(0, 0, c.width, c.height);
+  if (!S) return;
+  let g = view === "stand" ? S.standing_grid : S.torus_grid;
+  if (view === "spec") {
+    const key = S.text + S.torus + S.channel;
+    if (specCache.key !== key) specCache = {key, P: dft2Power(S.torus_grid)};
+    g = specCache.P;
+  }
+  const N = g.length, M = g[0].length;
+  let lo = Infinity, hi = -Infinity;
+  for (const row of g) for (const v of row) { lo = Math.min(lo, v); hi = Math.max(hi, v); }
+  const cw = c.width / M, ch = (c.height - 20) / N;
+  for (let j = 0; j < N; j++) for (let k = 0; k < M; k++) {
+    x.fillStyle = heat(hi === lo ? 0.5 : (g[j][k] - lo) / (hi - lo));
+    x.fillRect(k*cw, j*ch, cw - 0.5, ch - 0.5);
+  }
+  x.fillStyle = "#8b949e"; x.font = "12px sans-serif";
+  const lab = view === "stand" ? `standing wave at frame ${S.frame} · period ${S.standing.period} · silent modes ${S.standing.nodes}`
+            : view === "spec" ? "log power of each mode (unchanged by every flow: run_power_invariant)"
+            : `offset (${S.offset}) · flow (${S.direction}) per frame`;
+  x.fillText(lab, 4, c.height - 5);
+}
+
+/* ---------------- braid ---------------- */
+const STRAND_COL = ["#e8a33d","#3d7be8","#7a8b3a","#c9d6ea","#d65db1","#4ec9b0","#f14c4c","#b5cea8"];
+function drawBraid() {
+  const c = $("braid"), x = c.getContext("2d");
+  x.fillStyle = "#0b0f14"; x.fillRect(0, 0, c.width, c.height);
+  if (!S) return;
+  const n = S.braid.strands, w = S.braid.word.slice(-36);
+  const dy = (c.height - 30) / n, dx = Math.max(10, (c.width - 110) / Math.max(1, w.length));
+  const pos = [...Array(n).keys()];
+  const Y = s => 15 + s * dy + dy/2;
+  x.lineWidth = 3;
+  w.forEach((g, t) => {
+    const i = Math.abs(g) - 1, x0 = 10 + t*dx, x1 = x0 + dx;
+    for (let s = 0; s < n; s++) if (s !== i && s !== i+1) { x.strokeStyle = STRAND_COL[pos[s] % 8]; x.beginPath(); x.moveTo(x0, Y(s)); x.lineTo(x1, Y(s)); x.stroke(); }
+    const over = g > 0 ? [i, i+1] : [i+1, i], under = g > 0 ? [i+1, i] : [i, i+1];
+    x.strokeStyle = STRAND_COL[pos[under[0]] % 8]; x.setLineDash([3,4]); x.beginPath(); x.moveTo(x0, Y(under[0])); x.lineTo(x1, Y(under[1])); x.stroke(); x.setLineDash([]);
+    x.strokeStyle = "#0b0f14"; x.lineWidth = 7; x.beginPath(); x.moveTo(x0, Y(over[0])); x.lineTo(x1, Y(over[1])); x.stroke();
+    x.lineWidth = 3; x.strokeStyle = STRAND_COL[pos[over[0]] % 8]; x.beginPath(); x.moveTo(x0, Y(over[0])); x.lineTo(x1, Y(over[1])); x.stroke();
+    [pos[i], pos[i+1]] = [pos[i+1], pos[i]];
+  });
+  x.font = "13px sans-serif";
+  S.texts.forEach((t, s) => { x.fillStyle = STRAND_COL[s % 8]; x.fillText(t, c.width - 95, Y(s) + 4); });
+  const inv = S.braid.invariants || {};
+  $("braidinfo").textContent = `${n} strands · ${S.braid.length} crossings · writhe ${inv.writhe ?? 0} · pass ${S.braid.passes}`;
+}
+
+/* ---------------- merkaba ---------------- */
+let yaw = 0.6, pitch = 0.45, drag = null;
+let merkFrom = null, merkTo = null, merkT0 = 0;
+const MERK_MS = 450;
+function curTet(now) {
+  if (!merkTo) return null;
+  const t = Math.min(1, (now - merkT0) / MERK_MS), e = t*t*(3 - 2*t);
+  const out = {};
+  for (const k of ["even", "odd"]) out[k] = merkTo[k].map((p, i) => {
+    const q = merkFrom ? merkFrom[k][i] : p;
+    const v = [0,1,2].map(d => q[d] + (p[d] - q[d]) * e);
+    const r = Math.hypot(...v), R = Math.sqrt(3);   // keep vertices on the circumscribed sphere
+    return r < 1e-6 ? v : v.map(z => z * R / r);
+  });
+  return out;
+}
+function proj(v, c) {
+  const [x0, y0, z0] = v;
+  const x1 = x0*Math.cos(yaw) - y0*Math.sin(yaw), y1 = x0*Math.sin(yaw) + y0*Math.cos(yaw);
+  const z2 = z0*Math.cos(pitch) - y1*Math.sin(pitch), d = y1*Math.cos(pitch) + z0*Math.sin(pitch);
+  const s = c.height * 0.22 * (1 + d * 0.06);
+  return [c.width/2 + s*x1, c.height/2 - s*z2, d];
+}
+function drawMerk(now) {
+  const c = $("merk"), x = c.getContext("2d");
+  x.fillStyle = "#0b0f14"; x.fillRect(0, 0, c.width, c.height);
+  const tet = curTet(now); if (!tet) return;
+  x.strokeStyle = "#30363d"; x.setLineDash([3,4]); x.lineWidth = 1;
+  const V = []; for (const a of [1,-1]) for (const b of [1,-1]) for (const d of [1,-1]) V.push([a,b,d]);
+  for (let i = 0; i < 8; i++) for (let j = i+1; j < 8; j++) {
+    const diff = V[i].filter((z, k) => z !== V[j][k]).length;
+    if (diff === 1) { const p = proj(V[i], c), q = proj(V[j], c); x.beginPath(); x.moveTo(p[0], p[1]); x.lineTo(q[0], q[1]); x.stroke(); }
+  }
+  x.setLineDash([]);
+  x.font = "11px sans-serif";
+  for (const [k, col] of [["even", "#e8a33d"], ["odd", "#3d7be8"]]) {
+    const P = tet[k].map(v => proj(v, c));
+    x.fillStyle = col + "22";
+    for (const f of [[0,1,2],[0,1,3],[0,2,3],[1,2,3]]) { x.beginPath(); x.moveTo(P[f[0]][0], P[f[0]][1]); x.lineTo(P[f[1]][0], P[f[1]][1]); x.lineTo(P[f[2]][0], P[f[2]][1]); x.closePath(); x.fill(); }
+    x.strokeStyle = col; x.lineWidth = 2.5;
+    for (let i = 0; i < 4; i++) for (let j = i+1; j < 4; j++) { x.beginPath(); x.moveTo(P[i][0], P[i][1]); x.lineTo(P[j][0], P[j][1]); x.stroke(); }
+    x.fillStyle = col; P.forEach((p, i) => { x.beginPath(); x.arc(p[0], p[1], 4, 0, 7); x.fill(); x.fillText(k[0] + i, p[0] + 6, p[1] - 6); });
+  }
+  if (S) {
+    const m = S.merkaba;
+    x.fillStyle = "#8b949e"; x.font = "12px sans-serif";
+    x.fillText(`swapped: ${m.swapped} · swaps so far: ${m.swap_count} · rigid: ${m.rigid}`, 6, c.height - 8);
+  }
+}
+function setMerk(m) {
+  const now = performance.now();
+  merkFrom = curTet(now) || m.tetrahedra; merkTo = m.tetrahedra; merkT0 = now;
+}
+$("merk").addEventListener("mousedown", e => drag = [e.clientX, e.clientY, yaw, pitch]);
+window.addEventListener("mouseup", () => drag = null);
+window.addEventListener("mousemove", e => { if (!drag) return; yaw = drag[2] + (e.clientX - drag[0]) * 0.01; pitch = drag[3] + (e.clientY - drag[1]) * 0.01; });
+
+/* ---------------- side panels ---------------- */
+function beastBars(comps) {
+  const vals = Object.values(comps), mx = Math.max(1, ...vals.map(Math.abs));
+  return `<div class="bars">` + Object.entries(comps).map(([k, v]) =>
+    `<div title="${k} ${v}" class="bar" style="height:${4 + 30*Math.abs(v)/mx}px;background:${BEAST_COL[k]};opacity:${v < 0 ? .45 : 1}"></div>`).join("") + `</div>`;
+}
+function letterCard(l) {
+  if (!l) return `<div class="card dim">—</div>`;
+  const b = l.beasts, h = l.harmonic;
+  return `<div class="card"><span class="glyph">${l.glyph}</span><b>${l.name}</b> <span class="dim">${l.alphabet}</span><br>
+    value ${l.value} · ${h.frequency_hz.toFixed(1)} Hz · node (${h.torus_node})<br>
+    dominant beast <b style="color:${BEAST_COL[b.dominant]}">${b.dominant}</b>${beastBars(b.components)}</div>`;
+}
+function renderPanels() {
+  if (!S) return;
+  $("frame").textContent = S.frame; $("steps").textContent = S.steps;
+  $("torusinfo").textContent = `${S.torus[0]}×${S.torus[1]} · channel ${S.channel}`;
+  const ck = S.clock;
+  $("clock").innerHTML = Object.entries(ck.components).map(([k, p]) =>
+    `<div class="mono">${k} <span class="dim">period ${p} · phase ${ck.phases[k]}</span></div><div class="phase"><div style="width:${100*ck.phases[k]/p}%"></div></div>`).join("")
+    + `<div class="mono">joint period <b>${ck.joint_period}</b> <span class="dim">= lcm of the periods</span></div>`;
+  $("letters").innerHTML = S.letters_now.map(letterCard).join("");
+  $("checks").innerHTML = Object.entries(S.checks).map(([k, v]) => `<div class="${v ? "ok" : "bad"}">${v ? "✔" : "✘"} ${k}</div>`).join("");
+  $("log").textContent = S.log_tail.join("\n");
+  $("log").scrollTop = 1e9;
+  $("merkinfo").textContent = `last: ${S.merkaba.history.slice(-6).join(" ") || "—"}`;
+}
+function render(st) {
+  if (!st) return;
+  const merkChanged = !S || JSON.stringify(S.merkaba.tetrahedra) !== JSON.stringify(st.merkaba.tetrahedra);
+  S = st;
+  if (merkChanged) setMerk(st.merkaba);
+  renderPanels(); drawTorus(); drawBraid();
+}
+
+/* ---------------- letter browser ---------------- */
+async function loadAlphabet() {
+  const cards = await api("/api/alphabet?name=" + $("alpha").value);
+  if (!cards) return;
+  $("alphabet").innerHTML = "";
+  for (const c of cards) {
+    const b = document.createElement("button"); b.textContent = c.glyph; b.title = c.name;
+    b.onclick = () => showDetail(c); $("alphabet").appendChild(b);
+  }
+}
+function showDetail(c) {
+  const rel = c.relations, w = c.written, sp = c.spoken, h = c.harmonic;
+  $("detail").innerHTML = `<div class="card"><span class="glyph">${c.glyph}</span><b>${c.name}</b> · #${c.index + 1} · value ${c.value} · /${c.ipa}/<br>
+   <span class="dim">written</span> holes ${w.holes}, symmetry ${w.symmetry} (group order ${w.symmetry_group_order}); beasts trivial on it: ${w.beasts_trivial_on_symmetry.join(", ")}<br>
+   <span class="dim">spoken</span> ${sp.features.join(", ")} (grade ${sp.grade})<br>
+   <span class="dim">harmonic</span> ${h.frequency_hz.toFixed(2)} Hz, pitch class ${h.pitch_class_cents} cents, node (${h.torus_node}) on ${h.torus[0]}×${h.torus[1]}<br>
+   <span class="dim">braid heights</span> written ${c.braid.written_height}, spoken ${c.braid.spoken_height}<br>
+   <span class="dim">nearest</span> ${Object.entries(rel.nearest).map(([a, d]) => `${a}: ${d.letters.join(" ")} (d=${d.distance})`).join("; ")}
+   ${Object.keys(rel.lineage).length ? `<br><span class="dim">lineage</span> ${Object.entries(rel.lineage).map(([a, g]) => a + " " + g).join(", ")}` : ""}
+   ${rel.homophones.length ? `<br><span class="dim">homophones</span> ${rel.homophones.join(" ")}` : ""}
+   <br><span class="dim">beasts</span> ${beastBars(c.beasts.components)}</div>`;
+}
+
+/* ---------------- wiring ---------------- */
+async function loadSession() {
+  const body = {text: $("text").value, N: +$("N").value, M: +$("M").value, p: +$("p").value, q: +$("q").value,
+    channel: $("channel").value, read_every: +$("read_every").value, merkaba_every: +$("merkaba_every").value,
+    merkaba_cycle: $("cycle").value.split(/[\s,]+/).filter(Boolean)};
+  specCache.key = null;
+  render(await api("/api/session", body));
+}
+async function advance(n) {
+  if (busy) return; busy = true;
+  try { render(await api("/api/advance", {frames: n})); } finally { busy = false; }
+}
+function setPlaying(on) {
+  playing = on; $("play").textContent = on ? "⏸ Pause" : "▶ Play"; $("play").classList.toggle("on", on);
+  clearInterval(timer);
+  if (on) timer = setInterval(() => advance(1), 1000 / +$("speed").value);
+}
+$("play").onclick = () => setPlaying(!playing);
+$("speed").oninput = () => { $("fps").textContent = $("speed").value + " frames/s"; if (playing) setPlaying(true); };
+$("step").onclick = () => advance(1);
+$("reset").onclick = async () => render(await api("/api/reset", {}));
+$("load").onclick = loadSession; $("apply").onclick = loadSession;
+$("text").addEventListener("keydown", e => { if (e.key === "Enter") loadSession(); });
+document.querySelectorAll("[data-ctl]").forEach(b => b.onclick = async () => render(await api("/api/control", {control: b.dataset.ctl})));
+$("run").onclick = async () => render(await api("/api/run", {program: $("program").value}));
+$("outset").onclick = async () => {
+  const r = await api("/api/outset", {name: "ui_" + new Date().toISOString().replace(/[:.]/g, "-")});
+  if (r) $("outres").textContent = `${r.ok ? "checks OK" : "checks FAILED"} → ${r.dir}\n${r.files.join(" ")}`;
+};
+for (const [id, v] of [["v_torus", "torus"], ["v_stand", "stand"], ["v_spec", "spec"]])
+  $(id).onclick = () => { view = v; ["v_torus", "v_stand", "v_spec"].forEach(k => $(k).classList.toggle("on", k === id)); drawTorus(); };
+$("alpha").onchange = loadAlphabet;
+$("bbgo").onclick = async () => {
+  const r = await api("/api/braids", {a: $("ba").value.split(/\s+/).filter(Boolean), b: $("bb").value.split(/\s+/).filter(Boolean)});
+  if (!r) return;
+  const wr = w => w.reduce((s, g) => s + Math.sign(g), 0);
+  $("bbres").innerHTML = `side by side on ${r.strands} strands: <b>${r.side_by_side.join(" ") || "(trivial)"}</b>
+perm ${r.side_by_side_invariants.perm} · writhe ${r.side_by_side_invariants.writhe} = ${wr(r.a.word)} + ${wr(r.b.word)}
+B braided through A (conjugated by σ${r.a.strands}²): components / linking ${JSON.stringify(r.through_invariants.link)} vs ${JSON.stringify(r.side_by_side_invariants.link)}`;
+};
+function frameLoop(now) { drawMerk(now); if (!drag && !playing) yaw += 0.002; requestAnimationFrame(frameLoop); }
+$("fps").textContent = $("speed").value + " frames/s";
+loadSession().then(loadAlphabet).catch(e => $("err").textContent = e.message);
+requestAnimationFrame(frameLoop);
+</script>
+</body>
+</html>
