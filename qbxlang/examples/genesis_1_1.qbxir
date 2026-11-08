@@ -1,0 +1,590 @@
+{
+  "qbxir": "1.0",
+  "program": "qbxlang/examples/genesis_1_1.qbx",
+  "sources": {
+    "gen11": {
+      "text": "בראשית ברא אלהים את השמים ואת הארץ",
+      "encoding": "letter-ordinal-v1",
+      "strands": 6,
+      "script": "he",
+      "line": 4
+    },
+    "john11": {
+      "text": "Ἐν ἀρχῇ ἦν ὁ λόγος",
+      "encoding": "letter-ordinal-v1",
+      "strands": 6,
+      "script": "el",
+      "line": 9
+    }
+  },
+  "defs": [
+    {
+      "name": "g",
+      "line": 13,
+      "value": {
+        "braid": [
+          2,
+          5,
+          1,
+          1,
+          5,
+          2,
+          2,
+          5,
+          1,
+          1,
+          2,
+          5,
+          5,
+          -3,
+          1,
+          2,
+          5,
+          1,
+          3,
+          5,
+          -3,
+          1,
+          1,
+          2,
+          5,
+          1,
+          5,
+          -3
+        ],
+        "strands": 6
+      }
+    },
+    {
+      "name": "j",
+      "line": 14,
+      "value": {
+        "braid": [
+          5,
+          3,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          5,
+          1,
+          5,
+          3,
+          5,
+          -3
+        ],
+        "strands": 6
+      }
+    }
+  ],
+  "checks": [
+    {
+      "line": 16,
+      "label": "Genesis 1:1 standard gematria",
+      "claim": "gematria(gen11, standard) == 2701",
+      "status": "pass",
+      "lhs": 2701,
+      "rhs": 2701,
+      "witness": null,
+      "kernel": {
+        "gematria": [
+          "standard",
+          [
+            [
+              1,
+              false
+            ],
+            [
+              19,
+              false
+            ],
+            [
+              0,
+              false
+            ],
+            [
+              20,
+              false
+            ],
+            [
+              9,
+              false
+            ],
+            [
+              21,
+              false
+            ],
+            [
+              1,
+              false
+            ],
+            [
+              19,
+              false
+            ],
+            [
+              0,
+              false
+            ],
+            [
+              0,
+              false
+            ],
+            [
+              11,
+              false
+            ],
+            [
+              4,
+              false
+            ],
+            [
+              9,
+              false
+            ],
+            [
+              12,
+              true
+            ],
+            [
+              0,
+              false
+            ],
+            [
+              21,
+              false
+            ],
+            [
+              4,
+              false
+            ],
+            [
+              20,
+              false
+            ],
+            [
+              12,
+              false
+            ],
+            [
+              9,
+              false
+            ],
+            [
+              12,
+              true
+            ],
+            [
+              5,
+              false
+            ],
+            [
+              0,
+              false
+            ],
+            [
+              21,
+              false
+            ],
+            [
+              4,
+              false
+            ],
+            [
+              0,
+              false
+            ],
+            [
+              19,
+              false
+            ],
+            [
+              17,
+              true
+            ]
+          ],
+          2701
+        ]
+      },
+      "layer": "calibration"
+    },
+    {
+      "line": 17,
+      "label": "Genesis 1:1 ordinal gematria",
+      "claim": "gematria(gen11, ordinal) == 298",
+      "status": "pass",
+      "lhs": 298,
+      "rhs": 298,
+      "witness": null,
+      "kernel": {
+        "gematria": [
+          "ordinal",
+          [
+            [
+              1,
+              false
+            ],
+            [
+              19,
+              false
+            ],
+            [
+              0,
+              false
+            ],
+            [
+              20,
+              false
+            ],
+            [
+              9,
+              false
+            ],
+            [
+              21,
+              false
+            ],
+            [
+              1,
+              false
+            ],
+            [
+              19,
+              false
+            ],
+            [
+              0,
+              false
+            ],
+            [
+              0,
+              false
+            ],
+            [
+              11,
+              false
+            ],
+            [
+              4,
+              false
+            ],
+            [
+              9,
+              false
+            ],
+            [
+              12,
+              true
+            ],
+            [
+              0,
+              false
+            ],
+            [
+              21,
+              false
+            ],
+            [
+              4,
+              false
+            ],
+            [
+              20,
+              false
+            ],
+            [
+              12,
+              false
+            ],
+            [
+              9,
+              false
+            ],
+            [
+              12,
+              true
+            ],
+            [
+              5,
+              false
+            ],
+            [
+              0,
+              false
+            ],
+            [
+              21,
+              false
+            ],
+            [
+              4,
+              false
+            ],
+            [
+              0,
+              false
+            ],
+            [
+              19,
+              false
+            ],
+            [
+              17,
+              true
+            ]
+          ],
+          298
+        ]
+      },
+      "layer": "calibration"
+    },
+    {
+      "line": 18,
+      "label": "28 letters",
+      "claim": "length(g) == 28",
+      "status": "pass",
+      "lhs": 28,
+      "rhs": 28,
+      "witness": null,
+      "kernel": null,
+      "layer": "symmetry"
+    },
+    {
+      "line": 19,
+      "label": "parity law: 28 letters from cell 0",
+      "claim": "parity(g, 0) == 0",
+      "status": "pass",
+      "lhs": 0,
+      "rhs": 0,
+      "witness": null,
+      "kernel": {
+        "parity": [
+          [
+            2,
+            5,
+            1,
+            1,
+            5,
+            2,
+            2,
+            5,
+            1,
+            1,
+            2,
+            5,
+            5,
+            -3,
+            1,
+            2,
+            5,
+            1,
+            3,
+            5,
+            -3,
+            1,
+            1,
+            2,
+            5,
+            1,
+            5,
+            -3
+          ],
+          0,
+          0
+        ]
+      },
+      "layer": "symmetry"
+    },
+    {
+      "line": 20,
+      "label": "writhe: 28 letters, 3 finals count negative",
+      "claim": "writhe(g) == 22",
+      "status": "pass",
+      "lhs": 22,
+      "rhs": 22,
+      "witness": null,
+      "kernel": {
+        "writhe": [
+          [
+            2,
+            5,
+            1,
+            1,
+            5,
+            2,
+            2,
+            5,
+            1,
+            1,
+            2,
+            5,
+            5,
+            -3,
+            1,
+            2,
+            5,
+            1,
+            3,
+            5,
+            -3,
+            1,
+            1,
+            2,
+            5,
+            1,
+            5,
+            -3
+          ],
+          22
+        ]
+      },
+      "layer": "symmetry"
+    },
+    {
+      "line": 21,
+      "label": "Genesis 1:1 and John 1:1 are different braids",
+      "claim": "g != j",
+      "status": "pass",
+      "lhs": {
+        "braid": [
+          2,
+          5,
+          1,
+          1,
+          5,
+          2,
+          2,
+          5,
+          1,
+          1,
+          2,
+          5,
+          5,
+          -3,
+          1,
+          2,
+          5,
+          1,
+          3,
+          5,
+          -3,
+          1,
+          1,
+          2,
+          5,
+          1,
+          5,
+          -3
+        ],
+        "strands": 6
+      },
+      "rhs": {
+        "braid": [
+          5,
+          3,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          5,
+          1,
+          5,
+          3,
+          5,
+          -3
+        ],
+        "strands": 6
+      },
+      "witness": {
+        "cell": 0,
+        "ends": [
+          30,
+          15
+        ]
+      },
+      "kernel": {
+        "braidNe": [
+          [
+            2,
+            5,
+            1,
+            1,
+            5,
+            2,
+            2,
+            5,
+            1,
+            1,
+            2,
+            5,
+            5,
+            -3,
+            1,
+            2,
+            5,
+            1,
+            3,
+            5,
+            -3,
+            1,
+            1,
+            2,
+            5,
+            1,
+            5,
+            -3
+          ],
+          [
+            5,
+            3,
+            1,
+            2,
+            2,
+            2,
+            2,
+            3,
+            5,
+            1,
+            5,
+            3,
+            5,
+            -3
+          ]
+        ]
+      },
+      "layer": "symmetry"
+    }
+  ],
+  "conventions": [],
+  "interpretations": [
+    {
+      "title": "Logos as the fundamental mode",
+      "line": 23,
+      "claims": "the opening of Genesis and of John are two projections of one source",
+      "support": [
+        "Genesis 1:1 and John 1:1 are different braids"
+      ],
+      "supporting_checks_pass": true,
+      "status": "interpretation",
+      "layer": "interpretation"
+    }
+  ],
+  "summary": {
+    "checks": 6,
+    "pass": 6,
+    "fail": 0,
+    "undecided": 0,
+    "kernel_claims": 5,
+    "interpretations": 1,
+    "conventions": 0
+  },
+  "trusted_base": {
+    "kernel": "RequestProject/QBXCheck.lean: Claim.eval_sound, checkAll_sound",
+    "model": "RequestProject/Q6Structure.lean",
+    "front_end": "hypercube.codec.letters / braid_word (Python, not verified)"
+  }
+}

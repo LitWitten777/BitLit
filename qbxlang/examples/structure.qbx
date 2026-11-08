@@ -1,0 +1,27 @@
+# The model, its symmetry, and the Lilith pattern — the whole structure in one program.
+# Run:  python3 -m qbxlang run qbxlang/examples/structure.qbx
+
+# ---- model: Q6 cells and distances
+check dist(0, 63) == 6        as "antipodes are 6 apart"
+check dist(21, 42) == 6       as "21 and 42 are antipodal"
+check dist(0, 7) == 3         as "shell 3"
+
+# ---- symmetry: the braid action of B6 on the 64 cells
+def lilith = word(1, 1, -2, -2)
+check perm(lilith) == identity   as "Lilith: trivial strand permutation"
+check writhe(lilith) == 0        as "Lilith: writhe 0"
+check lilith != one              as "Lilith: not the identity of B6"
+check walk(lilith, 0) == 5       as "Lilith moves cell 0 to cell 5"
+
+def adam = word(1, 2, 3, 4, 5)
+check parity(adam, 0) == 1       as "parity law: 5 letters flip parity"
+check concat(adam, inverse(adam)) == one  as "equality in B6 is never claimed: reported undecided"
+
+# ---- conventions: labellings, carried but not evidence
+convention codons { labels: "codon"; order: "UCAG, 2 bits per base" }
+
+# ---- interpretation: recorded, never proved
+interpret "Lilith as a pure braid" {
+  claims: "looks like the identity to every abelian invariant, but is a different element"
+  support: ["Lilith: trivial strand permutation", "Lilith: writhe 0", "Lilith: not the identity of B6"]
+}

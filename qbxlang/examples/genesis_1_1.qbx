@@ -1,0 +1,26 @@
+# Genesis 1:1 through the pipeline: text -> braid word -> walk on Q6 -> invariants.
+# Run:  python3 -m qbxlang run qbxlang/examples/genesis_1_1.qbx
+
+source gen11 {
+  text: "בראשית ברא אלהים את השמים ואת הארץ"
+  encoding: letter-ordinal-v1
+  strands: 6
+}
+source john11 {
+  text: "Ἐν ἀρχῇ ἦν ὁ λόγος"
+}
+
+def g = braid(gen11)
+def j = braid(john11)
+
+check gematria(gen11, standard) == 2701   as "Genesis 1:1 standard gematria"
+check gematria(gen11, ordinal) == 298     as "Genesis 1:1 ordinal gematria"
+check length(g) == 28                     as "28 letters"
+check parity(g, 0) == 0                   as "parity law: 28 letters from cell 0"
+check writhe(g) == 22                     as "writhe: 28 letters, 3 finals count negative"
+check g != j                              as "Genesis 1:1 and John 1:1 are different braids"
+
+interpret "Logos as the fundamental mode" {
+  claims: "the opening of Genesis and of John are two projections of one source"
+  support: ["Genesis 1:1 and John 1:1 are different braids"]
+}

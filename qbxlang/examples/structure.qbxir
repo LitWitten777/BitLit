@@ -1,0 +1,304 @@
+{
+  "qbxir": "1.0",
+  "program": "qbxlang/examples/structure.qbx",
+  "sources": {},
+  "defs": [
+    {
+      "name": "lilith",
+      "line": 10,
+      "value": {
+        "braid": [
+          1,
+          1,
+          -2,
+          -2
+        ],
+        "strands": 6
+      }
+    },
+    {
+      "name": "adam",
+      "line": 16,
+      "value": {
+        "braid": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "strands": 6
+      }
+    }
+  ],
+  "checks": [
+    {
+      "line": 5,
+      "label": "antipodes are 6 apart",
+      "claim": "dist(0, 63) == 6",
+      "status": "pass",
+      "lhs": 6,
+      "rhs": 6,
+      "witness": null,
+      "kernel": {
+        "cellDist": [
+          0,
+          63,
+          6
+        ]
+      },
+      "layer": "model"
+    },
+    {
+      "line": 6,
+      "label": "21 and 42 are antipodal",
+      "claim": "dist(21, 42) == 6",
+      "status": "pass",
+      "lhs": 6,
+      "rhs": 6,
+      "witness": null,
+      "kernel": {
+        "cellDist": [
+          21,
+          42,
+          6
+        ]
+      },
+      "layer": "model"
+    },
+    {
+      "line": 7,
+      "label": "shell 3",
+      "claim": "dist(0, 7) == 3",
+      "status": "pass",
+      "lhs": 3,
+      "rhs": 3,
+      "witness": null,
+      "kernel": {
+        "cellDist": [
+          0,
+          7,
+          3
+        ]
+      },
+      "layer": "model"
+    },
+    {
+      "line": 11,
+      "label": "Lilith: trivial strand permutation",
+      "claim": "perm(lilith) == identity",
+      "status": "pass",
+      "lhs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "rhs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "witness": null,
+      "kernel": {
+        "perm": [
+          6,
+          [
+            1,
+            1,
+            -2,
+            -2
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        ]
+      },
+      "layer": "symmetry"
+    },
+    {
+      "line": 12,
+      "label": "Lilith: writhe 0",
+      "claim": "writhe(lilith) == 0",
+      "status": "pass",
+      "lhs": 0,
+      "rhs": 0,
+      "witness": null,
+      "kernel": {
+        "writhe": [
+          [
+            1,
+            1,
+            -2,
+            -2
+          ],
+          0
+        ]
+      },
+      "layer": "symmetry"
+    },
+    {
+      "line": 13,
+      "label": "Lilith: not the identity of B6",
+      "claim": "lilith != one",
+      "status": "pass",
+      "lhs": {
+        "braid": [
+          1,
+          1,
+          -2,
+          -2
+        ],
+        "strands": 6
+      },
+      "rhs": {
+        "braid": [],
+        "strands": 6
+      },
+      "witness": {
+        "cell": 0,
+        "ends": [
+          5,
+          0
+        ]
+      },
+      "kernel": {
+        "braidNe": [
+          [
+            1,
+            1,
+            -2,
+            -2
+          ],
+          []
+        ]
+      },
+      "layer": "symmetry"
+    },
+    {
+      "line": 14,
+      "label": "Lilith moves cell 0 to cell 5",
+      "claim": "walk(lilith, 0) == 5",
+      "status": "pass",
+      "lhs": 5,
+      "rhs": 5,
+      "witness": null,
+      "kernel": {
+        "walkEnd": [
+          [
+            1,
+            1,
+            -2,
+            -2
+          ],
+          0,
+          5
+        ]
+      },
+      "layer": "symmetry"
+    },
+    {
+      "line": 17,
+      "label": "parity law: 5 letters flip parity",
+      "claim": "parity(adam, 0) == 1",
+      "status": "pass",
+      "lhs": 1,
+      "rhs": 1,
+      "witness": null,
+      "kernel": {
+        "parity": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          0,
+          1
+        ]
+      },
+      "layer": "symmetry"
+    },
+    {
+      "line": 18,
+      "label": "equality in B6 is never claimed: reported undecided",
+      "claim": "concat(adam, inverse(adam)) == one",
+      "status": "undecided",
+      "lhs": {
+        "braid": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          -5,
+          -4,
+          -3,
+          -2,
+          -1
+        ],
+        "strands": 6
+      },
+      "rhs": {
+        "braid": [],
+        "strands": 6
+      },
+      "witness": null,
+      "kernel": null,
+      "layer": "symmetry"
+    }
+  ],
+  "conventions": [
+    {
+      "name": "codons",
+      "line": 21,
+      "fields": {
+        "labels": "codon",
+        "order": "UCAG, 2 bits per base"
+      },
+      "status": "convention",
+      "layer": "convention",
+      "note": "one labelling of the 64 cells among 64! possible"
+    }
+  ],
+  "interpretations": [
+    {
+      "title": "Lilith as a pure braid",
+      "line": 24,
+      "claims": "looks like the identity to every abelian invariant, but is a different element",
+      "support": [
+        "Lilith: trivial strand permutation",
+        "Lilith: writhe 0",
+        "Lilith: not the identity of B6"
+      ],
+      "supporting_checks_pass": true,
+      "status": "interpretation",
+      "layer": "interpretation"
+    }
+  ],
+  "summary": {
+    "checks": 9,
+    "pass": 8,
+    "fail": 0,
+    "undecided": 1,
+    "kernel_claims": 8,
+    "interpretations": 1,
+    "conventions": 1
+  },
+  "trusted_base": {
+    "kernel": "RequestProject/QBXCheck.lean: Claim.eval_sound, checkAll_sound",
+    "model": "RequestProject/Q6Structure.lean",
+    "front_end": "hypercube.codec.letters / braid_word (Python, not verified)"
+  }
+}
