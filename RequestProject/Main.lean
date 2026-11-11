@@ -1,0 +1,72 @@
+import Mathlib
+import RequestProject.TrinomialZeros
+import RequestProject.ResonanceGroup
+import RequestProject.NoLaurentObstruction
+import RequestProject.AnalyticRigidity
+import RequestProject.Analytic.JointPeriodicLog
+import RequestProject.MainStatement
+import RequestProject.PendingLemmas
+import RequestProject.Rotation.ReturnData
+import RequestProject.Rotation.FourierReturnSums
+import RequestProject.Rotation.UniformReturnSumsPlan
+import RequestProject.Rotation.DenjoyKoksmaInterface
+import RequestProject.Rotation.C1UniformReturnSums
+import RequestProject.Rotation.HolonomyQuantization
+import RequestProject.Rotation.PeriodicL2Translation
+import RequestProject.Rotation.HolonomyZeroMeanBridge
+import RequestProject.Rotation.HolonomyQuantizationPeriodic
+import RequestProject.Rotation.OscillatoryIntegral
+import RequestProject.Rotation.PhaseLiftWinding
+import RequestProject.Rotation.MeasurableWinding
+import RequestProject.HolonomyCertificate.Full.LaurentSetup
+import RequestProject.HolonomyCertificate.Full.LaurentDenominatorFull
+import RequestProject.HolonomyCertificate.Full.SymmetricDescent
+import RequestProject.HolonomyCertificate.Full.TrueSubsetProductDescentToLaurent
+import RequestProject.HolonomyCertificate.Full.AlgebraicLaurentCertificateAssembly
+import RequestProject.JensenHolonomy
+import RequestProject.FinalAssembly
+import RequestProject.WindingNumberWrapper
+import RequestProject.HRT.NoFlatBand
+import RequestProject.HRT.LocalCertificateAdapter
+import RequestProject.HRT.NormalizedReturnCocycle
+import RequestProject.HRT.ReturnMultiplierLaurent
+import RequestProject.HRT.FiniteExceptionalFibers
+import RequestProject.HRT.ActiveArcExtraction
+import RequestProject.HRT.CertificateInputSynthesis
+import RequestProject.HRT.ReturnMultiplierPolynomialInZ
+import RequestProject.HRT.ReturnCocycleToNoFlatBand
+import RequestProject.Zak.L2Zak
+import RequestProject.Zak.PolyphaseUnitary
+import RequestProject.HRT.ZakCovariance
+import RequestProject.HRT.FiberOperator
+import RequestProject.HRT.ZakToNormalizedCocycle
+import RequestProject.HRT.ReturnMultiplierRootData
+import RequestProject.HRT.RootDataAdapter
+import RequestProject.Rotation.ConcreteVariation
+import RequestProject.Rotation.C1VariationApprox
+import RequestProject.Rotation.ConcreteDenjoyKoksma
+import RequestProject.Rotation.WindingAdapter
+import RequestProject.Rotation.PhaseLiftFromNonvanishing
+
+open scoped BigOperators
+open scoped Real
+open scoped Nat
+open scoped Classical
+open scoped Pointwise
+
+set_option maxHeartbeats 8000000
+set_option maxRecDepth 4000
+set_option synthInstance.maxHeartbeats 20000
+set_option synthInstance.maxSize 128
+
+set_option relaxedAutoImplicit false
+set_option autoImplicit false
+
+set_option pp.fullNames true
+set_option pp.structureInstances true
+set_option pp.coercions.types true
+set_option pp.funBinderTypes true
+set_option pp.letVarTypes true
+set_option pp.piBinderTypes true
+
+set_option grind.warning false
